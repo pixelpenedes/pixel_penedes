@@ -161,6 +161,7 @@
 
       footer_logo_alt: "Pixel Penedès - Programació i robòtica",
       footer_rights: "Pixel Penedès. Tots els drets reservats.",
+      footer_nav_aria: "Enllaços del peu",
       whatsapp_float_aria: "Escriu-nos per WhatsApp",
 
       wa_float_message: "Hola! Voldria informació sobre les classes de Pixel Penedès",
@@ -169,7 +170,221 @@
       wa_years_unit: "anys",
       wa_contact_label: "Contacte",
       wa_email_label: "Correu",
-      wa_comment_label: "Comentari"
+      wa_comment_label: "Comentari",
+
+      /* ---------- Empreses (empresas.html i enllaços des de la home) ---------- */
+      nav_empreses: "Empreses",
+      b2b_nav_inici: "Inici",
+      b2b_nav_com: "Com funciona",
+      b2b_nav_beneficis: "Beneficis",
+      b2b_cta_header: "Informació per a empreses",
+
+      accred_eyebrow: "Acreditacions",
+      accred_title: "Una acadèmia acreditada pels referents de la tecnologia",
+      accred_lead: "Certificacions en educació tecnològica d'AWS, Microsoft i Google.",
+      accred_label: "Acreditacions",
+      accred_group_aria: "Acreditacions de Pixel Penedès",
+
+      b2b_banner_eyebrow: "Per a empreses",
+      b2b_banner_title: "Ofereix aquest benefici als empleats de la teva empresa",
+      b2b_banner_lead: "Un programa de beneficis perquè els fills i filles dels teus empleats aprenguin tecnologia a Pixel Penedès. Nosaltres ens encarreguem de la resta.",
+      b2b_banner_cta: "Descobreix el programa",
+
+      b2b_meta_title: "Pixel Penedès Family Benefits | Beneficis per a empleats i conciliació",
+      b2b_meta_description: "Beneficis per a empleats: cursos de programació, videojocs i tecnologia per als fills de 6 a 16 anys, presencials i online. Pixel Penedès gestiona la resta.",
+      b2b_og_title: "Pixel Penedès Family Benefits | Un benefici per a les famílies dels teus empleats",
+      b2b_og_description: "Conciliació, benestar i formació tecnològica per als fills dels teus empleats. Cursos presencials i online de 6 a 16 anys, sense feina extra per a RRHH.",
+
+      b2b_hero_tag: "Pixel Penedès Family Benefits",
+      b2b_hero_title1: "Cuida del teu equip.",
+      b2b_hero_title2: "Facilita el seu dia a dia.",
+      b2b_hero_meta: "Cursos presencials i online · De 6 a 16 anys · Durant tot el curs",
+      b2b_hero_lead: "Ajuda els teus empleats a conciliar la vida laboral i familiar oferint als seus fills accés a formació en programació, videojocs i tecnologia en condicions exclusives.",
+      b2b_cta_primary: "Vull informació per a la meva empresa",
+      b2b_cta_how: "Com funciona?",
+      b2b_hero_point1: "Gestió completa a càrrec de Pixel Penedès",
+      b2b_hero_point2: "Classes presencials i online en directe",
+      b2b_hero_point3: "Sol·licitud d'informació sense compromís",
+
+      b2b_band_eyebrow: "Un programa pensat per a empreses",
+      b2b_band_title: "Un benefici que combina conciliació, educació i tecnologia",
+      b2b_band1_title: "Conciliació",
+      b2b_band1_desc: "Facilita el dia a dia de les famílies.",
+      b2b_band2_title: "Formació",
+      b2b_band2_desc: "Els fills aprenen competències digitals reals.",
+      b2b_band3_title: "Benestar",
+      b2b_band3_desc: "Un benefici que les persones poden valorar en el seu dia a dia.",
+
+      b2b_prob_eyebrow: "Benestar laboral",
+      b2b_prob_title: "La conciliació també forma part del benestar laboral",
+      b2b_prob_text1: "Quan una persona treballa i té fills, organitzar el dia a dia pot convertir-se en un autèntic repte.",
+      b2b_prob_text2: "Moltes empreses ja ofereixen beneficis relacionats amb la salut, la flexibilitat o el benestar. Amb el nostre curs de programació, creativitat digital, 3D i intel·ligència artificial començaran a desenvolupar avui les competències que necessitaran demà.",
+      b2b_prob_label1: "El que moltes empreses ja ofereixen",
+      b2b_prob_chip1: "Salut",
+      b2b_prob_chip2: "Flexibilitat",
+      b2b_prob_chip3: "Formació",
+      b2b_prob_chip4: "Benestar",
+      b2b_prob_quote: "Perquè cuidar les persones també significa facilitar-los el dia a dia.",
+
+      b2b_value_eyebrow: "Per als empleats i les seves famílies",
+      b2b_value_title: "Un benefici que les famílies poden aprofitar de veritat",
+      b2b_value1_title: "Més conciliació",
+      b2b_value1_desc: "Una activitat educativa que ajuda les famílies a organitzar millor el seu dia a dia.",
+      b2b_value2_title: "Més oportunitats",
+      b2b_value2_desc: "Els seus fills desenvolupen competències digitals mentre creen projectes que els motiven.",
+      b2b_value3_title: "Més valor per al teu equip",
+      b2b_value3_desc: "Un benefici diferencial que demostra que l'empresa pensa també en les famílies.",
+
+      b2b_areas_eyebrow: "Què aprenen els fills",
+      b2b_areas_title: "Tecnologia que els motiva. Aprenentatges que els acompanyen.",
+      b2b_areas_lead: "Projectes propis, no fitxes. Això és el que rep cada família.",
+      b2b_area1_title: "Creació de videojocs",
+      b2b_area1_desc: "Dissenyen els seus propis videojocs, nivells i personatges, amb eines adaptades a cada edat.",
+      b2b_area2_title: "Programació",
+      b2b_area2_desc: "Passen dels blocs al codi real, amb llenguatges com Python, i entenen com funciona la tecnologia.",
+      b2b_area3_title: "Disseny i impressió 3D",
+      b2b_area3_desc: "Dissenyen models en 3D, experimenten amb les seves idees i aprenen com transformar un disseny digital en una peça real.",
+      b2b_area4_title: "Tecnologia i IA",
+      b2b_area4_desc: "Descobreixen la intel·ligència artificial i creen contingut digital amb eines que ja formen part del seu dia a dia.",
+
+      b2b_ages_eyebrow: "De 6 a 16 anys",
+      b2b_ages_title: "Una proposta per a cada edat",
+      b2b_ages_lead: "Els grups s'organitzen per franja d'edat, perquè cada sessió tingui sentit per a tothom.",
+      b2b_age1_desc: "Primer contacte amb la tecnologia i la creació digital, jugant i en grups molt reduïts.",
+      b2b_age2_desc: "Primers videojocs propis, programació per blocs avançada i modelatge 3D.",
+      b2b_age3_desc: "Programació amb codi real, disseny 3D més tècnic i videojocs amb motors gràfics.",
+      b2b_age4_desc: "Projectes més avançats i orientació cap a batxillerat tecnològic o cicles formatius.",
+
+      b2b_modes_title: "Dues modalitats. Una mateixa experiència d'aprenentatge.",
+      b2b_mode1_title: "Aprendre cara a cara",
+      b2b_mode1_desc: "Classes presencials a Pixel Penedès, a Vilafranca del Penedès.",
+      b2b_mode2_title: "Aprendre des de qualsevol lloc",
+      b2b_mode2_desc: "Classes online en directe, amb professorat i interacció real. No són classes gravades.",
+      b2b_live_badge: "En directe",
+
+      b2b_how_eyebrow: "Com funciona",
+      b2b_how_title: "La teva empresa ho posa a disposició. Nosaltres ens encarreguem de la resta.",
+      b2b_step1_title: "Parlem",
+      b2b_step1_desc: "Ens expliques les necessitats de la teva empresa i del teu equip.",
+      b2b_step2_title: "Preparem la proposta",
+      b2b_step2_desc: "Definim conjuntament com oferir el benefici als teus empleats.",
+      b2b_step3_title: "Ho comuniques al teu equip",
+      b2b_step3_desc: "Et facilitem la informació necessària perquè puguis comunicar-ho internament.",
+      b2b_step4_title: "Les famílies s'inscriuen",
+      b2b_step4_desc: "Les famílies interessades contacten directament amb Pixel Penedès.",
+      b2b_step5_title: "Comencen les classes",
+      b2b_step5_desc: "Nosaltres gestionem les inscripcions, els grups i les classes.",
+      b2b_how_highlight: "Sense afegir més feina al teu departament de RRHH.",
+
+      b2b_ben_eyebrow: "Per a l'empresa",
+      b2b_ben_title: "Més que un descompte",
+      b2b_ben_lead: "Un benefici social que pensa en les persones i en les seves famílies.",
+      b2b_ben1_title: "Conciliació",
+      b2b_ben1_desc: "Ajuda les famílies a combinar millor la vida laboral i personal.",
+      b2b_ben2_title: "Benestar",
+      b2b_ben2_desc: "Un benefici pensat per al dia a dia de les persones.",
+      b2b_ben3_title: "Fidelització",
+      b2b_ben3_desc: "Millora la percepció de l'empresa com a lloc on treballar.",
+      b2b_ben4_title: "Diferenciació",
+      b2b_ben4_desc: "Una proposta diferent dins del paquet de beneficis per als empleats.",
+
+      b2b_cond_eyebrow: "Condicions",
+      b2b_cond_title: "Condicions exclusives per a empreses col·laboradores",
+      b2b_cond_text: "Les empreses que s'incorporen al programa poden oferir als seus empleats condicions especials d'accés als nostres cursos.",
+      b2b_cond_cta: "Consultar les condicions per a la meva empresa",
+      b2b_cond_note: "Sol·licita informació sense compromís.",
+
+      b2b_admin_eyebrow: "Per a RRHH",
+      b2b_admin_title: "Pensat perquè sigui fàcil d'implementar",
+      b2b_admin_lead: "Tu comuniques el benefici. Nosaltres fem que funcioni.",
+      b2b_admin1: "Informar les famílies",
+      b2b_admin2: "Gestionar les inscripcions",
+      b2b_admin3: "Organitzar els grups",
+      b2b_admin4: "Gestionar les classes",
+      b2b_admin5: "Resoldre dubtes relacionats amb el servei",
+      b2b_admin_note: "L'empresa no ha de gestionar el dia a dia de les classes.",
+
+      b2b_why_eyebrow: "Qui som",
+      b2b_why_title: "Una acadèmia especialitzada en tecnologia per a nens i joves",
+      b2b_why_lead: "Pixel Penedès és una acadèmia de Vilafranca del Penedès centrada en l'educació tecnològica.",
+      b2b_why1: "Especialització en educació tecnològica",
+      b2b_why2: "Programació i videojocs",
+      b2b_why3: "Disseny i impressió 3D",
+      b2b_why4: "Tecnologia i intel·ligència artificial",
+      b2b_why5: "Professorat proper",
+      b2b_why6: "Grups reduïts",
+      b2b_why7: "Presencial i online en directe",
+      b2b_why8: "Experiència treballant amb nens i joves",
+
+      b2b_cls_eyebrow: "Les nostres classes",
+      b2b_cls_title: "Un benefici que facilita el dia a dia",
+      b2b_cls_title2: "Aprendre, crear i conciliar",
+      b2b_cls_p1: "Una activitat educativa que s'adapta al dia a dia de cada família, amb classes online en directe perquè els nens i joves puguin aprendre, crear i desenvolupar els seus propis projectes de tecnologia.",
+      b2b_cls_p2: "Programació, videojocs, 3D i tecnologia, amb un professor que els acompanya en directe i grups reduïts adaptats a cada edat.",
+      b2b_cls_close: "Més flexibilitat per a les famílies. Més valor per als teus empleats.",
+      b2b_cls_img1_alt: "Classe online en directe: el professor comparteix pantalla amb codi i un personatge de videojoc mentre l'alumnat segueix la sessió per videotrucada",
+      b2b_cls_img2_alt: "Un pare i el seu fill rient davant d'un portàtil mentre programen un joc amb blocs",
+      b2b_cls_img3_alt: "Una mare teletreballant amb el portàtil mentre el seu fill dibuixa en una tauleta",
+      b2b_cls_img4_alt: "Impressora 3D Bambu Lab amb diverses figures de colors impreses sobre la placa",
+
+      b2b_faq_title: "Preguntes freqüents de les empreses",
+      b2b_faq_lead: "Resolem els dubtes habituals abans de començar.",
+      b2b_faq1_q: "Quines edats poden participar?",
+      b2b_faq1_a: "De 6 a 16 anys. Els grups s'organitzen per franja d'edat, perquè cada sessió tingui sentit per a tothom.",
+      b2b_faq2_q: "Les classes poden ser online?",
+      b2b_faq2_a: "Sí. Oferim classes presencials a Vilafranca del Penedès i classes online, perquè cada família triï la modalitat que li va millor.",
+      b2b_faq3_q: "Les classes online són en directe?",
+      b2b_faq3_a: "Sí. Són classes en directe per Zoom, amb professorat i interacció real. No són vídeos gravats.",
+      b2b_faq4_q: "On es fan les classes presencials?",
+      b2b_faq4_a: "Al nostre espai del carrer Puigmoltó, 5, a Vilafranca del Penedès.",
+      b2b_faq5_q: "Qui gestiona les inscripcions?",
+      b2b_faq5_a: "Pixel Penedès. Les famílies interessades contacten directament amb nosaltres i ens encarreguem de les inscripcions i dels grups.",
+      b2b_faq6_q: "L'empresa ha de gestionar els pagaments?",
+      b2b_faq6_a: "L'empresa no ha de gestionar el dia a dia del servei: les famílies es relacionen directament amb Pixel Penedès. Els detalls concrets es defineixen amb cada empresa a la proposta.",
+      b2b_faq7_q: "Podem oferir el benefici a tots els empleats?",
+      b2b_faq7_a: "La idea és que el benefici estigui a disposició de tot l'equip. Els detalls els definim amb cada empresa.",
+      b2b_faq8_q: "Podem començar amb un grup reduït?",
+      b2b_faq8_a: "Sí, es pot començar de manera progressiva. Explica'ns la teva situació i valorem la millor manera d'arrencar.",
+      b2b_faq9_q: "Quines condicions especials oferiu a les empreses?",
+      b2b_faq9_a: "Les empreses col·laboradores poden accedir a unes condicions específiques. Contacta amb nosaltres i t'explicarem la proposta adaptada a la teva empresa.",
+
+      b2b_final_eyebrow: "Parlem",
+      b2b_final_title: "Parlem de com podem oferir aquest benefici al teu equip",
+      b2b_final_lead: "Explica'ns breument la teva empresa i et contactarem per explicar-te com funciona el programa.",
+      b2b_final_cta: "Vull informació",
+      b2b_final_point1: "Sol·licitud sense compromís",
+      b2b_final_point2: "Proposta adaptada a la teva empresa",
+      b2b_final_point3: "Cap dada es comparteix amb tercers",
+
+      b2b_form_nom: "Nom",
+      b2b_form_cognoms: "Cognoms",
+      b2b_form_empresa: "Empresa",
+      b2b_form_carrec: "Càrrec / Departament",
+      b2b_form_email: "Email corporatiu",
+      b2b_form_telefon: "Telèfon",
+      b2b_form_empleats: "Nombre aproximat d'empleats",
+      b2b_form_families: "Nombre aproximat de famílies interessades (opcional)",
+      b2b_form_modalitat: "Modalitat d'interès",
+      b2b_form_mod_choose: "Selecciona una opció",
+      b2b_form_mod_presencial: "Presencial",
+      b2b_form_mod_online: "Online",
+      b2b_form_mod_both: "Ambdues",
+      b2b_form_missatge: "Missatge (opcional)",
+      b2b_form_privacy: "Accepto la política de privacitat.",
+      b2b_form_submit: "Sol·licitar informació",
+      b2b_form_error: "Revisa els camps marcats i accepta la política de privacitat per continuar.",
+
+      b2b_wa_message: "Hola, m'interessa el programa de beneficis per a empreses de Pixel Penedès.",
+      b2b_wa_greeting: "Hola! M'interessa el programa de beneficis per a empreses de Pixel Penedès.",
+      b2b_wa_name: "Nom",
+      b2b_wa_company: "Empresa",
+      b2b_wa_role: "Càrrec",
+      b2b_wa_phone: "Telèfon",
+      b2b_wa_email: "Email",
+      b2b_wa_employees: "Empleats (aprox.)",
+      b2b_wa_families: "Famílies interessades (aprox.)",
+      b2b_wa_mode: "Modalitat",
+      b2b_wa_message_label: "Missatge"
     },
     es: {
       meta_title: "Pixel Penedès | Academia de programación, videojuegos e impresión 3D en Vilafranca del Penedès",
@@ -325,6 +540,7 @@
 
       footer_logo_alt: "Pixel Penedès - Programación y robótica",
       footer_rights: "Pixel Penedès. Todos los derechos reservados.",
+      footer_nav_aria: "Enlaces del pie",
       whatsapp_float_aria: "Escríbenos por WhatsApp",
 
       wa_float_message: "¡Hola! Me gustaría información sobre las clases de Pixel Penedès",
@@ -333,7 +549,221 @@
       wa_years_unit: "años",
       wa_contact_label: "Contacto",
       wa_email_label: "Correo",
-      wa_comment_label: "Comentario"
+      wa_comment_label: "Comentario",
+
+      /* ---------- Empresas (empresas.html y enlaces desde la home) ---------- */
+      nav_empreses: "Empresas",
+      b2b_nav_inici: "Inicio",
+      b2b_nav_com: "Cómo funciona",
+      b2b_nav_beneficis: "Beneficios",
+      b2b_cta_header: "Información para empresas",
+
+      accred_eyebrow: "Acreditaciones",
+      accred_title: "Una academia acreditada por los referentes de la tecnología",
+      accred_lead: "Certificaciones en educación tecnológica de AWS, Microsoft y Google.",
+      accred_label: "Acreditaciones",
+      accred_group_aria: "Acreditaciones de Pixel Penedès",
+
+      b2b_banner_eyebrow: "Para empresas",
+      b2b_banner_title: "Ofrece este beneficio a los empleados de tu empresa",
+      b2b_banner_lead: "Un programa de beneficios para que los hijos e hijas de tus empleados aprendan tecnología en Pixel Penedès. Nosotros nos encargamos del resto.",
+      b2b_banner_cta: "Descubre el programa",
+
+      b2b_meta_title: "Pixel Penedès Family Benefits | Beneficios para empleados y conciliación",
+      b2b_meta_description: "Beneficios para empleados: cursos de programación, videojuegos y tecnología para sus hijos de 6 a 16 años, presenciales y online. Pixel Penedès gestiona el resto.",
+      b2b_og_title: "Pixel Penedès Family Benefits | Un beneficio para las familias de tus empleados",
+      b2b_og_description: "Conciliación, bienestar y formación tecnológica para los hijos de tus empleados. Cursos presenciales y online de 6 a 16 años, sin trabajo extra para RRHH.",
+
+      b2b_hero_tag: "Pixel Penedès Family Benefits",
+      b2b_hero_title1: "Cuida de tu equipo.",
+      b2b_hero_title2: "Facilita su día a día.",
+      b2b_hero_meta: "Cursos presenciales y online · De 6 a 16 años · Durante todo el curso",
+      b2b_hero_lead: "Ayuda a tus empleados a conciliar la vida laboral y familiar ofreciendo a sus hijos acceso a formación en programación, videojuegos y tecnología en condiciones exclusivas.",
+      b2b_cta_primary: "Quiero información para mi empresa",
+      b2b_cta_how: "¿Cómo funciona?",
+      b2b_hero_point1: "Gestión completa a cargo de Pixel Penedès",
+      b2b_hero_point2: "Clases presenciales y online en directo",
+      b2b_hero_point3: "Solicitud de información sin compromiso",
+
+      b2b_band_eyebrow: "Un programa pensado para empresas",
+      b2b_band_title: "Un beneficio que combina conciliación, educación y tecnología",
+      b2b_band1_title: "Conciliación",
+      b2b_band1_desc: "Facilita el día a día de las familias.",
+      b2b_band2_title: "Formación",
+      b2b_band2_desc: "Los hijos aprenden competencias digitales reales.",
+      b2b_band3_title: "Bienestar",
+      b2b_band3_desc: "Un beneficio que las personas pueden valorar en su día a día.",
+
+      b2b_prob_eyebrow: "Bienestar laboral",
+      b2b_prob_title: "La conciliación también forma parte del bienestar laboral",
+      b2b_prob_text1: "Cuando una persona trabaja y tiene hijos, organizar el día a día puede convertirse en un auténtico reto.",
+      b2b_prob_text2: "Muchas empresas ya ofrecen beneficios relacionados con la salud, la flexibilidad o el bienestar. Con nuestro curso de programación, creatividad digital, 3D e inteligencia artificial empezarán a desarrollar hoy las competencias que necesitarán mañana.",
+      b2b_prob_label1: "Lo que muchas empresas ya ofrecen",
+      b2b_prob_chip1: "Salud",
+      b2b_prob_chip2: "Flexibilidad",
+      b2b_prob_chip3: "Formación",
+      b2b_prob_chip4: "Bienestar",
+      b2b_prob_quote: "Porque cuidar de las personas también significa facilitarles el día a día.",
+
+      b2b_value_eyebrow: "Para los empleados y sus familias",
+      b2b_value_title: "Un beneficio que las familias pueden aprovechar de verdad",
+      b2b_value1_title: "Más conciliación",
+      b2b_value1_desc: "Una actividad educativa que ayuda a las familias a organizar mejor su día a día.",
+      b2b_value2_title: "Más oportunidades",
+      b2b_value2_desc: "Sus hijos desarrollan competencias digitales mientras crean proyectos que les motivan.",
+      b2b_value3_title: "Más valor para tu equipo",
+      b2b_value3_desc: "Un beneficio diferencial que demuestra que la empresa piensa también en las familias.",
+
+      b2b_areas_eyebrow: "Qué aprenden los hijos",
+      b2b_areas_title: "Tecnología que les motiva. Aprendizajes que les acompañan.",
+      b2b_areas_lead: "Proyectos propios, no fichas. Esto es lo que recibe cada familia.",
+      b2b_area1_title: "Creación de videojuegos",
+      b2b_area1_desc: "Diseñan sus propios videojuegos, niveles y personajes, con herramientas adaptadas a cada edad.",
+      b2b_area2_title: "Programación",
+      b2b_area2_desc: "Pasan de los bloques al código real, con lenguajes como Python, y entienden cómo funciona la tecnología.",
+      b2b_area3_title: "Diseño e impresión 3D",
+      b2b_area3_desc: "Diseñan modelos en 3D, experimentan con sus ideas y aprenden cómo transformar un diseño digital en una pieza real.",
+      b2b_area4_title: "Tecnología e IA",
+      b2b_area4_desc: "Descubren la inteligencia artificial y crean contenido digital con herramientas que ya forman parte de su día a día.",
+
+      b2b_ages_eyebrow: "De 6 a 16 años",
+      b2b_ages_title: "Una propuesta para cada edad",
+      b2b_ages_lead: "Los grupos se organizan por franja de edad, para que cada sesión tenga sentido para todos.",
+      b2b_age1_desc: "Primer contacto con la tecnología y la creación digital, jugando y en grupos muy reducidos.",
+      b2b_age2_desc: "Primeros videojuegos propios, programación por bloques avanzada y modelado 3D.",
+      b2b_age3_desc: "Programación con código real, diseño 3D más técnico y videojuegos con motores gráficos.",
+      b2b_age4_desc: "Proyectos más avanzados y orientación hacia bachillerato tecnológico o ciclos formativos.",
+
+      b2b_modes_title: "Dos modalidades. Una misma experiencia de aprendizaje.",
+      b2b_mode1_title: "Aprender cara a cara",
+      b2b_mode1_desc: "Clases presenciales en Pixel Penedès, en Vilafranca del Penedès.",
+      b2b_mode2_title: "Aprender desde cualquier lugar",
+      b2b_mode2_desc: "Clases online en directo, con profesorado e interacción real. No son clases grabadas.",
+      b2b_live_badge: "En directo",
+
+      b2b_how_eyebrow: "Cómo funciona",
+      b2b_how_title: "Tu empresa lo pone a disposición. Nosotros nos encargamos del resto.",
+      b2b_step1_title: "Hablamos",
+      b2b_step1_desc: "Nos cuentas las necesidades de tu empresa y de tu equipo.",
+      b2b_step2_title: "Preparamos la propuesta",
+      b2b_step2_desc: "Definimos juntos cómo ofrecer el beneficio a tus empleados.",
+      b2b_step3_title: "Lo comunicas a tu equipo",
+      b2b_step3_desc: "Te facilitamos la información necesaria para que puedas comunicarlo internamente.",
+      b2b_step4_title: "Las familias se inscriben",
+      b2b_step4_desc: "Las familias interesadas contactan directamente con Pixel Penedès.",
+      b2b_step5_title: "Empiezan las clases",
+      b2b_step5_desc: "Nosotros gestionamos las inscripciones, los grupos y las clases.",
+      b2b_how_highlight: "Sin añadir más trabajo a tu departamento de RRHH.",
+
+      b2b_ben_eyebrow: "Para la empresa",
+      b2b_ben_title: "Más que un descuento",
+      b2b_ben_lead: "Un beneficio social que piensa en las personas y en sus familias.",
+      b2b_ben1_title: "Conciliación",
+      b2b_ben1_desc: "Ayuda a las familias a combinar mejor la vida laboral y personal.",
+      b2b_ben2_title: "Bienestar",
+      b2b_ben2_desc: "Un beneficio pensado para el día a día de las personas.",
+      b2b_ben3_title: "Fidelización",
+      b2b_ben3_desc: "Mejora la percepción de la empresa como lugar donde trabajar.",
+      b2b_ben4_title: "Diferenciación",
+      b2b_ben4_desc: "Una propuesta distinta dentro del paquete de beneficios para los empleados.",
+
+      b2b_cond_eyebrow: "Condiciones",
+      b2b_cond_title: "Condiciones exclusivas para empresas colaboradoras",
+      b2b_cond_text: "Las empresas que se incorporan al programa pueden ofrecer a sus empleados condiciones especiales de acceso a nuestros cursos.",
+      b2b_cond_cta: "Consultar las condiciones para mi empresa",
+      b2b_cond_note: "Solicita información sin compromiso.",
+
+      b2b_admin_eyebrow: "Para RRHH",
+      b2b_admin_title: "Pensado para que sea fácil de implementar",
+      b2b_admin_lead: "Tú comunicas el beneficio. Nosotros hacemos que funcione.",
+      b2b_admin1: "Informar a las familias",
+      b2b_admin2: "Gestionar las inscripciones",
+      b2b_admin3: "Organizar los grupos",
+      b2b_admin4: "Gestionar las clases",
+      b2b_admin5: "Resolver dudas relacionadas con el servicio",
+      b2b_admin_note: "La empresa no tiene que gestionar el día a día de las clases.",
+
+      b2b_why_eyebrow: "Quiénes somos",
+      b2b_why_title: "Una academia especializada en tecnología para niños y jóvenes",
+      b2b_why_lead: "Pixel Penedès es una academia de Vilafranca del Penedès centrada en la educación tecnológica.",
+      b2b_why1: "Especialización en educación tecnológica",
+      b2b_why2: "Programación y videojuegos",
+      b2b_why3: "Diseño e impresión 3D",
+      b2b_why4: "Tecnología e inteligencia artificial",
+      b2b_why5: "Profesorado cercano",
+      b2b_why6: "Grupos reducidos",
+      b2b_why7: "Presencial y online en directo",
+      b2b_why8: "Experiencia trabajando con niños y jóvenes",
+
+      b2b_cls_eyebrow: "Nuestras clases",
+      b2b_cls_title: "Un beneficio que facilita el día a día",
+      b2b_cls_title2: "Aprender, crear y conciliar",
+      b2b_cls_p1: "Una actividad educativa que se adapta al día a día de cada familia, con clases online en directo para que los niños y jóvenes puedan aprender, crear y desarrollar sus propios proyectos de tecnología.",
+      b2b_cls_p2: "Programación, videojuegos, 3D y tecnología, con un profesor que les acompaña en directo y grupos reducidos adaptados a cada edad.",
+      b2b_cls_close: "Más flexibilidad para las familias. Más valor para tus empleados.",
+      b2b_cls_img1_alt: "Clase online en directo: el profesor comparte pantalla con código y un personaje de videojuego mientras el alumnado sigue la sesión por videollamada",
+      b2b_cls_img2_alt: "Un padre y su hijo riendo delante de un portátil mientras programan un juego con bloques",
+      b2b_cls_img3_alt: "Una madre teletrabajando con el portátil mientras su hijo dibuja en una tableta",
+      b2b_cls_img4_alt: "Impresora 3D Bambu Lab con varias figuras de colores impresas sobre la placa",
+
+      b2b_faq_title: "Preguntas frecuentes de las empresas",
+      b2b_faq_lead: "Resolvemos las dudas habituales antes de empezar.",
+      b2b_faq1_q: "¿Qué edades pueden participar?",
+      b2b_faq1_a: "De 6 a 16 años. Los grupos se organizan por franja de edad, para que cada sesión tenga sentido para todos.",
+      b2b_faq2_q: "¿Las clases pueden ser online?",
+      b2b_faq2_a: "Sí. Ofrecemos clases presenciales en Vilafranca del Penedès y clases online, para que cada familia elija la modalidad que mejor le encaje.",
+      b2b_faq3_q: "¿Las clases online son en directo?",
+      b2b_faq3_a: "Sí. Son clases en directo por Zoom, con profesorado e interacción real. No son vídeos grabados.",
+      b2b_faq4_q: "¿Dónde se hacen las clases presenciales?",
+      b2b_faq4_a: "En nuestro espacio de la calle Puigmoltó, 5, en Vilafranca del Penedès.",
+      b2b_faq5_q: "¿Quién gestiona las inscripciones?",
+      b2b_faq5_a: "Pixel Penedès. Las familias interesadas contactan directamente con nosotros y nos encargamos de las inscripciones y de los grupos.",
+      b2b_faq6_q: "¿La empresa tiene que gestionar los pagos?",
+      b2b_faq6_a: "La empresa no tiene que gestionar el día a día del servicio: las familias se relacionan directamente con Pixel Penedès. Los detalles concretos se definen con cada empresa en la propuesta.",
+      b2b_faq7_q: "¿Podemos ofrecer el beneficio a todos los empleados?",
+      b2b_faq7_a: "La idea es que el beneficio esté a disposición de todo el equipo. Los detalles los definimos con cada empresa.",
+      b2b_faq8_q: "¿Podemos empezar con un grupo reducido?",
+      b2b_faq8_a: "Sí, se puede empezar de forma progresiva. Cuéntanos tu situación y valoramos la mejor manera de arrancar.",
+      b2b_faq9_q: "¿Qué condiciones especiales ofrecéis a las empresas?",
+      b2b_faq9_a: "Las empresas colaboradoras pueden acceder a unas condiciones específicas. Contacta con nosotros y te explicaremos la propuesta adaptada a tu empresa.",
+
+      b2b_final_eyebrow: "Hablamos",
+      b2b_final_title: "Hablemos de cómo podemos ofrecer este beneficio a tu equipo",
+      b2b_final_lead: "Cuéntanos brevemente cómo es tu empresa y te contactaremos para explicarte cómo funciona el programa.",
+      b2b_final_cta: "Quiero información",
+      b2b_final_point1: "Solicitud sin compromiso",
+      b2b_final_point2: "Propuesta adaptada a tu empresa",
+      b2b_final_point3: "Ningún dato se comparte con terceros",
+
+      b2b_form_nom: "Nombre",
+      b2b_form_cognoms: "Apellidos",
+      b2b_form_empresa: "Empresa",
+      b2b_form_carrec: "Cargo / Departamento",
+      b2b_form_email: "Email corporativo",
+      b2b_form_telefon: "Teléfono",
+      b2b_form_empleats: "Número aproximado de empleados",
+      b2b_form_families: "Número aproximado de familias interesadas (opcional)",
+      b2b_form_modalitat: "Modalidad de interés",
+      b2b_form_mod_choose: "Selecciona una opción",
+      b2b_form_mod_presencial: "Presencial",
+      b2b_form_mod_online: "Online",
+      b2b_form_mod_both: "Ambas",
+      b2b_form_missatge: "Mensaje (opcional)",
+      b2b_form_privacy: "Acepto la política de privacidad.",
+      b2b_form_submit: "Solicitar información",
+      b2b_form_error: "Revisa los campos marcados y acepta la política de privacidad para continuar.",
+
+      b2b_wa_message: "Hola, me interesa el programa de beneficios para empresas de Pixel Penedès.",
+      b2b_wa_greeting: "¡Hola! Me interesa el programa de beneficios para empresas de Pixel Penedès.",
+      b2b_wa_name: "Nombre",
+      b2b_wa_company: "Empresa",
+      b2b_wa_role: "Cargo",
+      b2b_wa_phone: "Teléfono",
+      b2b_wa_email: "Email",
+      b2b_wa_employees: "Empleados (aprox.)",
+      b2b_wa_families: "Familias interesadas (aprox.)",
+      b2b_wa_mode: "Modalidad",
+      b2b_wa_message_label: "Mensaje"
     }
   };
 
@@ -399,6 +829,12 @@
       waFloat.href = "https://wa.me/34633454159?text=" + encodeURIComponent(dict.wa_float_message);
     }
 
+    // Enllaços de WhatsApp amb un missatge propi (data-wa-key), p. ex. a la pàgina d'empreses
+    document.querySelectorAll("[data-wa-key]").forEach(function (el) {
+      var msg = dict[el.getAttribute("data-wa-key")];
+      if (msg !== undefined) el.href = "https://wa.me/34633454159?text=" + encodeURIComponent(msg);
+    });
+
     // Estat visual dels botons d'idioma
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
       var isActive = btn.getAttribute("data-lang") === lang;
@@ -459,24 +895,11 @@
   }
 
   /* =========================================================
-     Logotip -> torna sempre a l'inici real de la pàgina
+     Logotip -> torna sempre a l'inici de la pàgina.
+     Només si és un enllaç intern (#top); a empresas.html apunta a index.html
      ========================================================= */
   var brandLink = document.querySelector(".brand");
-  if (brandLink) {
-    brandLink.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
-      if (history.pushState) {
-        history.pushState(null, "", window.location.pathname + window.location.search);
-      }
-    });
-  }
-
-  /* =========================================================
-     Logotip -> torna sempre a l'inici de la pàgina
-     ========================================================= */
-  var brandLink = document.querySelector(".brand");
-  if (brandLink) {
+  if (brandLink && brandLink.getAttribute("href").charAt(0) === "#") {
     brandLink.addEventListener("click", function (e) {
       e.preventDefault();
       window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
@@ -713,6 +1136,71 @@
         successMsg.hidden = false;
         successMsg.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
       }
+    });
+  }
+
+  /* =========================================================
+     Formulari d'empreses -> obre WhatsApp amb el missatge
+     (mateixa arquitectura que el formulari de reserva)
+     ========================================================= */
+  var empresaForm = document.getElementById("empresaForm");
+
+  if (empresaForm) {
+    var empresaSuccess = document.getElementById("empresaSuccess");
+    var empresaError = document.getElementById("empresaError");
+    var privacyBox = document.getElementById("empPrivacitat");
+    var modalitatSel = document.getElementById("empModalitat");
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    empresaForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var f = empresaForm.elements;
+      var valid = true;
+
+      ["empNom", "empEmpresa", "empTelefon", "empEmail"].forEach(function (id) {
+        var field = f[id];
+        var ok = field.value.trim() !== "" && (id !== "empEmail" || emailRe.test(field.value.trim()));
+        field.style.borderColor = ok ? "" : "#D2470F";
+        field.setAttribute("aria-invalid", String(!ok));
+        if (!ok) valid = false;
+      });
+
+      if (!privacyBox.checked) valid = false;
+      privacyBox.setAttribute("aria-invalid", String(!privacyBox.checked));
+
+      if (!valid) {
+        empresaError.hidden = false;
+        empresaSuccess.hidden = true;
+        return;
+      }
+      empresaError.hidden = true;
+
+      var dict = translations[currentLang];
+      var fullName = (f.empNom.value.trim() + " " + f.empCognoms.value.trim()).trim();
+      var role = f.empCarrec.value.trim();
+      var employees = f.empEmpleats.value.trim();
+      var families = f.empFamilies.value.trim();
+      var modality = modalitatSel.value ? modalitatSel.options[modalitatSel.selectedIndex].text : "";
+      var message = f.empMissatge.value.trim();
+
+      var lines = [
+        dict.b2b_wa_greeting,
+        dict.b2b_wa_name + ": " + fullName,
+        dict.b2b_wa_company + ": " + f.empEmpresa.value.trim()
+      ];
+      if (role) lines.push(dict.b2b_wa_role + ": " + role);
+      lines.push(dict.b2b_wa_phone + ": " + f.empTelefon.value.trim());
+      lines.push(dict.b2b_wa_email + ": " + f.empEmail.value.trim());
+      if (employees) lines.push(dict.b2b_wa_employees + ": " + employees);
+      if (families) lines.push(dict.b2b_wa_families + ": " + families);
+      if (modality) lines.push(dict.b2b_wa_mode + ": " + modality);
+      if (message) lines.push(dict.b2b_wa_message_label + ": " + message);
+
+      window.open("https://wa.me/34633454159?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
+
+      empresaSuccess.hidden = false;
+      empresaSuccess.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
     });
   }
 

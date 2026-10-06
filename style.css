@@ -615,3 +615,266 @@ h1.hero-title{ max-width:16ch; margin-left:auto; margin-right:auto; color:var(--
   .hero-mode-label{ font-size:1rem; }
   .hero-mode-sub{ font-size:0.76rem; }
 }
+
+/* =========================================================
+   EMPRESES (empresas.html) — extensió del sistema de disseny
+   Només s'afegeix el que no existia; la resta reutilitza
+   .btn, .section, .benefit-card, .timeline, .faq-*, .reserva-form...
+   ========================================================= */
+
+/* --- Enllaç "Empreses" a la navegació i enllaços de peu --- */
+.main-nav a.nav-b2b{ color:var(--signal-dark); font-weight:700; opacity:1; }
+.main-nav a.nav-b2b[aria-current="page"]{
+  text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:6px;
+}
+.footer-links{ display:flex; flex-wrap:wrap; gap:8px 22px; }
+.footer-links a{ font-size:0.85rem; color:var(--text-on-dark); text-decoration:none; }
+.footer-links a:hover{ color:#fff; text-decoration:underline; text-underline-offset:3px; }
+
+/* --- Botons amb text llarg (permeten salt de línia) --- */
+.btn-wrap{ white-space:normal; text-align:center; line-height:1.25; }
+
+/* --- Hero B2B: el títol és més llarg que el de la home --- */
+.hero--empresas h1.hero-title{ max-width:19ch; font-size:clamp(2.2rem, 5.4vw, 3.9rem); }
+.hero-title-accent{ display:block; color:var(--signal); }
+.hero--empresas .hero-lead{ max-width:60ch; }
+
+.hero-meta{
+  margin:0 auto; padding-top:6px;
+  font-size:0.9rem; font-weight:600; color:var(--text-muted);
+}
+.hero--empresas .hero-ctas{ margin-top:28px; }
+
+/* --- Les nostres classes: text + fotos de la mateixa mida (3:2) --- */
+.classes-head{ max-width:760px; }
+.classes-head h2{ text-wrap:balance; }
+.classes-head h2 .hero-title-accent{ display:block; }
+.classes-head .section-lead{ text-wrap:pretty; }
+.classes-close{
+  margin:26px auto 0; max-width:34ch;
+  font-size:clamp(1.1rem, 1.8vw, 1.3rem); font-weight:700; letter-spacing:-0.01em; line-height:1.3;
+  color:var(--ink);
+}
+.class-photos{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.class-photo{ margin:0; }
+.class-photo img{
+  width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; object-position:center;
+  border-radius:var(--radius-m);
+  border:1px solid var(--paper-line); /* defineix el límit de les fotos amb fons blanc */
+  box-shadow:0 24px 44px -28px rgba(0,0,0,0.35);
+}
+
+/* --- Acreditacions (logotips en tinta fosca, alçada homogènia) --- */
+.accred-row{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:28px 72px;
+}
+.accred-row li{ display:flex; align-items:center; }
+.accred-row img{
+  height:92px; width:auto; max-width:100%;
+  opacity:0.78;
+  transition: opacity .25s ease;
+}
+.accred-row li:hover img{ opacity:1; }
+/* Equilibri òptic: cada logotip té un pes visual diferent dins del seu quadrat */
+.accred-row img.accred-aws{ height:104px; }
+.accred-row img.accred-ms{ height:96px; }
+.accred-row img.accred-google{ height:82px; }
+.accred--inline{
+  margin-top:56px; padding-top:40px;
+  border-top:1px solid var(--paper-line);
+}
+.accred-label{
+  text-align:center; margin:0 0 26px;
+  font-size:0.85rem; font-weight:600; color:var(--text-muted);
+}
+
+/* --- Utilitats de secció --- */
+.section--tight{ padding:80px 0; }
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  align-items:center;
+}
+.split h2{ color:var(--ink); }
+.split-lead{ color:var(--text-muted); font-size:1.08rem; max-width:48ch; }
+
+/* --- Variants de les targetes de benefici --- */
+.benefit-grid--4{ grid-template-columns:repeat(4,1fr); }
+.benefit-icon--gold{ --bc:var(--gold); }
+.benefit-icon--navy{ --bc:var(--navy); }
+.age-label{
+  display:inline-block;
+  font-size:0.82rem; font-weight:700; color:var(--signal-dark);
+  background:rgba(242,89,32,0.08);
+  padding:5px 12px; border-radius:980px;
+  margin-bottom:14px;
+}
+
+/* --- Bloc "problema": targeta amb beneficis habituals + cita --- */
+.b2b-callout{
+  background:var(--paper-dim);
+  border-radius:var(--radius-l);
+  padding:40px 36px;
+}
+.callout-label{ font-size:0.82rem; font-weight:700; color:var(--text-muted); margin:0 0 14px; }
+.pull-quote{
+  margin:30px 0 0; padding-left:20px;
+  border-left:4px solid var(--signal);
+  font-size:clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight:700; letter-spacing:-0.015em; line-height:1.25;
+  color:var(--ink);
+}
+
+/* --- Àrees d'aprenentatge (targeta amb imatge real) --- */
+.area-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.area-card{
+  background:var(--paper);
+  border:1px solid var(--paper-line);
+  border-radius:var(--radius-m);
+  overflow:hidden;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.area-card:hover{ transform:translateY(-4px); box-shadow:0 30px 50px -28px rgba(0,0,0,0.28); }
+.area-card img{ width:100%; aspect-ratio:4/5; object-fit:cover; object-position:center top; }
+.area-card-body{ padding:22px 22px 26px; }
+.area-card h3{ font-size:1.08rem; }
+.area-card p{ color:var(--text-muted); font-size:0.94rem; margin-bottom:0; }
+
+/* --- Modalitats --- */
+.mode-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.mode-card{
+  background:var(--paper-dim);
+  border-radius:var(--radius-l);
+  padding:40px 36px;
+}
+.mode-card .hero-mode-icon{ margin-bottom:20px; }
+.mode-card h3{ font-size:1.5rem; }
+.mode-card p{ color:var(--text-muted); margin-bottom:0; max-width:40ch; }
+.live-badge{
+  display:inline-block; margin-bottom:14px;
+  font-size:0.78rem; font-weight:700; color:var(--signal-dark);
+  background:rgba(242,89,32,0.1);
+  padding:4px 12px; border-radius:980px;
+}
+
+/* --- Com funciona: timeline de 5 passos + frase destacada --- */
+.timeline.timeline--5{ grid-template-columns:repeat(5,1fr); list-style:none; padding:0; }
+.timeline--5 .timeline-item h3{ margin-top:8px; }
+.how-highlight{
+  max-width:820px; margin:72px auto 0; text-align:center;
+  font-size:clamp(1.5rem, 3.6vw, 2.5rem);
+  font-weight:700; letter-spacing:-0.02em; line-height:1.15;
+  color:#fff;
+}
+.how-highlight::before{
+  content:""; display:block; width:56px; height:4px;
+  background:var(--signal); border-radius:2px; margin:0 auto 24px;
+}
+.how-cta{ display:flex; justify-content:center; margin-top:32px; }
+
+/* --- Llista de comprovació (baixa càrrega administrativa) --- */
+.check-list{ display:grid; gap:12px; }
+.check-list li{
+  display:flex; align-items:center; gap:14px;
+  background:var(--paper-dim);
+  border-radius:var(--radius-s);
+  padding:16px 18px;
+  font-weight:600; color:var(--ink-2);
+}
+.check-list li::before{
+  content:""; flex-shrink:0;
+  width:24px; height:24px; border-radius:50%;
+  background:var(--signal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center / 13px no-repeat;
+}
+.split-note{ font-weight:600; color:var(--ink); margin:22px 0 0; }
+.tool-chips--center{ justify-content:center; }
+
+/* --- Banner fosc (condicions i enllaç des de la home) --- */
+.b2b-banner{
+  background:var(--ink); color:var(--paper);
+  border-radius:var(--radius-l);
+  padding:56px 48px;
+  display:flex; align-items:center; justify-content:space-between; gap:32px;
+}
+.b2b-banner .section-eyebrow{ margin-bottom:10px; }
+.b2b-banner h2{ color:#fff; font-size:clamp(1.6rem, 3.2vw, 2.4rem); max-width:24ch; }
+.b2b-banner p{ color:var(--text-on-dark); max-width:54ch; margin:0; }
+.b2b-banner--center{ flex-direction:column; text-align:center; }
+.b2b-banner--center h2, .b2b-banner--center p{ margin-left:auto; margin-right:auto; }
+.b2b-banner-note{ font-size:0.85rem; color:var(--text-on-dark); margin:14px 0 0; }
+
+/* --- Formulari B2B (afegits sobre .reserva-form) --- */
+.form-row select{
+  font-family:inherit; font-size:0.95rem;
+  padding:12px 14px;
+  border:1.5px solid rgba(29,29,31,0.16);
+  border-radius:12px;
+  background:var(--paper-dim);
+  color:var(--ink-2);
+}
+.form-row select:focus{ outline:none; border-color:var(--signal); background:#fff; }
+.form-check{ display:flex; align-items:flex-start; gap:10px; }
+.form-check input{ width:18px; height:18px; margin:2px 0 0; accent-color:var(--signal-dark); flex-shrink:0; }
+.form-check label{ font-size:0.88rem; color:var(--ink-2); }
+.form-error{ grid-column:1/-1; margin:0; color:var(--signal-dark); font-weight:600; font-size:0.88rem; }
+
+/* --- Responsive (reutilitza els punts de ruptura existents) --- */
+/* Amb l'enllaç "Empreses" la navegació ja no cap en tauleta: menú mòbil fins a 1100px */
+@media (max-width: 1100px){
+  /* El backdrop-filter de .site-header fa que el header sigui el bloc contenidor del
+     position:fixed; per això l'alçada es defineix explícitament (abans el menú feia 0px). */
+  .main-nav{
+    position:fixed; inset:auto; top:56px; left:0; right:0;
+    height:calc(100vh - 56px); height:calc(100dvh - 56px); overflow-y:auto;
+    background:#fff;
+    border-top:1px solid var(--paper-line);
+    padding:24px;
+    transform:translateY(-8px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .18s ease, transform .18s ease;
+  }
+  .main-nav.is-open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+  .main-nav ul{ flex-direction:column; gap:4px; }
+  .main-nav a{ display:block; padding:14px 4px; font-size:1.05rem; border-bottom:1px solid var(--paper-dim); opacity:1; }
+  .nav-toggle{ display:flex; }
+  .header-actions .btn-small{ display:none; }
+}
+
+@media (max-width: 1080px){
+  .timeline.timeline--5{ grid-template-columns:repeat(2,1fr); row-gap:44px; }
+  .timeline--5 .timeline-item:last-child{ grid-column:1 / -1; }
+  .area-grid{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width: 980px){
+  .class-photos{ grid-template-columns:repeat(2,1fr); }
+  .split{ grid-template-columns:1fr; gap:36px; }
+  .benefit-grid--4{ grid-template-columns:repeat(2,1fr); }
+  .mode-grid{ grid-template-columns:1fr; }
+  .section--tight{ padding:64px 0; }
+  .b2b-banner{ padding:44px 32px; }
+}
+@media (max-width: 760px){
+  .timeline.timeline--5{ grid-template-columns:1fr; }
+  .benefit-grid--4{ grid-template-columns:1fr; }
+  .area-grid{ grid-template-columns:1fr; }
+  .area-card img{ aspect-ratio:16/10; object-position:center; }
+  .b2b-banner{ flex-direction:column; align-items:flex-start; padding:32px 24px; }
+  .b2b-banner--center{ align-items:center; }
+  .b2b-callout, .mode-card{ padding:28px 24px; }
+  .accred-row{ gap:22px 40px; }
+  .accred-row img.accred-aws{ height:80px; }
+  .accred-row img.accred-ms{ height:74px; }
+  .accred-row img.accred-google{ height:62px; }
+  .how-highlight{ margin-top:56px; }
+}
