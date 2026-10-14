@@ -12,9 +12,15 @@ const pages = [
   "index.html",
   "empresas.html",
   "programacio-nens-vilafranca/index.html",
+  "videojocs-nens-vilafranca/index.html",
+  "impressio-3d-nens-vilafranca/index.html",
+  "extraescolars-tecnologia-vilafranca/index.html",
   "es/index.html",
   "es/empresas.html",
-  "es/programacion-ninos-vilafranca/index.html"
+  "es/programacion-ninos-vilafranca/index.html",
+  "es/videojuegos-ninos-vilafranca/index.html",
+  "es/impresion-3d-ninos-vilafranca/index.html",
+  "es/extraescolares-tecnologia-vilafranca/index.html"
 ];
 const EXTERNAL = /^(https?:|mailto:|tel:|#|data:|javascript:|\/\/)/;
 

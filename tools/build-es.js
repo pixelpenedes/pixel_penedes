@@ -24,6 +24,24 @@ const ROUTES = [
     es: "es/programacion-ninos-vilafranca/index.html",
     caUrl: "/programacio-nens-vilafranca/",
     esUrl: "/es/programacion-ninos-vilafranca/"
+  },
+  {
+    ca: "videojocs-nens-vilafranca/index.html",
+    es: "es/videojuegos-ninos-vilafranca/index.html",
+    caUrl: "/videojocs-nens-vilafranca/",
+    esUrl: "/es/videojuegos-ninos-vilafranca/"
+  },
+  {
+    ca: "impressio-3d-nens-vilafranca/index.html",
+    es: "es/impresion-3d-ninos-vilafranca/index.html",
+    caUrl: "/impressio-3d-nens-vilafranca/",
+    esUrl: "/es/impresion-3d-ninos-vilafranca/"
+  },
+  {
+    ca: "extraescolars-tecnologia-vilafranca/index.html",
+    es: "es/extraescolares-tecnologia-vilafranca/index.html",
+    caUrl: "/extraescolars-tecnologia-vilafranca/",
+    esUrl: "/es/extraescolares-tecnologia-vilafranca/"
   }
 ];
 
@@ -62,7 +80,7 @@ Object.keys(CA).forEach((k) => {
 const translateString = (s) => (REV.has(s) ? REV.get(s) : EXTRA.has(s) ? EXTRA.get(s) : s);
 
 /* Noms propis i adreces que no es tradueixen (i claus d'adreça que no són al diccionari) */
-const KEEP_AS_IS = new Set(["Pixel Penedès", "C/ Puigmoltó, 5", "Vilafranca del Penedès", "Alt Penedès", "customer service", "Pixel Penedès Family Benefits", "Roblox Lua"]);
+const KEEP_AS_IS = new Set(["Pixel Penedès", "C/ Puigmoltó, 5", "Vilafranca del Penedès", "Alt Penedès", "customer service", "Pixel Penedès Family Benefits", "Roblox Lua", "Minecraft Education", "Roblox Studio", "Microsoft Kodu", "Bambu Studio"]);
 const KEEP_KEYS = new Set(["contact1_direccion", "contact1_ciudad"]);
 
 /* ---------- Utilitats ---------- */
