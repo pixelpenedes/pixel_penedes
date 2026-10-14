@@ -645,6 +645,30 @@ h1.hero-title{ max-width:16ch; margin-left:auto; margin-right:auto; color:var(--
 }
 .hero--empresas .hero-ctas{ margin-top:28px; }
 
+/* Hero d'empreses: silueta difuminada d'una família (pare, fill i mare agafats de la mà),
+   mateix color i difuminat que els comandaments de la home. A cada costat del text,
+   decorativa i amb poca opacitat perquè no afecti el contrast. */
+.hero--empresas > .wrap{ position:relative; isolation:isolate; }
+.hero--empresas > .wrap::before,
+.hero--empresas > .wrap::after{
+  content:"";
+  position:absolute; z-index:-1;
+  width:clamp(160px, 22vw, 320px);
+  aspect-ratio:462 / 374;
+  background:url("assets/familia-silhouette.svg") center / contain no-repeat;
+  opacity:0.24;
+  pointer-events:none;
+}
+.hero--empresas > .wrap::before{ left:0; top:6%; transform:rotate(-3deg); }
+.hero--empresas > .wrap::after{ right:0; top:46%; transform:scaleX(-1) rotate(-3deg); }
+@media (max-width: 900px){
+  /* Sense bandes laterals buides: es redueixen i queden tallades a les vores */
+  .hero--empresas > .wrap::before,
+  .hero--empresas > .wrap::after{ width:130px; opacity:0.15; }
+  .hero--empresas > .wrap::before{ left:-34px; top:1%; }
+  .hero--empresas > .wrap::after{ right:-34px; top:62%; }
+}
+
 /* --- Les nostres classes: text + fotos de la mateixa mida (3:2) --- */
 .classes-head{ max-width:760px; }
 .classes-head h2{ text-wrap:balance; }

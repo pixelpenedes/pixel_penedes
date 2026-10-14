@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="14 -8 462 374" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Mateix tipus de difuminat suau que la silueta del comandament (incorporat a la imatge) -->
+    <filter id="soft" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="5.5"/>
+    </filter>
+  </defs>
+  <g filter="url(#soft)" fill="#F25920" stroke="#F25920" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Pare -->
+    <circle cx="90" cy="52" r="26" stroke="none"/>
+    <rect x="60" y="84" width="60" height="112" rx="24" stroke="none"/>
+    <rect x="62" y="176" width="26" height="154" rx="13" stroke="none"/>
+    <rect x="92" y="176" width="26" height="154" rx="13" stroke="none"/>
+    <path d="M66 100 L58 190" fill="none" stroke-width="16"/>
+    <path d="M114 102 L158 160 L198 222" fill="none" stroke-width="16"/>
+
+    <!-- Fill (al mig, agafat de la mà del pare i de la mare) -->
+    <circle cx="240" cy="188" r="22" stroke="none"/>
+    <rect x="216" y="214" width="48" height="74" rx="20" stroke="none"/>
+    <rect x="218" y="272" width="19" height="58" rx="9.5" stroke="none"/>
+    <rect x="243" y="272" width="19" height="58" rx="9.5" stroke="none"/>
+    <path d="M222 232 L198 222" fill="none" stroke-width="14"/>
+    <path d="M258 232 L282 222" fill="none" stroke-width="14"/>
+
+    <!-- Mare -->
+    <circle cx="390" cy="68" r="24" stroke="none"/>
+    <path d="M364 98 Q390 88 416 98 L446 252 Q390 266 334 252 Z" stroke="none"/>
+    <rect x="368" y="240" width="20" height="90" rx="10" stroke="none"/>
+    <rect x="392" y="240" width="20" height="90" rx="10" stroke="none"/>
+    <path d="M414 106 L428 192" fill="none" stroke-width="15"/>
+    <path d="M366 106 L324 160 L282 222" fill="none" stroke-width="16"/>
+  </g>
+</svg>
