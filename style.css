@@ -693,6 +693,45 @@ h1.hero-title{ max-width:16ch; margin-left:auto; margin-right:auto; color:var(--
   font-size:0.85rem; font-weight:600; color:var(--text-muted);
 }
 
+/* --- Hero de la home: dues siluetes petites de comandament, difuminades, a cada costat del text ---
+   Decoratives (no porten text): ocupen les bandes blanques laterals del títol i amb poca
+   opacitat perquè no afectin el contrast. Esquerra i dreta amb alçada i inclinació diferents. */
+.hero--game > .wrap{ position:relative; isolation:isolate; }
+.hero--game > .wrap::before,
+.hero--game > .wrap::after{
+  content:"";
+  position:absolute; z-index:-1;
+  width:clamp(140px, 19vw, 280px);
+  aspect-ratio:464 / 360;
+  background:url("assets/gamepad-silhouette.svg") center / contain no-repeat;
+  opacity:0.24;
+  pointer-events:none;
+}
+.hero--game > .wrap::before{ left:0; top:12%; transform:rotate(-16deg); }
+.hero--game > .wrap::after{ right:0; top:48%; transform:rotate(14deg); }
+@media (max-width: 900px){
+  /* Sense bandes laterals buides: es redueixen i queden tallades a les vores */
+  .hero--game > .wrap::before,
+  .hero--game > .wrap::after{ width:120px; opacity:0.15; }
+  .hero--game > .wrap::before{ left:-34px; top:2%; }
+  .hero--game > .wrap::after{ right:-34px; top:60%; }
+}
+
+/* --- Pàgines de servei (SEO local): títol llarg i migues de pa --- */
+.hero--servei{ padding-top:48px; }
+.hero--servei h1.hero-title{ max-width:22ch; font-size:clamp(2.1rem, 5vw, 3.6rem); }
+.hero--servei .hero-lead{ max-width:60ch; }
+.breadcrumb{ padding-top:20px; padding-bottom:0; }
+.breadcrumb ol{ display:flex; flex-wrap:wrap; gap:4px 10px; margin:0; padding:0; list-style:none; font-size:0.82rem; color:var(--text-muted); }
+.timeline{ list-style:none; padding:0; } /* evita la numeració nativa de la llista al costat del cercle */
+.breadcrumb li + li::before{ content:"›"; margin-right:10px; color:rgba(29,29,31,0.35); }
+.breadcrumb a{ color:var(--text-muted); text-decoration:none; }
+.breadcrumb a:hover{ color:var(--ink-2); text-decoration:underline; text-underline-offset:3px; }
+.breadcrumb [aria-current="page"]{ color:var(--ink-2); font-weight:600; }
+
+/* --- Selector d'idioma amb enllaços (cada idioma té la seva URL) --- */
+a.lang-btn{ text-decoration:none; display:inline-block; }
+
 /* --- Utilitats de secció --- */
 .section--tight{ padding:80px 0; }
 .split{

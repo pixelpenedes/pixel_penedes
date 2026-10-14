@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="88 56 464 360" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Difuminat suau incorporat a la imatge (sense filtres CSS en temps d'execució) -->
+    <filter id="soft" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <!-- Els detalls del comandament (creueta, botons, palanques) es buiden de la silueta -->
+    <mask id="holes" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="340">
+      <rect width="512" height="340" fill="#fff"/>
+      <g fill="#000">
+        <rect x="124" y="119" width="52" height="18" rx="5"/>
+        <rect x="141" y="102" width="18" height="52" rx="5"/>
+        <circle cx="362" cy="106" r="11"/>
+        <circle cx="362" cy="150" r="11"/>
+        <circle cx="340" cy="128" r="11"/>
+        <circle cx="384" cy="128" r="11"/>
+        <circle cx="200" cy="186" r="26"/>
+        <circle cx="312" cy="186" r="26"/>
+        <circle cx="234" cy="128" r="8"/>
+        <circle cx="278" cy="128" r="8"/>
+        <circle cx="256" cy="98" r="12"/>
+      </g>
+    </mask>
+  </defs>
+  <g transform="translate(64 50)" filter="url(#soft)">
+    <g fill="#F25920" mask="url(#holes)">
+      <rect x="96" y="62" width="320" height="150" rx="72"/>
+      <ellipse cx="118" cy="226" rx="58" ry="96" transform="rotate(16 118 226)"/>
+      <ellipse cx="394" cy="226" rx="58" ry="96" transform="rotate(-16 394 226)"/>
+      <rect x="118" y="40" width="88" height="34" rx="17"/>
+      <rect x="306" y="40" width="88" height="34" rx="17"/>
+    </g>
+  </g>
+</svg>

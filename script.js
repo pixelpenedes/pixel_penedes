@@ -159,7 +159,7 @@
       contact3_title: "Correu electrònic",
       contact3_link: "Envia un correu →",
 
-      footer_logo_alt: "Pixel Penedès - Programació i robòtica",
+      footer_logo_alt: "Pixel Penedès - Acadèmia de tecnologia per a nens i joves",
       footer_rights: "Pixel Penedès. Tots els drets reservats.",
       footer_nav_aria: "Enllaços del peu",
       whatsapp_float_aria: "Escriu-nos per WhatsApp",
@@ -384,7 +384,67 @@
       b2b_wa_employees: "Empleats (aprox.)",
       b2b_wa_families: "Famílies interessades (aprox.)",
       b2b_wa_mode: "Modalitat",
-      b2b_wa_message_label: "Missatge"
+      b2b_wa_message_label: "Missatge",
+
+      /* ---------- Pàgina: programació per a nens a Vilafranca ---------- */
+      prog_index_link: "Classes de programació a Vilafranca →",
+      prog_wa_message: "Hola! Voldria informació sobre les classes de programació de Pixel Penedès",
+      prog_meta_title: "Classes de programació per a nens a Vilafranca | Pixel Penedès",
+      prog_meta_description: "Classes de programació per a nens i joves de 6 a 16 anys a Vilafranca del Penedès: Scratch, Python, Roblox i Unity. Grups reduïts i primera classe gratuïta.",
+      prog_og_title: "Classes de programació per a nens i joves a Vilafranca del Penedès",
+      prog_og_description: "Programació, videojocs i 3D amb projectes propis. Grups reduïts per edats, presencial a Vilafranca i online en directe. La primera classe és gratuïta.",
+      prog_breadcrumb_aria: "Fil d'Ariadna",
+      prog_breadcrumb_current: "Programació per a nens a Vilafranca",
+      prog_h1: "Classes de programació per a nens i joves a Vilafranca del Penedès",
+      prog_lead: "Els nens i nenes aprenen a programar fent el que més els motiva: crear els seus propis videojocs i projectes. Dels primers blocs de colors al codi real, amb grups reduïts i un mentor a prop de cada pantalla.",
+      prog_point1: "De 6 a 16 anys",
+      prog_point2: "Presencial a Vilafranca i online en directe",
+
+      prog_intro_eyebrow: "Programació per a nens",
+      prog_intro_title: "Aprendre a programar és aprendre a crear",
+      prog_intro_p1: "A Pixel Penedès la programació no és un temari de fitxes. Els alumnes plantegen un projecte propi (un joc, un personatge, un món) i aprenen el que cal per fer-lo funcionar: seqüències, bucles, condicions, variables i lògica.",
+      prog_intro_p2: "Treballem amb eines pensades per a cada edat. Els més petits comencen amb programació per blocs; a partir dels 11-12 anys fan el salt al codi escrit de veritat, amb Python i amb els llenguatges dels motors de joc.",
+      prog_intro_p3: "Així entenen com funciona la tecnologia que fan servir cada dia, en comptes de limitar-se a consumir-la.",
+
+      prog_stages_eyebrow: "Un camí, quatre etapes",
+      prog_stages_title: "Com aprenen a programar, etapa per etapa",
+      prog_stages_lead: "Cada franja d'edat té el seu propi grup i el seu propi ritme.",
+      prog_stage1: "Pensament computacional i programació per blocs. Aprenen les idees bàsiques (ordre, repetició, causa i efecte) jugant i en grups molt reduïts.",
+      prog_stage2: "Scratch avançat i primers videojocs propis a Minecraft Education o Roblox Studio, amb projectes que s'allarguen diverses sessions.",
+      prog_stage3: "Salt al codi escrit: Python per entendre la lògica de fons i els llenguatges dels motors de joc, com Roblox Lua o Unity.",
+      prog_stage4: "Projectes propis amb més abast, portfoli personal i orientació cap a batxillerat tecnològic o cicles formatius.",
+
+      prog_tools_eyebrow: "Eines i llenguatges",
+      prog_tools_title: "Amb què programen",
+      prog_tools_lead: "Escollim l'eina segons l'edat i el nivell de cada grup.",
+
+      prog_how_eyebrow: "A l'aula",
+      prog_how_title: "Com són les nostres classes de programació",
+      prog_how1_title: "Grups reduïts per edats",
+      prog_how1_desc: "Els grups s'organitzen per franja d'edat (6–8, 9–11, 12–14 i 15–16 anys) perquè el ritme de cada sessió tingui sentit per a tothom.",
+      prog_how2_title: "Un mentor a prop",
+      prog_how2_desc: "Cada alumne avança en el seu projecte amb un mentor que l'acompanya i li resol els dubtes en el moment.",
+      prog_how3_title: "Sense experiència prèvia",
+      prog_how3_desc: "La majoria d'alumnes comencen de zero. Cada grup s'adapta al nivell real dels nens i nenes que el formen.",
+      prog_how4_title: "Projectes propis",
+      prog_how4_desc: "Cada projecte és seu, de la idea inicial a la versió jugable. No són exercicis a mig fer.",
+      prog_how5_title: "Material inclòs",
+      prog_how5_desc: "A l'acadèmia disposem del maquinari i el programari necessari. Només cal venir amb ganes de provar coses.",
+      prog_how6_title: "Presencial o online",
+      prog_how6_desc: "Classes presencials a Vilafranca del Penedès o online en directe per Zoom, amb professor en directe (no vídeos gravats).",
+
+      prog_more_title: "Més que programació",
+      prog_more_lead: "Programar és només una part del que fem. Descobreix les altres àrees de l'acadèmia.",
+      prog_more1: "Dissenyen els seus propis videojocs a Minecraft Education o Roblox Studio.",
+      prog_more2: "Modelen en 3D i veuen la seva idea sortir d'una impressora 3D.",
+      prog_more3: "Graven, editen i publiquen vídeos sobre els seus propis projectes.",
+      prog_more_link: "Veure a la pàgina principal →",
+
+      prog_faq_title: "Preguntes sobre les classes de programació",
+      prog_faq_age_q: "Des de quina edat poden començar a programar?",
+      prog_faq_age_a: "Des dels 6 anys. Fins als 16, els grups s'organitzen per franja d'edat: 6–8, 9–11, 12–14 i 15–16 anys.",
+      prog_faq_lang_q: "Quins llenguatges de programació aprenen?",
+      prog_faq_lang_a: "Depèn de l'edat: blocs i Scratch els primers anys i, a partir dels 11-12 anys, Python i els llenguatges dels motors de joc, com Roblox Lua o Unity."
     },
     es: {
       meta_title: "Pixel Penedès | Academia de programación, videojuegos e impresión 3D en Vilafranca del Penedès",
@@ -538,7 +598,7 @@
       contact3_title: "Correo electrónico",
       contact3_link: "Envía un correo →",
 
-      footer_logo_alt: "Pixel Penedès - Programación y robótica",
+      footer_logo_alt: "Pixel Penedès - Academia de tecnología para niños y jóvenes",
       footer_rights: "Pixel Penedès. Todos los derechos reservados.",
       footer_nav_aria: "Enlaces del pie",
       whatsapp_float_aria: "Escríbenos por WhatsApp",
@@ -763,30 +823,74 @@
       b2b_wa_employees: "Empleados (aprox.)",
       b2b_wa_families: "Familias interesadas (aprox.)",
       b2b_wa_mode: "Modalidad",
-      b2b_wa_message_label: "Mensaje"
+      b2b_wa_message_label: "Mensaje",
+
+      /* ---------- Página: programación para niños en Vilafranca ---------- */
+      prog_index_link: "Clases de programación en Vilafranca →",
+      prog_wa_message: "¡Hola! Me gustaría información sobre las clases de programación de Pixel Penedès",
+      prog_meta_title: "Clases de programación para niños en Vilafranca | Pixel Penedès",
+      prog_meta_description: "Clases de programación para niños y jóvenes de 6 a 16 años en Vilafranca del Penedès: Scratch, Python, Roblox y Unity. Grupos reducidos y primera clase gratuita.",
+      prog_og_title: "Clases de programación para niños y jóvenes en Vilafranca del Penedès",
+      prog_og_description: "Programación, videojuegos y 3D con proyectos propios. Grupos reducidos por edades, presencial en Vilafranca y online en directo. La primera clase es gratuita.",
+      prog_breadcrumb_aria: "Migas de pan",
+      prog_breadcrumb_current: "Programación para niños en Vilafranca",
+      prog_h1: "Clases de programación para niños y jóvenes en Vilafranca del Penedès",
+      prog_lead: "Los niños y niñas aprenden a programar haciendo lo que más les motiva: crear sus propios videojuegos y proyectos. De los primeros bloques de colores al código real, con grupos reducidos y un mentor cerca de cada pantalla.",
+      prog_point1: "De 6 a 16 años",
+      prog_point2: "Presencial en Vilafranca y online en directo",
+
+      prog_intro_eyebrow: "Programación para niños",
+      prog_intro_title: "Aprender a programar es aprender a crear",
+      prog_intro_p1: "En Pixel Penedès la programación no es un temario de fichas. Los alumnos plantean un proyecto propio (un juego, un personaje, un mundo) y aprenden lo necesario para hacerlo funcionar: secuencias, bucles, condiciones, variables y lógica.",
+      prog_intro_p2: "Trabajamos con herramientas pensadas para cada edad. Los más pequeños empiezan con programación por bloques; a partir de los 11-12 años dan el salto al código escrito de verdad, con Python y con los lenguajes de los motores de juego.",
+      prog_intro_p3: "Así entienden cómo funciona la tecnología que usan cada día, en lugar de limitarse a consumirla.",
+
+      prog_stages_eyebrow: "Un camino, cuatro etapas",
+      prog_stages_title: "Cómo aprenden a programar, etapa por etapa",
+      prog_stages_lead: "Cada franja de edad tiene su propio grupo y su propio ritmo.",
+      prog_stage1: "Pensamiento computacional y programación por bloques. Aprenden las ideas básicas (orden, repetición, causa y efecto) jugando y en grupos muy reducidos.",
+      prog_stage2: "Scratch avanzado y primeros videojuegos propios en Minecraft Education o Roblox Studio, con proyectos que se alargan varias sesiones.",
+      prog_stage3: "Salto al código escrito: Python para entender la lógica de fondo y los lenguajes de los motores de juego, como Roblox Lua o Unity.",
+      prog_stage4: "Proyectos propios con más alcance, portfolio personal y orientación hacia bachillerato tecnológico o ciclos formativos.",
+
+      prog_tools_eyebrow: "Herramientas y lenguajes",
+      prog_tools_title: "Con qué programan",
+      prog_tools_lead: "Elegimos la herramienta según la edad y el nivel de cada grupo.",
+
+      prog_how_eyebrow: "En el aula",
+      prog_how_title: "Cómo son nuestras clases de programación",
+      prog_how1_title: "Grupos reducidos por edades",
+      prog_how1_desc: "Los grupos se organizan por franja de edad (6–8, 9–11, 12–14 y 15–16 años) para que el ritmo de cada sesión tenga sentido para todos.",
+      prog_how2_title: "Un mentor cerca",
+      prog_how2_desc: "Cada alumno avanza en su proyecto con un mentor que le acompaña y le resuelve las dudas en el momento.",
+      prog_how3_title: "Sin experiencia previa",
+      prog_how3_desc: "La mayoría de alumnos empiezan de cero. Cada grupo se adapta al nivel real de los niños y niñas que lo forman.",
+      prog_how4_title: "Proyectos propios",
+      prog_how4_desc: "Cada proyecto es suyo, de la idea inicial a la versión jugable. No son ejercicios a medias.",
+      prog_how5_title: "Material incluido",
+      prog_how5_desc: "En la academia disponemos del hardware y el software necesarios. Solo hace falta venir con ganas de probar cosas.",
+      prog_how6_title: "Presencial u online",
+      prog_how6_desc: "Clases presenciales en Vilafranca del Penedès u online en directo por Zoom, con profesor en directo (no vídeos grabados).",
+
+      prog_more_title: "Más que programación",
+      prog_more_lead: "Programar es solo una parte de lo que hacemos. Descubre las otras áreas de la academia.",
+      prog_more1: "Diseñan sus propios videojuegos en Minecraft Education o Roblox Studio.",
+      prog_more2: "Modelan en 3D y ven su idea salir de una impresora 3D.",
+      prog_more3: "Graban, editan y publican vídeos sobre sus propios proyectos.",
+      prog_more_link: "Ver en la página principal →",
+
+      prog_faq_title: "Preguntas sobre las clases de programación",
+      prog_faq_age_q: "¿Desde qué edad pueden empezar a programar?",
+      prog_faq_age_a: "Desde los 6 años. Hasta los 16, los grupos se organizan por franja de edad: 6–8, 9–11, 12–14 y 15–16 años.",
+      prog_faq_lang_q: "¿Qué lenguajes de programación aprenden?",
+      prog_faq_lang_a: "Depende de la edad: bloques y Scratch los primeros años y, a partir de los 11-12 años, Python y los lenguajes de los motores de juego, como Roblox Lua o Unity."
     }
   };
 
-  var STORAGE_KEY = "pixelpenedes_lang";
+  /* Cada idioma té la seva pròpia URL (català a l'arrel, castellà a /es/), de manera que
+     Google pot indexar-los per separat. L'idioma de la pàgina el defineix <html lang>;
+     les pàgines de /es/ es generen amb tools/build-es.js a partir d'aquest mateix diccionari. */
   var currentLang = "ca";
-
-  function getStoredLang() {
-    try {
-      var stored = window.localStorage.getItem(STORAGE_KEY);
-      if (stored === "ca" || stored === "es") return stored;
-    } catch (e) {
-      /* localStorage no disponible: s'ignora i es fa servir el valor per defecte */
-    }
-    return null;
-  }
-
-  function storeLang(lang) {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, lang);
-    } catch (e) {
-      /* s'ignora si no es pot desar */
-    }
-  }
 
   function applyLanguage(lang) {
     if (!translations[lang]) lang = "ca";
@@ -835,11 +939,12 @@
       if (msg !== undefined) el.href = "https://wa.me/34633454159?text=" + encodeURIComponent(msg);
     });
 
-    // Estat visual dels botons d'idioma
+    // Estat visual dels enllaços d'idioma
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
       var isActive = btn.getAttribute("data-lang") === lang;
       btn.classList.toggle("is-active", isActive);
-      btn.setAttribute("aria-pressed", String(isActive));
+      if (isActive) btn.setAttribute("aria-current", "true");
+      else btn.removeAttribute("aria-current");
     });
 
     // Etiqueta del botó de menú mòbil (respecta l'estat obert/tancat actual)
@@ -850,18 +955,10 @@
       navToggleBtn.setAttribute("aria-label", isNavOpen ? dict.nav_toggle_close : dict.nav_toggle_open);
     }
 
-    storeLang(lang);
   }
 
-  /* Botons de canvi d'idioma (CAT | ES) */
-  document.querySelectorAll(".lang-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      applyLanguage(btn.getAttribute("data-lang"));
-    });
-  });
-
-  // Idioma inicial: preferència desada, si n'hi ha, si no, català per defecte
-  applyLanguage(getStoredLang() || "ca");
+  // Idioma de la pàgina: el que declara <html lang>. Els enllaços CAT | ES naveguen a l'altra URL.
+  applyLanguage(document.documentElement.lang === "es" ? "es" : "ca");
 
   /* =========================================================
      Any actual al footer
