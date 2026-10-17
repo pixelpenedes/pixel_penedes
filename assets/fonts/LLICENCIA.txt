@@ -1,0 +1,6 @@
+Creepster (creepster-latin.woff2)
+Autor: Typomondo
+Llicència: SIL Open Font License 1.1 (permet l'ús web i l'allotjament propi)
+Text de la llicència: https://openfontlicense.org/open-font-license-official-text/
+Origen: Google Fonts (https://fonts.google.com/specimen/Creepster)
+Ús al web: només al títol de la novetat "Especial Halloween" (style.css, .halloween-title).

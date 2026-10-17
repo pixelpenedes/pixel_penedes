@@ -387,6 +387,12 @@
       b2b_wa_message_label: "Missatge",
 
       /* ---------- Pàgina: programació per a nens a Vilafranca ---------- */
+      halloween_badge: "Novetat",
+      halloween_title: "Especial Halloween",
+      halloween_caption: "Túnel del Terror · 31 d'octubre i 1 de novembre · de 17.30h a 20.30h",
+      halloween_img1_alt: "Cartell: has trobat la targeta del diable? El posseïdor i un acompanyant podreu entrar gratis el 31 d'octubre i l'1 de novembre, de 17.30h a 20.30h",
+      halloween_img2_alt: "Cartell del Túnel del Terror: t'atreveixes a entrar? 31 d'octubre i 1 de novembre, de 17.30h a 20.30h, 1 euro, carrer Puigmoltó 5, Vilafranca",
+
       prog_index_link: "Classes de programació a Vilafranca →",
       prog_wa_message: "Hola! Voldria informació sobre les classes de programació de Pixel Penedès",
       prog_meta_title: "Classes de programació per a nens a Vilafranca | Pixel Penedès",
@@ -947,6 +953,12 @@
       b2b_wa_message_label: "Mensaje",
 
       /* ---------- Página: programación para niños en Vilafranca ---------- */
+      halloween_badge: "Novedad",
+      halloween_title: "Especial Halloween",
+      halloween_caption: "Túnel del Terror · 31 de octubre y 1 de noviembre · de 17.30h a 20.30h",
+      halloween_img1_alt: "Cartel: ¿has encontrado la tarjeta del diablo? El poseedor y un acompañante podréis entrar gratis el 31 de octubre y el 1 de noviembre, de 17.30h a 20.30h",
+      halloween_img2_alt: "Cartel del Túnel del Terror: ¿te atreves a entrar? 31 de octubre y 1 de noviembre, de 17.30h a 20.30h, 1 euro, calle Puigmoltó 5, Vilafranca",
+
       prog_index_link: "Clases de programación en Vilafranca →",
       prog_wa_message: "¡Hola! Me gustaría información sobre las clases de programación de Pixel Penedès",
       prog_meta_title: "Clases de programación para niños en Vilafranca | Pixel Penedès",
@@ -1201,6 +1213,15 @@
 
   // Idioma de la pàgina: el que declara <html lang>. Els enllaços CAT | ES naveguen a l'altra URL.
   applyLanguage(document.documentElement.lang === "es" ? "es" : "ca");
+
+  /* =========================================================
+     Elements temporals (p. ex. Especial Halloween): s'amaguen sols
+     a partir de la data indicada a data-hide-after (AAAA-MM-DD)
+     ========================================================= */
+  document.querySelectorAll("[data-hide-after]").forEach(function (el) {
+    var limit = new Date(el.getAttribute("data-hide-after") + "T00:00:00");
+    if (!isNaN(limit.getTime()) && new Date() >= limit) el.hidden = true;
+  });
 
   /* =========================================================
      Any actual al footer
