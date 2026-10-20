@@ -135,15 +135,7 @@
   ]
 }
 </script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JGKTFHFFLJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JGKTFHFFLJ');
-</script>
+<!-- Google Analytics: es carrega des de script.js només si l'usuari accepta les cookies analítiques -->
 </head>
 <body>
 
@@ -485,6 +477,7 @@
         <div class="form-row form-row--full">
           <button type="submit" class="btn btn-onsignal btn-full" data-i18n="form_submit">Enviar sol·licitud per WhatsApp</button>
           <p class="form-note" data-i18n="form_note">S'obrirà WhatsApp amb les dades ja escrites, perquè només hagis de prémer enviar.</p>
+          <p class="form-note"><span data-i18n="priv_form_note">Les dades només s'utilitzen per respondre la teva sol·licitud.</span> <a href="../privacitat/" data-i18n="priv_link">Política de privacitat</a></p>
         </div>
 
         <p class="form-success" id="formSuccess" role="status" hidden data-i18n="form_success">Perfecte! T'hem obert WhatsApp amb la sol·licitud a punt. Si no s'ha obert, escriu-nos al 633 454 159.</p>

@@ -361,15 +361,7 @@
   ]
 }
 </script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JGKTFHFFLJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JGKTFHFFLJ');
-</script>
+<!-- Google Analytics: es carrega des de script.js només si l'usuari accepta les cookies analítiques -->
 </head>
 <body>
 
@@ -966,7 +958,7 @@
 
         <div class="form-check form-row--full">
           <input type="checkbox" id="empPrivacitat" name="empPrivacitat" required aria-required="true">
-          <label for="empPrivacitat" data-i18n="b2b_form_privacy">Acepto la política de privacidad.</label>
+          <label for="empPrivacitat"><span data-i18n="b2b_form_privacy_a">Acepto la </span><a href="privacidad/" data-i18n="b2b_form_privacy_link">política de privacidad</a>.</label>
         </div>
 
         <div class="form-row form-row--full">

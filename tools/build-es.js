@@ -42,7 +42,10 @@ const ROUTES = [
     es: "es/extraescolares-tecnologia-vilafranca/index.html",
     caUrl: "/extraescolars-tecnologia-vilafranca/",
     esUrl: "/es/extraescolares-tecnologia-vilafranca/"
-  }
+  },
+  { ca: "cookies/index.html", es: "es/cookies/index.html", caUrl: "/cookies/", esUrl: "/es/cookies/" },
+  { ca: "privacitat/index.html", es: "es/privacidad/index.html", caUrl: "/privacitat/", esUrl: "/es/privacidad/" },
+  { ca: "avis-legal/index.html", es: "es/aviso-legal/index.html", caUrl: "/avis-legal/", esUrl: "/es/aviso-legal/" }
 ];
 
 /* ---------- Diccionari (script.js) ---------- */

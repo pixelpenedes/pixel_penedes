@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://pixelpenedes.com/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/"/>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://pixelpenedes.com/es/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/"/>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://pixelpenedes.com/empresas.html</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/empresas.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/empresas.html"/>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://pixelpenedes.com/es/empresas.html</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/empresas.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/empresas.html"/>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://pixelpenedes.com/programacio-nens-vilafranca/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/programacio-nens-vilafranca/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/programacion-ninos-vilafranca/"/>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://pixelpenedes.com/es/programacion-ninos-vilafranca/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/programacio-nens-vilafranca/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/programacion-ninos-vilafranca/"/>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://pixelpenedes.com/videojocs-nens-vilafranca/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/videojocs-nens-vilafranca/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/videojuegos-ninos-vilafranca/"/>
@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://pixelpenedes.com/es/videojuegos-ninos-vilafranca/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/videojocs-nens-vilafranca/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/videojuegos-ninos-vilafranca/"/>
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://pixelpenedes.com/impressio-3d-nens-vilafranca/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/impressio-3d-nens-vilafranca/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/impresion-3d-ninos-vilafranca/"/>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://pixelpenedes.com/es/impresion-3d-ninos-vilafranca/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/impressio-3d-nens-vilafranca/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/impresion-3d-ninos-vilafranca/"/>
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://pixelpenedes.com/extraescolars-tecnologia-vilafranca/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/extraescolars-tecnologia-vilafranca/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/extraescolares-tecnologia-vilafranca/"/>
@@ -90,10 +90,58 @@
   </url>
   <url>
     <loc>https://pixelpenedes.com/es/extraescolares-tecnologia-vilafranca/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/extraescolars-tecnologia-vilafranca/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/extraescolares-tecnologia-vilafranca/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelpenedes.com/extraescolars-tecnologia-vilafranca/"/>
+  </url>
+  <url>
+    <loc>https://pixelpenedes.com/cookies/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelpenedes.com/cookies/"/>
+  </url>
+  <url>
+    <loc>https://pixelpenedes.com/es/cookies/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelpenedes.com/cookies/"/>
+  </url>
+  <url>
+    <loc>https://pixelpenedes.com/privacitat/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/privacitat/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/privacidad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelpenedes.com/privacitat/"/>
+  </url>
+  <url>
+    <loc>https://pixelpenedes.com/es/privacidad/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/privacitat/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/privacidad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelpenedes.com/privacitat/"/>
+  </url>
+  <url>
+    <loc>https://pixelpenedes.com/avis-legal/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/avis-legal/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/aviso-legal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelpenedes.com/avis-legal/"/>
+  </url>
+  <url>
+    <loc>https://pixelpenedes.com/es/aviso-legal/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://pixelpenedes.com/avis-legal/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://pixelpenedes.com/es/aviso-legal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pixelpenedes.com/avis-legal/"/>
   </url>
 </urlset>

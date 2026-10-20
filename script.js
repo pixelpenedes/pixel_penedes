@@ -452,6 +452,105 @@
       prog_faq_lang_q: "Quins llenguatges de programació aprenen?",
       prog_faq_lang_a: "Depèn de l'edat: blocs i Scratch els primers anys i, a partir dels 11-12 anys, Python i els llenguatges dels motors de joc, com Roblox Lua o Unity.",
 
+      /* ---------- Cookies ---------- */
+      ck_banner_aria: "Avís de cookies",
+      ck_banner_title: "Les teves cookies",
+      ck_banner_text: "Fem servir cookies analítiques (Google Analytics) per entendre com s'utilitza el web i millorar-lo. Només s'activen si les acceptes. Pots canviar la teva decisió quan vulguis.",
+      ck_accept: "Acceptar",
+      ck_reject: "Rebutjar",
+      ck_more: "Més informació",
+      ck_footer_link: "Cookies",
+      ck_meta_title: "Política de cookies | Pixel Penedès",
+      ck_meta_description: "Informació sobre les cookies que fa servir Pixel Penedès, per a què serveixen i com acceptar-les, rebutjar-les o canviar la teva decisió.",
+      ck_breadcrumb: "Política de cookies",
+      ck_h1: "Política de cookies",
+      ck_updated: "Última actualització: 20 d'octubre de 2026",
+      ck_s1_title: "Qui n'és el responsable",
+      ck_s1_p: "Gloria Gany Cruz Paredes (autònoma, nom comercial Pixel Penedès) · NIF 49768223H · Carrer Puigmoltó, 5, 08720 Vilafranca del Penedès · pixelpenedes@gmail.com · 633 454 159",
+      ck_s2_title: "Què són les cookies",
+      ck_s2_p: "Les cookies són petits fitxers que un web desa al teu navegador. Serveixen, per exemple, per recordar una decisió o per mesurar quantes persones visiten el web.",
+      ck_s3_title: "Quines fem servir",
+      ck_tech_title: "Tècniques (sempre actives)",
+      ck_tech_p: "Desem al teu navegador (emmagatzematge local) la decisió que prens sobre les cookies, perquè no t'ho hàgim de tornar a preguntar a cada visita. No conté dades personals.",
+      ck_an_title: "Analítiques (només si les acceptes)",
+      ck_an_p: "Fem servir Google Analytics per saber, de manera agregada, quines pàgines es visiten i com arriben les persones al web. Google Analytics desa cookies com _ga i _ga_G-JGKTFHFFLJ, que poden durar fins a 2 anys. No fem servir cookies publicitàries ni de màrqueting.",
+      ck_s4_title: "Com canviar o retirar el consentiment",
+      ck_s4_p: "Pots canviar la teva decisió en qualsevol moment amb el botó següent, o esborrant les dades del web des de la configuració del teu navegador.",
+      ck_change_btn: "Canviar la meva decisió",
+      ck_s5_title: "Altres serveis",
+      ck_s5_p: "Els enllaços a WhatsApp et porten a un servei extern, amb la seva pròpia política de privacitat i de cookies.",
+      ck_s6_title: "Contacte",
+      ck_s6_p: "Si tens qualsevol dubte sobre aquesta política, escriu-nos a pixelpenedes@gmail.com.",
+
+      /* ---------- Privacitat ---------- */
+      pv_footer_link: "Privacitat",
+      pv_meta_title: "Política de privacitat | Pixel Penedès",
+      pv_meta_description: "Com tractem les dades personals que ens facilites als formularis, per WhatsApp o per correu: responsable, finalitat, drets i conservació.",
+      pv_breadcrumb: "Política de privacitat",
+      pv_h1: "Política de privacitat",
+      pv_updated: "Última actualització: 20 d'octubre de 2026",
+      pv_s1_title: "Responsable del tractament",
+      pv_s1_p: "Gloria Gany Cruz Paredes (autònoma, nom comercial Pixel Penedès) · NIF 49768223H · Carrer Puigmoltó, 5, 08720 Vilafranca del Penedès · pixelpenedes@gmail.com · 633 454 159",
+      pv_s2_title: "Quines dades recollim i per a què",
+      pv_s2_p0: "Tractem únicament les dades que tu ens facilites, amb aquestes finalitats:",
+      pv_s2_li1: "Reserva de classe gratuïta (famílies): nom i edat de l'alumne/a, nom del pare, mare o tutor/a, telèfon, correu electrònic (opcional) i comentari. Les fem servir per confirmar dia i grup i posar-nos en contacte amb tu.",
+      pv_s2_li2: "Programa per a empreses: nom, cognoms, empresa, càrrec o departament, correu corporatiu, telèfon, nombre aproximat d'empleats i de famílies, modalitat d'interès i missatge. Les fem servir per respondre't i, si cal, enviar-te la proposta del programa.",
+      pv_s2_li3: "Missatges directes (WhatsApp o correu): les dades que ens enviïs, només per atendre la teva consulta.",
+      pv_s3_title: "Com arriben les dades fins a nosaltres",
+      pv_s3_p: "Els formularis del web no desen les dades en cap servidor del web. En enviar-los s'obre WhatsApp amb el missatge ja escrit, i les dades només ens arriben si tu prems «enviar». A partir d'aquí, la conversa també es regeix per les condicions de WhatsApp (Meta).",
+      pv_s4_title: "Base jurídica",
+      pv_s4_p: "El teu consentiment (art. 6.1.a RGPD), que dones en enviar el formulari o el missatge, i l'aplicació de mesures precontractuals a petició teva, com ara la reserva d'una classe (art. 6.1.b RGPD).",
+      pv_s5_title: "Menors d'edat",
+      pv_s5_p: "Les dades dels nens i joves les facilita el pare, mare o tutor/a legal, que declara tenir-ne la representació i dona el consentiment en nom seu.",
+      pv_s6_title: "Quant de temps les conservem",
+      pv_s6_p: "Mentre gestionem la teva sol·licitud o es mantingui la relació amb la família o l'empresa, i després, bloquejades, durant els terminis legals aplicables. Pots demanar-ne la supressió en qualsevol moment.",
+      pv_s7_title: "Destinataris",
+      pv_s7_p: "No cedim les teves dades a tercers, tret d'obligació legal. Fem servir serveis tècnics d'altres empreses (com WhatsApp de Meta, el correu de Google i el proveïdor d'allotjament del web), que poden tractar dades per compte nostre. Si hi ha transferències internacionals, es basen en les garanties adequades que preveu la normativa.",
+      pv_s8_title: "Analítica web i cookies",
+      pv_s8_p: "L'analítica del web només s'activa si l'acceptes. Tens tota la informació a la política de cookies.",
+      pv_cookies_link: "Política de cookies",
+      pv_s9_title: "Els teus drets",
+      pv_s9_p: "Pots accedir a les teves dades, rectificar-les, suprimir-les, oposar-te al tractament, demanar-ne la limitació o la portabilitat i retirar el consentiment quan vulguis, escrivint a pixelpenedes@gmail.com i indicant el teu nom i el dret que vols exercir. Si consideres que no s'han respectat els teus drets, pots reclamar a l'Agència Espanyola de Protecció de Dades (www.aepd.es).",
+      pv_s10_title: "Seguretat",
+      pv_s10_p: "Apliquem mesures tècniques i organitzatives raonables per protegir les dades i només hi accedeix la persona responsable de l'acadèmia.",
+      priv_form_note: "Les dades només s'utilitzen per respondre la teva sol·licitud.",
+      priv_link: "Política de privacitat",
+      b2b_form_privacy_a: "Accepto la ",
+      b2b_form_privacy_link: "política de privacitat",
+
+      /* ---------- Avís legal ---------- */
+      lg_footer_link: "Avís legal",
+      lg_meta_title: "Avís legal | Pixel Penedès",
+      lg_meta_description: "Dades d'identificació del titular del web de Pixel Penedès, condicions d'ús, propietat intel·lectual, responsabilitat i legislació aplicable.",
+      lg_breadcrumb: "Avís legal",
+      lg_h1: "Avís legal",
+      lg_updated: "Última actualització: 20 d'octubre de 2026",
+      lg_s1_title: "Identificació del titular",
+      lg_s1_p0: "En compliment de la Llei 34/2002, de serveis de la societat de la informació i de comerç electrònic (LSSI-CE), s'informa que el titular d'aquest web és:",
+      lg_s1_p: "Gloria Gany Cruz Paredes (autònoma, nom comercial Pixel Penedès) · NIF 49768223H · Carrer Puigmoltó, 5, 08720 Vilafranca del Penedès · pixelpenedes@gmail.com · 633 454 159",
+      lg_s1_p2: "Activitat: acadèmia de formació tecnològica (programació, videojocs, disseny i impressió 3D, tecnologia) per a nens i joves.",
+      lg_s2_title: "Objecte i acceptació",
+      lg_s2_p: "Aquest web té caràcter informatiu i comercial sobre els serveis de Pixel Penedès. Accedir-hi i utilitzar-lo implica acceptar aquest avís legal; si no hi estàs d'acord, et demanem que no l'utilitzis.",
+      lg_s3_title: "Condicions d'ús",
+      lg_s3_p: "Et comprometes a fer un ús lícit, honest i respectuós del web, sense danyar-ne el funcionament, sense intentar accedir a àrees restringides i sense utilitzar-lo per a finalitats il·legals o contràries a la bona fe. Les dades que ens facilitis als formularis han de ser veritables i, en el cas dels menors, les ha de facilitar el seu pare, mare o tutor/a legal.",
+      lg_s4_title: "Propietat intel·lectual i industrial",
+      lg_s4_p1: "Els textos, el disseny, el logotip, les imatges i la resta de continguts del web són titularitat de Pixel Penedès o s'utilitzen amb autorització. No es permet reproduir-los, distribuir-los ni transformar-los sense permís previ i per escrit, tret dels usos que permeti la llei.",
+      lg_s4_p2: "Les marques, logotips i noms de tercers (com ara Roblox, Minecraft, Unity, Scratch, Python, AWS, Microsoft o Google) pertanyen als seus respectius propietaris i s'esmenten només amb finalitat informativa.",
+      lg_s5_title: "Informació del web",
+      lg_s5_p: "La informació publicada és orientativa i no constitueix una oferta contractual vinculant. Els horaris, els grups, les places i, en el cas del programa per a empreses, les condicions concretes es confirmen sempre de manera individual abans de qualsevol inscripció o acord.",
+      lg_s6_title: "Responsabilitat",
+      lg_s6_p: "Fem el possible perquè el web estigui disponible i la informació sigui correcta, però no garantim que no hi hagi interrupcions ni errors, i ens reservem el dret de modificar-lo o retirar-ne continguts sense avís previ. No ens fem responsables dels danys derivats d'un ús inadequat del web.",
+      lg_s7_title: "Enllaços a altres webs",
+      lg_s7_p: "El web pot contenir enllaços a serveis de tercers (per exemple, WhatsApp). No en controlem els continguts ni les polítiques, i per tant no en som responsables.",
+      lg_s8_title: "Protecció de dades i cookies",
+      lg_s8_p: "Pots consultar com tractem les teves dades personals i quines cookies fem servir a la política de privacitat i a la política de cookies.",
+      lg_s8_link1: "Política de privacitat",
+      lg_s8_link2: "Política de cookies",
+      lg_s9_title: "Legislació aplicable i jurisdicció",
+      lg_s9_p: "Aquest avís legal es regeix per la legislació espanyola. Per resoldre qualsevol controvèrsia, les parts se sotmeten als jutjats i tribunals que corresponguin segons la normativa aplicable i, si ets consumidor o usuari, als del teu domicili.",
+      lg_s10_title: "Modificacions i contacte",
+      lg_s10_p: "Podem actualitzar aquest avís legal quan sigui necessari; la data d'actualització figura a dalt. Per a qualsevol dubte, escriu-nos a pixelpenedes@gmail.com.",
+
       /* ---------- Pàgines de servei: videojocs, impressió 3D i extraescolars ---------- */
       svc_more_link: "Més informació →",
       svc_prog_card: "Del bloc de colors al codi real: Scratch, Python, Roblox Lua i Unity.",
@@ -1018,6 +1117,105 @@
       prog_faq_lang_q: "¿Qué lenguajes de programación aprenden?",
       prog_faq_lang_a: "Depende de la edad: bloques y Scratch los primeros años y, a partir de los 11-12 años, Python y los lenguajes de los motores de juego, como Roblox Lua o Unity.",
 
+      /* ---------- Cookies ---------- */
+      ck_banner_aria: "Aviso de cookies",
+      ck_banner_title: "Tus cookies",
+      ck_banner_text: "Usamos cookies analíticas (Google Analytics) para entender cómo se utiliza la web y mejorarla. Solo se activan si las aceptas. Puedes cambiar tu decisión cuando quieras.",
+      ck_accept: "Aceptar",
+      ck_reject: "Rechazar",
+      ck_more: "Más información",
+      ck_footer_link: "Cookies",
+      ck_meta_title: "Política de cookies | Pixel Penedès",
+      ck_meta_description: "Información sobre las cookies que usa Pixel Penedès, para qué sirven y cómo aceptarlas, rechazarlas o cambiar tu decisión.",
+      ck_breadcrumb: "Política de cookies",
+      ck_h1: "Política de cookies",
+      ck_updated: "Última actualización: 20 de octubre de 2026",
+      ck_s1_title: "Quién es el responsable",
+      ck_s1_p: "Gloria Gany Cruz Paredes (autónoma, nombre comercial Pixel Penedès) · NIF 49768223H · Calle Puigmoltó, 5, 08720 Vilafranca del Penedès · pixelpenedes@gmail.com · 633 454 159",
+      ck_s2_title: "Qué son las cookies",
+      ck_s2_p: "Las cookies son pequeños archivos que una web guarda en tu navegador. Sirven, por ejemplo, para recordar una decisión o para medir cuántas personas visitan la web.",
+      ck_s3_title: "Cuáles usamos",
+      ck_tech_title: "Técnicas (siempre activas)",
+      ck_tech_p: "Guardamos en tu navegador (almacenamiento local) la decisión que tomas sobre las cookies, para no tener que volver a preguntártelo en cada visita. No contiene datos personales.",
+      ck_an_title: "Analíticas (solo si las aceptas)",
+      ck_an_p: "Usamos Google Analytics para saber, de forma agregada, qué páginas se visitan y cómo llegan las personas a la web. Google Analytics guarda cookies como _ga y _ga_G-JGKTFHFFLJ, que pueden durar hasta 2 años. No usamos cookies publicitarias ni de marketing.",
+      ck_s4_title: "Cómo cambiar o retirar el consentimiento",
+      ck_s4_p: "Puedes cambiar tu decisión en cualquier momento con el botón siguiente, o borrando los datos de la web desde la configuración de tu navegador.",
+      ck_change_btn: "Cambiar mi decisión",
+      ck_s5_title: "Otros servicios",
+      ck_s5_p: "Los enlaces a WhatsApp te llevan a un servicio externo, con su propia política de privacidad y de cookies.",
+      ck_s6_title: "Contacto",
+      ck_s6_p: "Si tienes cualquier duda sobre esta política, escríbenos a pixelpenedes@gmail.com.",
+
+      /* ---------- Privacidad ---------- */
+      pv_footer_link: "Privacidad",
+      pv_meta_title: "Política de privacidad | Pixel Penedès",
+      pv_meta_description: "Cómo tratamos los datos personales que nos facilitas en los formularios, por WhatsApp o por correo: responsable, finalidad, derechos y conservación.",
+      pv_breadcrumb: "Política de privacidad",
+      pv_h1: "Política de privacidad",
+      pv_updated: "Última actualización: 20 de octubre de 2026",
+      pv_s1_title: "Responsable del tratamiento",
+      pv_s1_p: "Gloria Gany Cruz Paredes (autónoma, nombre comercial Pixel Penedès) · NIF 49768223H · Calle Puigmoltó, 5, 08720 Vilafranca del Penedès · pixelpenedes@gmail.com · 633 454 159",
+      pv_s2_title: "Qué datos recogemos y para qué",
+      pv_s2_p0: "Tratamos únicamente los datos que tú nos facilitas, con estas finalidades:",
+      pv_s2_li1: "Reserva de clase gratuita (familias): nombre y edad del alumno/a, nombre del padre, madre o tutor/a, teléfono, correo electrónico (opcional) y comentario. Los usamos para confirmar día y grupo y ponernos en contacto contigo.",
+      pv_s2_li2: "Programa para empresas: nombre, apellidos, empresa, cargo o departamento, correo corporativo, teléfono, número aproximado de empleados y de familias, modalidad de interés y mensaje. Los usamos para responderte y, si procede, enviarte la propuesta del programa.",
+      pv_s2_li3: "Mensajes directos (WhatsApp o correo): los datos que nos envíes, solo para atender tu consulta.",
+      pv_s3_title: "Cómo llegan los datos hasta nosotros",
+      pv_s3_p: "Los formularios de la web no guardan los datos en ningún servidor de la web. Al enviarlos se abre WhatsApp con el mensaje ya escrito, y los datos solo nos llegan si tú pulsas «enviar». A partir de ahí, la conversación también se rige por las condiciones de WhatsApp (Meta).",
+      pv_s4_title: "Base jurídica",
+      pv_s4_p: "Tu consentimiento (art. 6.1.a RGPD), que das al enviar el formulario o el mensaje, y la aplicación de medidas precontractuales a petición tuya, como la reserva de una clase (art. 6.1.b RGPD).",
+      pv_s5_title: "Menores de edad",
+      pv_s5_p: "Los datos de los niños y jóvenes los facilita el padre, madre o tutor/a legal, que declara tener su representación y da el consentimiento en su nombre.",
+      pv_s6_title: "Cuánto tiempo los conservamos",
+      pv_s6_p: "Mientras gestionamos tu solicitud o se mantenga la relación con la familia o la empresa y, después, bloqueados, durante los plazos legales aplicables. Puedes pedir su supresión en cualquier momento.",
+      pv_s7_title: "Destinatarios",
+      pv_s7_p: "No cedemos tus datos a terceros, salvo obligación legal. Usamos servicios técnicos de otras empresas (como WhatsApp de Meta, el correo de Google y el proveedor de alojamiento de la web), que pueden tratar datos por cuenta nuestra. Si hay transferencias internacionales, se basan en las garantías adecuadas que prevé la normativa.",
+      pv_s8_title: "Analítica web y cookies",
+      pv_s8_p: "La analítica de la web solo se activa si la aceptas. Tienes toda la información en la política de cookies.",
+      pv_cookies_link: "Política de cookies",
+      pv_s9_title: "Tus derechos",
+      pv_s9_p: "Puedes acceder a tus datos, rectificarlos, suprimirlos, oponerte al tratamiento, solicitar su limitación o portabilidad y retirar el consentimiento cuando quieras, escribiendo a pixelpenedes@gmail.com e indicando tu nombre y el derecho que quieres ejercer. Si consideras que no se han respetado tus derechos, puedes reclamar ante la Agencia Española de Protección de Datos (www.aepd.es).",
+      pv_s10_title: "Seguridad",
+      pv_s10_p: "Aplicamos medidas técnicas y organizativas razonables para proteger los datos y solo accede a ellos la persona responsable de la academia.",
+      priv_form_note: "Los datos solo se utilizan para responder a tu solicitud.",
+      priv_link: "Política de privacidad",
+      b2b_form_privacy_a: "Acepto la ",
+      b2b_form_privacy_link: "política de privacidad",
+
+      /* ---------- Aviso legal ---------- */
+      lg_footer_link: "Aviso legal",
+      lg_meta_title: "Aviso legal | Pixel Penedès",
+      lg_meta_description: "Datos de identificación del titular de la web de Pixel Penedès, condiciones de uso, propiedad intelectual, responsabilidad y legislación aplicable.",
+      lg_breadcrumb: "Aviso legal",
+      lg_h1: "Aviso legal",
+      lg_updated: "Última actualización: 20 de octubre de 2026",
+      lg_s1_title: "Identificación del titular",
+      lg_s1_p0: "En cumplimiento de la Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE), se informa de que el titular de esta web es:",
+      lg_s1_p: "Gloria Gany Cruz Paredes (autónoma, nombre comercial Pixel Penedès) · NIF 49768223H · Calle Puigmoltó, 5, 08720 Vilafranca del Penedès · pixelpenedes@gmail.com · 633 454 159",
+      lg_s1_p2: "Actividad: academia de formación tecnológica (programación, videojuegos, diseño e impresión 3D, tecnología) para niños y jóvenes.",
+      lg_s2_title: "Objeto y aceptación",
+      lg_s2_p: "Esta web tiene carácter informativo y comercial sobre los servicios de Pixel Penedès. Acceder a ella y utilizarla implica aceptar este aviso legal; si no estás de acuerdo, te pedimos que no la utilices.",
+      lg_s3_title: "Condiciones de uso",
+      lg_s3_p: "Te comprometes a hacer un uso lícito, honesto y respetuoso de la web, sin dañar su funcionamiento, sin intentar acceder a áreas restringidas y sin utilizarla para fines ilegales o contrarios a la buena fe. Los datos que nos facilites en los formularios deben ser veraces y, en el caso de los menores, debe facilitarlos su padre, madre o tutor/a legal.",
+      lg_s4_title: "Propiedad intelectual e industrial",
+      lg_s4_p1: "Los textos, el diseño, el logotipo, las imágenes y el resto de contenidos de la web son titularidad de Pixel Penedès o se utilizan con autorización. No se permite reproducirlos, distribuirlos ni transformarlos sin permiso previo y por escrito, salvo los usos que permita la ley.",
+      lg_s4_p2: "Las marcas, logotipos y nombres de terceros (como Roblox, Minecraft, Unity, Scratch, Python, AWS, Microsoft o Google) pertenecen a sus respectivos propietarios y se mencionan solo con finalidad informativa.",
+      lg_s5_title: "Información de la web",
+      lg_s5_p: "La información publicada es orientativa y no constituye una oferta contractual vinculante. Los horarios, los grupos, las plazas y, en el caso del programa para empresas, las condiciones concretas se confirman siempre de forma individual antes de cualquier inscripción o acuerdo.",
+      lg_s6_title: "Responsabilidad",
+      lg_s6_p: "Hacemos lo posible para que la web esté disponible y la información sea correcta, pero no garantizamos que no haya interrupciones ni errores, y nos reservamos el derecho de modificarla o retirar contenidos sin aviso previo. No nos hacemos responsables de los daños derivados de un uso inadecuado de la web.",
+      lg_s7_title: "Enlaces a otras webs",
+      lg_s7_p: "La web puede contener enlaces a servicios de terceros (por ejemplo, WhatsApp). No controlamos sus contenidos ni sus políticas y, por tanto, no somos responsables de ellos.",
+      lg_s8_title: "Protección de datos y cookies",
+      lg_s8_p: "Puedes consultar cómo tratamos tus datos personales y qué cookies usamos en la política de privacidad y en la política de cookies.",
+      lg_s8_link1: "Política de privacidad",
+      lg_s8_link2: "Política de cookies",
+      lg_s9_title: "Legislación aplicable y jurisdicción",
+      lg_s9_p: "Este aviso legal se rige por la legislación española. Para resolver cualquier controversia, las partes se someten a los juzgados y tribunales que correspondan según la normativa aplicable y, si eres consumidor o usuario, a los de tu domicilio.",
+      lg_s10_title: "Modificaciones y contacto",
+      lg_s10_p: "Podemos actualizar este aviso legal cuando sea necesario; la fecha de actualización figura arriba. Para cualquier duda, escríbenos a pixelpenedes@gmail.com.",
+
       /* ---------- Pàgines de servei: videojocs, impressió 3D i extraescolars ---------- */
       svc_more_link: "Más información →",
       svc_prog_card: "Del bloque de colores al código real: Scratch, Python, Roblox Lua y Unity.",
@@ -1563,6 +1761,107 @@
       empresaSuccess.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "nearest" });
     });
   }
+
+  /* =========================================================
+     Cookies: avís de consentiment. Google Analytics només es carrega
+     si l'usuari accepta; si rebutja, no es desa cap cookie analítica.
+     ========================================================= */
+  (function cookieConsent() {
+    var KEY = "pixelpenedes_cookie_consent";
+    var GA_ID = "G-JGKTFHFFLJ";
+    var MAX_AGE = 1000 * 60 * 60 * 24 * 365; // es torna a preguntar al cap d'un any
+
+    function readChoice() {
+      try {
+        var v = JSON.parse(window.localStorage.getItem(KEY) || "null");
+        if (v && (v.value === "granted" || v.value === "denied") && Date.now() - v.ts < MAX_AGE) return v.value;
+      } catch (e) { /* localStorage no disponible: es tornarà a preguntar */ }
+      return null;
+    }
+    function saveChoice(value) {
+      try { window.localStorage.setItem(KEY, JSON.stringify({ value: value, ts: Date.now() })); } catch (e) { /* s'ignora */ }
+    }
+    function loadAnalytics() {
+      if (window.__gaLoaded) return;
+      window.__gaLoaded = true;
+      window["ga-disable-" + GA_ID] = false;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+      document.head.appendChild(s);
+      window.gtag("js", new Date());
+      window.gtag("config", GA_ID);
+    }
+    function removeAnalyticsCookies() {
+      window["ga-disable-" + GA_ID] = true;
+      var host = window.location.hostname.replace(/^www\./, "");
+      document.cookie.split(";").forEach(function (c) {
+        var name = c.split("=")[0].trim();
+        if (/^_ga(_|$)/.test(name) || name === "_gid" || name === "_gat") {
+          [null, host, "." + host].forEach(function (domain) {
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/" + (domain ? "; domain=" + domain : "");
+          });
+        }
+      });
+    }
+    function policyUrl() { return currentLang === "es" ? "/es/cookies/" : "/cookies/"; }
+    function closeBanner() {
+      var b = document.getElementById("cookieBanner");
+      if (b && b.parentNode) b.parentNode.removeChild(b);
+    }
+    function showBanner() {
+      closeBanner();
+      var d = translations[currentLang] || translations.ca;
+      var el = document.createElement("div");
+      el.id = "cookieBanner";
+      el.className = "cookie-banner";
+      el.setAttribute("role", "dialog");
+      el.setAttribute("aria-label", d.ck_banner_aria);
+      el.innerHTML =
+        '<div class="cookie-banner-text"><strong>' + d.ck_banner_title + "</strong><p>" + d.ck_banner_text +
+        ' <a href="' + policyUrl() + '">' + d.ck_more + "</a></p></div>" +
+        '<div class="cookie-banner-actions">' +
+        '<button type="button" class="btn btn-ink btn-small" data-cookie="denied">' + d.ck_reject + "</button>" +
+        '<button type="button" class="btn btn-ink btn-small" data-cookie="granted">' + d.ck_accept + "</button></div>";
+      el.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-cookie]");
+        if (!btn) return;
+        var value = btn.getAttribute("data-cookie");
+        saveChoice(value);
+        if (value === "granted") loadAnalytics(); else removeAnalyticsCookies();
+        closeBanner();
+      });
+      document.body.appendChild(el);
+    }
+
+    // Enllaç a la política al peu de pàgina
+    var footerNav = document.querySelector(".footer-links");
+    if (footerNav && !footerNav.querySelector("[data-cookie-link]")) {
+      var link = document.createElement("a");
+      link.href = policyUrl();
+      link.setAttribute("data-cookie-link", "");
+      link.textContent = (translations[currentLang] || translations.ca).ck_footer_link;
+      footerNav.appendChild(link);
+      var priv = document.createElement("a");
+      priv.href = currentLang === "es" ? "/es/privacidad/" : "/privacitat/";
+      priv.textContent = (translations[currentLang] || translations.ca).pv_footer_link;
+      footerNav.appendChild(priv);
+      var legal = document.createElement("a");
+      legal.href = currentLang === "es" ? "/es/aviso-legal/" : "/avis-legal/";
+      legal.textContent = (translations[currentLang] || translations.ca).lg_footer_link;
+      footerNav.appendChild(legal);
+    }
+    // Botons "canviar la meva decisió"
+    document.querySelectorAll("[data-cookie-settings]").forEach(function (b) {
+      b.addEventListener("click", showBanner);
+    });
+
+    var choice = readChoice();
+    if (choice === "granted") loadAnalytics();
+    else if (choice === null) showBanner();
+  })();
 
   /* =========================================================
      Ombra a la capçalera en fer scroll
