@@ -125,6 +125,10 @@
       faq3_a: "Grups reduïts organitzats per franja d'edat (6–8, 9–11, 12–14 i 15–16 anys), perquè el ritme de cada sessió tingui sentit per a tothom.",
       faq4_q: "On són les classes i com puc conèixer els horaris?",
       faq4_a: "Fem les classes al nostre espai del carrer Puigmoltó, 5, a Vilafranca del Penedès. Els horaris s'organitzen per grups: escriu-nos per WhatsApp o correu i et confirmem la disponibilitat actual.",
+      faq_dur_q: "Quant duren les classes?",
+      faq_dur_a: "Cada alumne fa una classe setmanal de 90 minuts, tant en les classes presencials com en les online en directe.",
+      faq_desc_q: "Hi ha descomptes per a famílies?",
+      faq_desc_a: "Sí. Apliquem un 10% de descompte amb el carnet de família nombrosa, un 15% amb el Carnet Jove i un 10% si l'alumne té un germà o germana al centre. Els descomptes no són acumulables.",
       faq5_q: "Què inclou la classe gratuïta?",
       faq5_a: "Una sessió real, amb el grup que li correspondria per edat, perquè el nen o la nena la visqui tal com serà després. Sense cap compromís de continuïtat.",
       faq6_q: "Com reservo la classe de prova?",
@@ -133,6 +137,7 @@
       res_eyebrow: "Sense compromís",
       res_title: "Reserva la classe gratuïta",
       res_lead: "Explica'ns una mica sobre el nen o la nena i et confirmem dia i grup. Sense compromís, sense lletra petita.",
+      res_descomptes: "Descomptes per a famílies: 10% amb carnet de família nombrosa · 15% amb el Carnet Jove · 10% si té un germà o germana al centre. No acumulables.",
       res_point1: "Resposta en menys de 48h laborables",
       res_point2: "Grup segons l'edat real",
       res_point3: "Cap dada es comparteix amb tercers",
@@ -198,7 +203,7 @@
       b2b_hero_tag: "Pixel Penedès Family Benefits",
       b2b_hero_title1: "Cuida del teu equip.",
       b2b_hero_title2: "Facilita el seu dia a dia.",
-      b2b_hero_meta: "Cursos presencials i online · De 6 a 16 anys · Durant tot el curs",
+      b2b_hero_meta: "Cursos presencials i online · De 6 a 16 anys · Classes setmanals de 90 minuts · Durant tot el curs",
       b2b_hero_lead: "Ajuda els teus empleats a conciliar la vida laboral i familiar oferint als seus fills accés a formació en programació, videojocs i tecnologia en condicions exclusives.",
       b2b_cta_primary: "Vull informació per a la meva empresa",
       b2b_cta_how: "Com funciona?",
@@ -320,7 +325,7 @@
       b2b_cls_title: "Un benefici que facilita el dia a dia",
       b2b_cls_title2: "Aprendre, crear i conciliar",
       b2b_cls_p1: "Una activitat educativa que s'adapta al dia a dia de cada família, amb classes online en directe perquè els nens i joves puguin aprendre, crear i desenvolupar els seus propis projectes de tecnologia.",
-      b2b_cls_p2: "Programació, videojocs, 3D i tecnologia, amb un professor que els acompanya en directe i grups reduïts adaptats a cada edat.",
+      b2b_cls_p2: "Programació, videojocs, 3D i tecnologia, amb un professor que els acompanya en directe i grups reduïts adaptats a cada edat. Classes setmanals de 90 minuts.",
       b2b_cls_close: "Més flexibilitat per a les famílies. Més valor per als teus empleats.",
       b2b_cls_img1_alt: "Classe online en directe: el professor comparteix pantalla amb codi i un personatge de videojoc mentre l'alumnat segueix la sessió per videotrucada",
       b2b_cls_img2_alt: "Un pare i el seu fill rient davant d'un portàtil mentre programen un joc amb blocs",
@@ -701,6 +706,7 @@
       hero_point1: "Grupos reducidos por edades",
       hero_point2: "Proyectos propios, no fichas",
       hero_point3: "Clase de prueba sin compromiso",
+      hero_point4: "Clases semanales de 90 minutos",
 
       mode_presencial_label: "Presencial",
       mode_presencial_sub: "En la academia de Vilafranca",
@@ -790,6 +796,10 @@
       faq3_a: "Grupos reducidos organizados por franja de edad (6–8, 9–11, 12–14 y 15–16 años), para que el ritmo de cada sesión tenga sentido para todos.",
       faq4_q: "¿Dónde son las clases y cómo puedo conocer los horarios?",
       faq4_a: "Hacemos las clases en nuestro espacio de la calle Puigmoltó, 5, en Vilafranca del Penedès. Los horarios se organizan por grupos: escríbenos por WhatsApp o correo y te confirmamos la disponibilidad actual.",
+      faq_dur_q: "¿Cuánto duran las clases?",
+      faq_dur_a: "Cada alumno hace una clase semanal de 90 minutos, tanto en las clases presenciales como en las online en directo.",
+      faq_desc_q: "¿Hay descuentos para familias?",
+      faq_desc_a: "Sí. Aplicamos un 10% de descuento con el carné de familia numerosa, un 15% con el Carnet Joven y un 10% si el alumno tiene un hermano o hermana en el centro. Los descuentos no son acumulables.",
       faq5_q: "¿Qué incluye la clase gratuita?",
       faq5_a: "Una sesión real, con el grupo que le correspondería por edad, para que el niño o la niña la viva tal como será después. Sin ningún compromiso de continuidad.",
       faq6_q: "¿Cómo reservo la clase de prueba?",
@@ -798,6 +808,7 @@
       res_eyebrow: "Sin compromiso",
       res_title: "Reserva la clase gratuita",
       res_lead: "Cuéntanos un poco sobre el niño o la niña y te confirmamos día y grupo. Sin compromiso, sin letra pequeña.",
+      res_descomptes: "Descuentos para familias: 10% con carné de familia numerosa · 15% con el Carnet Joven · 10% si tiene un hermano o hermana en el centro. No acumulables.",
       res_point1: "Respuesta en menos de 48h laborables",
       res_point2: "Grupo según la edad real",
       res_point3: "Ningún dato se comparte con terceros",
@@ -863,7 +874,7 @@
       b2b_hero_tag: "Pixel Penedès Family Benefits",
       b2b_hero_title1: "Cuida de tu equipo.",
       b2b_hero_title2: "Facilita su día a día.",
-      b2b_hero_meta: "Cursos presenciales y online · De 6 a 16 años · Durante todo el curso",
+      b2b_hero_meta: "Cursos presenciales y online · De 6 a 16 años · Clases semanales de 90 minutos · Durante todo el curso",
       b2b_hero_lead: "Ayuda a tus empleados a conciliar la vida laboral y familiar ofreciendo a sus hijos acceso a formación en programación, videojuegos y tecnología en condiciones exclusivas.",
       b2b_cta_primary: "Quiero información para mi empresa",
       b2b_cta_how: "¿Cómo funciona?",
@@ -985,7 +996,7 @@
       b2b_cls_title: "Un beneficio que facilita el día a día",
       b2b_cls_title2: "Aprender, crear y conciliar",
       b2b_cls_p1: "Una actividad educativa que se adapta al día a día de cada familia, con clases online en directo para que los niños y jóvenes puedan aprender, crear y desarrollar sus propios proyectos de tecnología.",
-      b2b_cls_p2: "Programación, videojuegos, 3D y tecnología, con un profesor que les acompaña en directo y grupos reducidos adaptados a cada edad.",
+      b2b_cls_p2: "Programación, videojuegos, 3D y tecnología, con un profesor que les acompaña en directo y grupos reducidos adaptados a cada edad. Clases semanales de 90 minutos.",
       b2b_cls_close: "Más flexibilidad para las familias. Más valor para tus empleados.",
       b2b_cls_img1_alt: "Clase online en directo: el profesor comparte pantalla con código y un personaje de videojuego mientras el alumnado sigue la sesión por videollamada",
       b2b_cls_img2_alt: "Un padre y su hijo riendo delante de un portátil mientras programan un juego con bloques",
@@ -1466,6 +1477,38 @@
       }
     });
   }
+
+  /* =========================================================
+     Enllaços interns (#secció): si el contingut canvia d'alçada mentre
+     es fa el scroll (imatges que acaben de carregar), tornem a ajustar
+     la posició perquè sempre acabi a l'inici de la secció.
+     ========================================================= */
+  function realignTo(target) {
+    var margin = parseFloat(window.getComputedStyle(target).scrollMarginTop) || 0;
+    var off = target.getBoundingClientRect().top - margin;
+    if (Math.abs(off) > 6) {
+      window.scrollBy({ top: off, left: 0, behavior: "auto" });
+    }
+  }
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!link) return;
+    var id = link.getAttribute("href").slice(1);
+    var target = id && document.getElementById(id);
+    if (!target) return;
+    var tries = 0;
+    (function check() {
+      tries++;
+      var before = window.pageYOffset;
+      window.setTimeout(function () {
+        if (window.pageYOffset !== before && tries < 6) {
+          check(); /* encara s'està desplaçant */
+        } else {
+          realignTo(target);
+        }
+      }, 250);
+    })();
+  });
 
   /* =========================================================
      Menú mòbil
