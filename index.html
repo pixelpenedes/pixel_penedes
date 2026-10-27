@@ -274,10 +274,11 @@
         </div>
 
         <div class="pixel-widget reveal">
-          <canvas id="pixelCanvas" width="640" height="640" aria-label="Àrea interactiva de píxels: passa el dit o el ratolí per pintar quadrats de colors" data-i18n-aria="canvas_aria" role="img"></canvas>
+          <canvas id="pixelCanvas" width="640" height="320" tabindex="0" aria-label="Joc de la gallina: toca la pantalla o prem espai per saltar els ous" data-i18n-aria="canvas_aria" role="application"></canvas>
           <div class="pixel-widget-bar">
-            <span class="pixel-hint" data-i18n="pixel_hint">Arrossega el ratolí o el dit per dibuixar</span>
-            <button type="button" id="pixelClear" class="pixel-clear" data-i18n="pixel_clear">Neteja</button>
+            <span class="pixel-hint" data-i18n="pixel_hint">Toca la pantalla o prem espai per saltar</span>
+            <span class="pixel-score" id="gameScore" aria-live="off"></span>
+            <button type="button" id="pixelClear" class="pixel-clear" data-i18n="pixel_clear">Reinicia</button>
           </div>
         </div>
       </div>

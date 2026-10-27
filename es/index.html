@@ -314,10 +314,11 @@
         </div>
 
         <div class="pixel-widget reveal">
-          <canvas id="pixelCanvas" width="640" height="640" aria-label="Área interactiva de píxeles: pasa el dedo o el ratón para pintar cuadrados de colores" data-i18n-aria="canvas_aria" role="img"></canvas>
+          <canvas id="pixelCanvas" width="640" height="320" tabindex="0" aria-label="Juego de la gallina: toca la pantalla o pulsa espacio para saltar los huevos" data-i18n-aria="canvas_aria" role="application"></canvas>
           <div class="pixel-widget-bar">
-            <span class="pixel-hint" data-i18n="pixel_hint">Arrastra el ratón o el dedo para dibujar</span>
-            <button type="button" id="pixelClear" class="pixel-clear" data-i18n="pixel_clear">Borrar</button>
+            <span class="pixel-hint" data-i18n="pixel_hint">Toca la pantalla o pulsa espacio para saltar</span>
+            <span class="pixel-score" id="gameScore" aria-live="off"></span>
+            <button type="button" id="pixelClear" class="pixel-clear" data-i18n="pixel_clear">Reiniciar</button>
           </div>
         </div>
       </div>

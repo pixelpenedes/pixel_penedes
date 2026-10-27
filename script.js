@@ -42,9 +42,29 @@
       mode_online_label: "Online",
       mode_online_sub: "En directe per Zoom",
 
-      canvas_aria: "Àrea interactiva de píxels: passa el dit o el ratolí per pintar quadrats de colors",
-      pixel_hint: "Arrossega el ratolí o el dit per dibuixar",
-      pixel_clear: "Neteja",
+      canvas_aria: "Joc de la gallina: toca la pantalla o prem espai per saltar els ous",
+
+      pixel_hint: "Toca la pantalla o prem espai per saltar",
+
+      pixel_clear: "Reinicia",
+
+      game_title: "Golden Eggs",
+
+      game_start: "Toca o prem espai per començar",
+
+      game_over: "Fi de la partida",
+
+      game_retry: "Toca per tornar-ho a provar",
+
+      game_score: "Punts",
+
+      game_best: "Rècord",
+
+      game_level: "Nivell",
+
+      game_laser: "LÀSER",
+
+      game_tip: "Salta i agafa el cuc: la gallina dispararà un làser als ous",
 
       gallery_eyebrow: "A dins de l'acadèmia",
       gallery_title: "Així són les nostres classes",
@@ -713,9 +733,29 @@
       mode_online_label: "Online",
       mode_online_sub: "En directo por Zoom",
 
-      canvas_aria: "Área interactiva de píxeles: pasa el dedo o el ratón para pintar cuadrados de colores",
-      pixel_hint: "Arrastra el ratón o el dedo para dibujar",
-      pixel_clear: "Borrar",
+      canvas_aria: "Juego de la gallina: toca la pantalla o pulsa espacio para saltar los huevos",
+
+      pixel_hint: "Toca la pantalla o pulsa espacio para saltar",
+
+      pixel_clear: "Reiniciar",
+
+      game_title: "Golden Eggs",
+
+      game_start: "Toca o pulsa espacio para empezar",
+
+      game_over: "Fin de la partida",
+
+      game_retry: "Toca para volver a intentarlo",
+
+      game_score: "Puntos",
+
+      game_best: "Récord",
+
+      game_level: "Nivel",
+
+      game_laser: "LÁSER",
+
+      game_tip: "Salta y coge el gusano: la gallina disparará un láser a los huevos",
 
       gallery_eyebrow: "Dentro de la academia",
       gallery_title: "Así son nuestras clases",
@@ -1390,6 +1430,9 @@
       if (dict[key] !== undefined) el.setAttribute("content", dict[key]);
     });
 
+    // El joc de la gallina dibuixa els seus textos al canvas: el tornem a pintar amb l'idioma nou
+    if (window.__pixelGameRender) window.__pixelGameRender();
+
     // Botó flotant de WhatsApp amb missatge traduït
     var waFloat = document.getElementById("whatsappFloat");
     if (waFloat) {
@@ -1559,129 +1602,508 @@
   });
 
   /* =========================================================
-     Canvas de píxels interactiu (hero)
+     Joc de la gallina (hero): salta els ous, cada cop més de pressa
      ========================================================= */
   var canvas = document.getElementById("pixelCanvas");
   var clearBtn = document.getElementById("pixelClear");
+  var scoreEl = document.getElementById("gameScore");
 
   if (canvas && canvas.getContext) {
     var ctx = canvas.getContext("2d");
-    var GRID = 16;
-    var palette = ["#F25920", "#FCAF15", "#0B3B6F", "#F7F4EC"];
-    var cellState = [];
-    var cssSize = canvas.clientWidth || 640;
+    var VW = 640;
+    var VH = 320;
+    var GROUND = 262; // y dels peus de la gallina
+    var PX = 4; // mida de cada "píxel" de l'sprite
+    var GRAVITY = 2300;
+    var JUMP_V = 760;
+    var HEN_X = 76;
+    var BEST_KEY = "pixelpenedes_gallina_best";
+
+    var COLORS = {
+      bg: "#17191C",
+      ground: "rgba(247,244,236,0.35)",
+      cloud: "rgba(247,244,236,0.08)",
+      text: "#F7F4EC",
+      muted: "rgba(247,244,236,0.65)",
+      accent: "#F25920",
+      gold: "#FCAF15",
+      navy: "#0B3B6F"
+    };
+
+    // Sprite de la gallina (14 x 14), mira cap a la dreta
+    var HEN = [
+      "......RR......",
+      ".....RRR......",
+      ".....WWWW.....",
+      ".....WKWWOO...",
+      ".....WWWWO....",
+      "..W...WWRR....",
+      ".WW..WWWW.....",
+      ".WWWWWWWWW....",
+      "WWWWWWWWWWW...",
+      ".WWWWYYWWWW...",
+      "..WWWYYYWWW...",
+      "...WWWWWWW....",
+      "....O...O.....",
+      "....O...O....."
+    ];
+    var HEN_LEGS = [
+      ["....O...O.....", "....O...O....."],
+      ["....O.....O...", "...O.....O...."]
+    ];
+    var HEN_COLORS = { W: "#F7F4EC", R: "#F25920", K: "#17191C", O: "#FCAF15", Y: "#FCAF15" };
+
+    var state = "idle"; // idle | run | over
+    var hen = { y: GROUND, vy: 0 };
+    var obstacles = [];
+    var clouds = [];
+    var ticks = [];
+    var score = 0;
+    var best = 0;
+    var speed = 270;
+    var sinceSpawn = 0;
+    var nextSpawn = 400;
+    var overAt = 0;
+    var lastT = 0;
+    var raf = 0;
+    var visible = true;
+    var cssW = canvas.clientWidth || 640;
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var lastShown = "";
+    var worm = null; // cuc a l'aire: dóna el làser
+    var wormCd = 12; // segons que falten perquè surti el proper cuc
+    var laserT = 0; // segons de làser que queden
+    var shotCd = 0;
+    var beam = null;
+    var particles = [];
+
+    try {
+      best = parseInt(window.localStorage.getItem(BEST_KEY), 10) || 0;
+    } catch (err) {
+      best = 0;
+    }
+
+    function txt(key) {
+      var d = translations[currentLang] || translations.ca;
+      return d[key] || "";
+    }
+
+    function resetWorld() {
+      hen.y = GROUND;
+      hen.vy = 0;
+      obstacles = [];
+      score = 0;
+      speed = 270;
+      sinceSpawn = 0;
+      nextSpawn = 520;
+      worm = null;
+      wormCd = 12 + Math.random() * 4;
+      laserT = 0;
+      shotCd = 0;
+      beam = null;
+      particles = [];
+      clouds = [];
+      for (var c = 0; c < 5; c++) clouds.push({ x: Math.random() * VW, y: 30 + Math.random() * 110, w: 50 + Math.random() * 60 });
+      ticks = [];
+      for (var t = 0; t < 16; t++) ticks.push({ x: Math.random() * VW, y: GROUND + 10 + Math.random() * 30, w: 6 + Math.random() * 14 });
+    }
+
+    function level() {
+      return Math.floor(score / 250) + 1;
+    }
 
     function resizeCanvas() {
-      cssSize = canvas.clientWidth || 640;
-      canvas.width = cssSize * dpr;
-      canvas.height = cssSize * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      draw();
+      cssW = canvas.clientWidth || 640;
+      canvas.width = Math.round(cssW * dpr);
+      canvas.height = Math.round((cssW * dpr * VH) / VW);
+      render();
     }
 
-    function emptyGrid() {
-      var grid = [];
-      for (var i = 0; i < GRID * GRID; i++) grid.push(null);
-      return grid;
+    function eggSpec(big) {
+      return big ? { w: 28, h: 40 } : { w: 22, h: 30 };
     }
-    cellState = emptyGrid();
 
-    function draw() {
-      var cell = cssSize / GRID;
-      ctx.clearRect(0, 0, cssSize, cssSize);
-      ctx.fillStyle = "#17191C";
-      ctx.fillRect(0, 0, cssSize, cssSize);
+    function spawn() {
+      var lv = level();
+      var count = 1;
+      var r = Math.random();
+      if (lv >= 2 && r > 0.55) count = 2;
+      if (lv >= 3 && r > 0.8) count = 3;
+      var big = lv >= 4 && Math.random() < 0.3;
+      var e = eggSpec(big);
+      var w = count * e.w + (count - 1) * 4;
+      obstacles.push({ x: VW + 30, w: w, h: e.h, ew: e.w, count: count });
+      // distància fins al següent: sempre es pot saltar, però cada cop amb menys marge
+      var margin = Math.max(0.55, 1.0 - lv * 0.06);
+      nextSpawn = w + speed * (0.68 + margin * 0.55) + Math.random() * 240 * margin;
+      sinceSpawn = 0;
+    }
 
-      for (var y = 0; y < GRID; y++) {
-        for (var x = 0; x < GRID; x++) {
-          var color = cellState[y * GRID + x];
-          if (color) {
-            ctx.fillStyle = color;
-            ctx.fillRect(x * cell + 1, y * cell + 1, cell - 2, cell - 2);
-          }
+    function startRun() {
+      resetWorld();
+      state = "run";
+      lastT = 0;
+    }
+
+    function jump() {
+      if (state === "idle") {
+        startRun();
+      } else if (state === "over") {
+        if (performance.now() - overAt < 450) return;
+        startRun();
+      }
+      if (hen.y >= GROUND) hen.vy = -JUMP_V;
+    }
+
+    function releaseJump() {
+      if (state === "run" && hen.vy < -330) hen.vy = -330;
+    }
+
+    function hit() {
+      var hx1 = HEN_X + 8;
+      var hx2 = HEN_X + 14 * PX - 4;
+      var hy1 = hen.y - 14 * PX + 6;
+      var hy2 = hen.y - 3;
+      for (var i = 0; i < obstacles.length; i++) {
+        var o = obstacles[i];
+        var ox1 = o.x + 3;
+        var ox2 = o.x + o.w - 3;
+        var oy1 = GROUND - o.h + 4;
+        if (hx2 > ox1 && hx1 < ox2 && hy2 > oy1 && hy1 < GROUND) return true;
+      }
+      return false;
+    }
+
+    function burst(x, y, n, colors) {
+      for (var i = 0; i < n; i++) {
+        particles.push({
+          x: x,
+          y: y,
+          vx: -140 + Math.random() * 320,
+          vy: -240 + Math.random() * 180,
+          life: 0.45 + Math.random() * 0.35,
+          max: 0.8,
+          c: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }
+
+    function fire() {
+      var bx = HEN_X + 14 * PX - 2;
+      var by = hen.y - 14 * PX + 3.5 * PX;
+      var tgt = null;
+      for (var i = 0; i < obstacles.length; i++) {
+        var o = obstacles[i];
+        if (o.x > bx && o.x - bx < 340 && (!tgt || o.x < tgt.x)) tgt = o;
+      }
+      if (!tgt) return;
+      beam = { x1: bx, y1: by, x2: tgt.x + tgt.w / 2, y2: GROUND - tgt.h / 2, t: 0.14 };
+      obstacles.splice(obstacles.indexOf(tgt), 1);
+      burst(tgt.x + tgt.w / 2, GROUND - tgt.h / 2, 7 * tgt.count, ["#FCAF15", "#F7F4EC", "#F25920"]);
+      score += 10 * tgt.count;
+      shotCd = 0.22;
+    }
+
+    function updateExtras(dt) {
+      // Cuc a l'aire: surt de tant en tant; si la gallina el toca, activa el làser uns segons
+      if (!worm && laserT <= 0) wormCd -= dt;
+      if (!worm && laserT <= 0 && wormCd <= 0) worm = { x: VW + 30, t: 0 };
+      if (worm) {
+        worm.x -= speed * dt * 0.9;
+        worm.t += dt;
+        var wy = GROUND - 100 + Math.sin(worm.t * 6) * 6;
+        var hx1 = HEN_X + 8;
+        var hx2 = HEN_X + 14 * PX - 4;
+        var hy1 = hen.y - 14 * PX + 6;
+        var hy2 = hen.y - 3;
+        if (hx2 > worm.x - 18 && hx1 < worm.x + 22 && hy2 > wy - 12 && hy1 < wy + 12) {
+          laserT = 6;
+          shotCd = 0;
+          score += 25;
+          burst(worm.x + 2, wy, 12, ["#FF7AA2", "#F7F4EC", "#FCAF15"]);
+          worm = null;
+          wormCd = 22 + Math.random() * 8; // si agafa el cuc, el següent triga bastant més
+        } else if (worm.x < -40) {
+          worm = null;
+          wormCd = 10 + Math.random() * 6;
         }
       }
-
-      // Graella subtil
-      ctx.strokeStyle = "rgba(247,244,236,0.06)";
-      ctx.lineWidth = 1;
-      for (var g = 1; g < GRID; g++) {
-        ctx.beginPath();
-        ctx.moveTo(g * cell, 0);
-        ctx.lineTo(g * cell, cssSize);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(0, g * cell);
-        ctx.lineTo(cssSize, g * cell);
-        ctx.stroke();
+      if (laserT > 0) {
+        laserT = Math.max(0, laserT - dt);
+        shotCd -= dt;
+        if (shotCd <= 0) fire();
+        if (laserT === 0) wormCd = 20 + Math.random() * 8; // el compte enrere comença quan s'acaba el làser
+      }
+      if (beam) {
+        beam.t -= dt;
+        if (beam.t <= 0) beam = null;
+      }
+      for (var p = particles.length - 1; p >= 0; p--) {
+        var q = particles[p];
+        q.life -= dt;
+        q.vy += 900 * dt;
+        q.x += q.vx * dt;
+        q.y += q.vy * dt;
+        if (q.life <= 0) particles.splice(p, 1);
       }
     }
 
-    function paintAt(clientX, clientY, colorOverride) {
-      var rect = canvas.getBoundingClientRect();
-      var cell = rect.width / GRID;
-      var x = Math.floor((clientX - rect.left) / cell);
-      var y = Math.floor((clientY - rect.top) / cell);
-      if (x < 0 || y < 0 || x >= GRID || y >= GRID) return;
-      var idx = y * GRID + x;
-      cellState[idx] = colorOverride || palette[Math.floor(Math.random() * palette.length)];
-      draw();
+    function update(dt) {
+      score += (speed * dt) / 20;
+      speed = Math.min(720, 270 + score * 0.45);
+
+      hen.vy += GRAVITY * dt;
+      hen.y += hen.vy * dt;
+      if (hen.y >= GROUND) {
+        hen.y = GROUND;
+        hen.vy = 0;
+      }
+
+      sinceSpawn += speed * dt;
+      if (sinceSpawn >= nextSpawn) spawn();
+
+      for (var i = obstacles.length - 1; i >= 0; i--) {
+        obstacles[i].x -= speed * dt;
+        if (obstacles[i].x + obstacles[i].w < -20) obstacles.splice(i, 1);
+      }
+      for (var c = 0; c < clouds.length; c++) {
+        clouds[c].x -= speed * dt * 0.18;
+        if (clouds[c].x + clouds[c].w < 0) {
+          clouds[c].x = VW + 20;
+          clouds[c].y = 30 + Math.random() * 110;
+        }
+      }
+      for (var t = 0; t < ticks.length; t++) {
+        ticks[t].x -= speed * dt;
+        if (ticks[t].x + ticks[t].w < 0) ticks[t].x = VW + Math.random() * 60;
+      }
+
+      updateExtras(dt);
+
+      if (hit()) {
+        state = "over";
+        laserT = 0;
+        beam = null;
+        overAt = performance.now();
+        var s = Math.floor(score);
+        if (s > best) {
+          best = s;
+          try {
+            window.localStorage.setItem(BEST_KEY, String(best));
+          } catch (err) {}
+        }
+      }
     }
 
-    var pointerDown = false;
+    function drawHen(frame) {
+      var rows = HEN.slice(0, 12).concat(HEN_LEGS[frame]);
+      var top = hen.y - rows.length * PX;
+      for (var y = 0; y < rows.length; y++) {
+        for (var x = 0; x < rows[y].length; x++) {
+          var ch = rows[y].charAt(x);
+          if (ch === ".") continue;
+          ctx.fillStyle = HEN_COLORS[ch];
+          ctx.fillRect(HEN_X + x * PX, top + y * PX, PX, PX);
+        }
+      }
+    }
+
+    function drawEgg(x, w, h) {
+      var cx = x + w / 2;
+      var cy = GROUND - h / 2;
+      ctx.fillStyle = COLORS.gold;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy + 2, w / 2, h / 2, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "rgba(255,255,255,0.45)";
+      ctx.beginPath();
+      ctx.ellipse(cx - w * 0.17, cy - h * 0.15, w * 0.1, h * 0.17, -0.4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "rgba(242,89,32,0.55)";
+      ctx.fillRect(cx + 2, cy + 4, 3, 3);
+      ctx.fillRect(cx - 5, cy + 9, 3, 3);
+    }
+
+    function drawWorm() {
+      var wy = GROUND - 100 + Math.sin(worm.t * 6) * 6;
+      for (var i = 4; i >= 0; i--) {
+        var cx = worm.x + i * 9;
+        var cy = wy + Math.sin(worm.t * 9 + i * 0.9) * 5;
+        ctx.fillStyle = i % 2 ? "#FF7AA2" : "#FF9DB8";
+        ctx.beginPath();
+        ctx.arc(cx, cy, 8, 0, Math.PI * 2);
+        ctx.fill();
+        if (i === 0) {
+          ctx.fillStyle = COLORS.bg;
+          ctx.fillRect(cx - 4, cy - 4, 3, 3);
+          ctx.fillRect(cx + 1, cy - 4, 3, 3);
+        }
+      }
+    }
+
+    function drawExtras() {
+      if (worm) drawWorm();
+      if (beam) {
+        ctx.lineCap = "round";
+        ctx.strokeStyle = "rgba(255,60,60,0.35)";
+        ctx.lineWidth = 9;
+        ctx.beginPath();
+        ctx.moveTo(beam.x1, beam.y1);
+        ctx.lineTo(beam.x2, beam.y2);
+        ctx.stroke();
+        ctx.strokeStyle = "#FFD0D0";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(beam.x1, beam.y1);
+        ctx.lineTo(beam.x2, beam.y2);
+        ctx.stroke();
+      }
+      for (var p = 0; p < particles.length; p++) {
+        ctx.globalAlpha = Math.max(0, particles[p].life / particles[p].max);
+        ctx.fillStyle = particles[p].c;
+        ctx.fillRect(particles[p].x, particles[p].y, 5, 5);
+      }
+      ctx.globalAlpha = 1;
+      if (laserT > 0) {
+        ctx.fillStyle = "rgba(255,255,255,0.12)";
+        ctx.fillRect(16, 16, 120, 10);
+        ctx.fillStyle = "#FF4D4D";
+        ctx.fillRect(16, 16, 120 * Math.min(1, laserT / 6), 10);
+        ctx.font = "800 " + fontPx(12) + "px Inter, system-ui, sans-serif";
+        ctx.fillStyle = COLORS.text;
+        ctx.textAlign = "left";
+        ctx.fillText(txt("game_laser"), 16, 42);
+        // ull vermell mentre hi ha làser
+        ctx.fillStyle = "#FF4D4D";
+        ctx.fillRect(HEN_X + 6 * PX, hen.y - 14 * PX + 3 * PX, PX, PX);
+      }
+    }
+
+    // mida de lletra en unitats lògiques: mai per sota de ~12 px reals, encara que el canvas sigui petit
+    function fontPx(size) {
+      return Math.max(size, (12 * VW) / (cssW || VW));
+    }
+
+    function centered(text, y, size, color, weight) {
+      ctx.font = (weight || "700") + " " + fontPx(size) + "px Inter, system-ui, sans-serif";
+      ctx.fillStyle = color;
+      ctx.textAlign = "center";
+      ctx.fillText(text, VW / 2, y, VW - 36);
+    }
+
+    function render() {
+      var k = (canvas.width / VW);
+      ctx.setTransform(k, 0, 0, k, 0, 0);
+      ctx.clearRect(0, 0, VW, VH);
+      ctx.fillStyle = COLORS.bg;
+      ctx.fillRect(0, 0, VW, VH);
+
+      for (var c = 0; c < clouds.length; c++) {
+        ctx.fillStyle = COLORS.cloud;
+        ctx.fillRect(clouds[c].x, clouds[c].y, clouds[c].w, 10);
+        ctx.fillRect(clouds[c].x + 10, clouds[c].y - 8, clouds[c].w - 24, 8);
+      }
+
+      ctx.fillStyle = COLORS.ground;
+      ctx.fillRect(0, GROUND, VW, 2);
+      for (var t = 0; t < ticks.length; t++) {
+        ctx.fillRect(ticks[t].x, ticks[t].y, ticks[t].w, 2);
+      }
+
+      for (var i = 0; i < obstacles.length; i++) {
+        var o = obstacles[i];
+        for (var n = 0; n < o.count; n++) drawEgg(o.x + n * (o.ew + 4), o.ew, o.h);
+      }
+
+      var frame = state === "run" && hen.y >= GROUND ? Math.floor(performance.now() / 110) % 2 : 0;
+      drawHen(frame);
+      drawExtras();
+
+      if (state === "idle") {
+        centered(txt("game_title"), 112, 30, COLORS.text, "800");
+        centered(txt("game_start"), 144, 16, COLORS.muted, "500");
+        centered(txt("game_tip"), 172, 14, COLORS.gold, "600");
+      } else if (state === "over") {
+        ctx.fillStyle = "rgba(23,25,28,0.55)";
+        ctx.fillRect(0, 0, VW, VH);
+        centered(txt("game_over"), 104, 30, COLORS.text, "800");
+        centered(txt("game_score") + " " + Math.floor(score) + "  ·  " + txt("game_best") + " " + best, 138, 17, COLORS.gold, "700");
+        centered(txt("game_retry"), 170, 15, COLORS.muted, "500");
+      }
+
+      var shown = state === "idle" ? "" : txt("game_level") + " " + level() + "  ·  " + txt("game_score") + " " + Math.floor(score);
+      if (state === "idle" && best > 0) shown = txt("game_best") + " " + best;
+      if (scoreEl && shown !== lastShown) {
+        scoreEl.textContent = shown;
+        lastShown = shown;
+      }
+    }
+
+    function frameLoop(now) {
+      raf = 0;
+      if (!visible || document.hidden) return;
+      if (state === "run") {
+        var dt = lastT ? Math.min(0.05, (now - lastT) / 1000) : 0;
+        lastT = now;
+        update(dt);
+      }
+      render();
+      if (state === "run") raf = window.requestAnimationFrame(frameLoop);
+    }
+
+    function kick() {
+      if (!raf) {
+        lastT = 0;
+        raf = window.requestAnimationFrame(frameLoop);
+      }
+    }
+
+    function press() {
+      jump();
+      kick();
+    }
 
     canvas.addEventListener("pointerdown", function (e) {
-      pointerDown = true;
-      paintAt(e.clientX, e.clientY);
+      e.preventDefault();
+      try {
+        canvas.focus({ preventScroll: true });
+      } catch (err) {}
+      press();
     });
-    canvas.addEventListener("pointermove", function (e) {
-      if (pointerDown) paintAt(e.clientX, e.clientY);
+    window.addEventListener("pointerup", releaseJump);
+    canvas.addEventListener("keydown", function (e) {
+      if (e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") {
+        e.preventDefault();
+        if (!e.repeat) press();
+      }
     });
-    window.addEventListener("pointerup", function () {
-      pointerDown = false;
+    canvas.addEventListener("keyup", function (e) {
+      if (e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") releaseJump();
     });
-    canvas.addEventListener(
-      "touchmove",
-      function (e) {
-        if (e.touches && e.touches[0]) {
-          paintAt(e.touches[0].clientX, e.touches[0].clientY);
-        }
-      },
-      { passive: true }
-    );
 
     if (clearBtn) {
       clearBtn.addEventListener("click", function () {
-        cellState = emptyGrid();
-        draw();
+        state = "idle";
+        resetWorld();
+        render();
       });
     }
 
+    // Pausa si el joc no és visible o la pestanya està en segon pla
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        if (visible) kick();
+      }, { threshold: 0.1 }).observe(canvas);
+    }
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) kick();
+    });
+
+    window.__pixelGameRender = render;
     window.addEventListener("resize", resizeCanvas);
+    resetWorld();
     resizeCanvas();
-
-    // Espurna ambient: il·lumina algun píxel de tant en tant si l'usuari no hi interactua
-    if (!prefersReducedMotion) {
-      var idleTimer = setInterval(function () {
-        var idx = Math.floor(Math.random() * cellState.length);
-        if (!cellState[idx]) {
-          cellState[idx] = palette[Math.floor(Math.random() * palette.length)];
-          draw();
-          (function (i) {
-            setTimeout(function () {
-              cellState[i] = null;
-              draw();
-            }, 2600);
-          })(idx);
-        }
-      }, 900);
-
-      // Atura l'animació ambient si la pestanya no és visible
-      document.addEventListener("visibilitychange", function () {
-        if (document.hidden) clearInterval(idleTimer);
-      });
-    }
   }
 
   /* =========================================================
