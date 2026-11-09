@@ -746,6 +746,96 @@ h1.hero-title{ max-width:16ch; margin-left:auto; margin-right:auto; color:var(--
   .hero--game > .wrap::after{ right:-34px; top:60%; }
 }
 
+/* --- Novetat temporal: Campus de Nadal (hero de la home) ---
+   Pantalla ampla (>=1180px): títol a dalt i un cartell a cada costat del text principal (el del Campus, més gran).
+   Tauleta i mòbil: targeta compacta sobre el text. En passar el ratolí (o enfocar/tocar) el cartell creix
+   i s'il·lumina amb un contorn de neó. */
+.nadal[hidden]{ display:none; }
+.nadal{
+  --grow:1.12;
+  position:relative; z-index:2;
+  max-width:460px; margin:0 auto 36px;
+  padding:16px 14px 14px;
+  text-align:center; color:#eaf6ff;
+  background:radial-gradient(120% 90% at 50% 0%, #123a86 0%, #071a3d 65%);
+  border:1px solid rgba(90,220,255,0.55);
+  border-radius:var(--radius-m);
+  box-shadow:0 30px 60px -30px rgba(10,60,160,0.7), inset 0 0 40px rgba(40,140,255,0.22);
+}
+.nadal-head{ margin-bottom:14px; }
+.nadal-badge{
+  display:inline-block; margin-bottom:6px; padding:3px 11px;
+  font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+  color:#9ff1ff; border:1px solid rgba(120,230,255,0.6); border-radius:980px;
+}
+.nadal-title{
+  font-size:clamp(2rem, 9vw, 2.7rem); font-weight:900; line-height:1.02; letter-spacing:0.02em;
+  text-transform:uppercase; margin:0 0 8px; color:#fff;
+  text-shadow:0 0 10px rgba(90,220,255,0.75), 0 0 26px rgba(40,150,255,0.55), 0 2px 0 rgba(0,20,70,0.6);
+}
+.nadal-caption{ margin:0; font-size:0.78rem; line-height:1.4; color:#cfe8ff; }
+.nadal-posters{ display:grid; grid-template-columns:1.25fr 1fr; gap:10px; align-items:start; }
+
+.nadal-poster{
+  --tilt:-2.5deg;
+  position:relative; z-index:1; margin:0; cursor:zoom-in; outline:none;
+  border-radius:12px;
+  transform:rotate(var(--tilt));
+  transition:transform .5s var(--ease), box-shadow .45s var(--ease);
+}
+.nadal-poster:nth-child(2){ --tilt:2.5deg; }
+.nadal-poster img{
+  display:block; width:100%; height:auto;
+  border-radius:12px;
+  border:2px solid rgba(255,255,255,0.35);
+  transition:border-color .35s ease;
+}
+.nadal-poster:hover,
+.nadal-poster:focus{
+  z-index:6;
+  transform:rotate(0deg) scale(var(--grow));
+  box-shadow:
+    0 0 0 2px #b9faff,
+    0 0 14px 2px #38e8ff,
+    0 0 36px 6px rgba(25,182,255,0.85),
+    0 0 80px 14px rgba(25,120,255,0.55);
+  animation:nadal-neon 1.6s ease-in-out infinite alternate;
+}
+.nadal-poster:hover img,
+.nadal-poster:focus img{ border-color:#d8fcff; }
+.nadal-poster:focus-visible{ outline:2px solid #7dfcff; outline-offset:5px; }
+@keyframes nadal-neon{
+  from{ box-shadow:0 0 0 2px #b9faff, 0 0 10px 1px #38e8ff, 0 0 26px 4px rgba(25,182,255,0.7), 0 0 60px 10px rgba(25,120,255,0.4); }
+  to{ box-shadow:0 0 0 2px #e4feff, 0 0 18px 4px #5df0ff, 0 0 44px 9px rgba(25,182,255,0.95), 0 0 96px 20px rgba(25,120,255,0.65); }
+}
+@media (prefers-reduced-motion: reduce){
+  .nadal-poster:hover,
+  .nadal-poster:focus{ animation:none; }
+}
+
+@media (min-width: 1180px){
+  /* La targeta desapareix: el títol queda a dalt i els cartells flanquegen el text del hero */
+  .nadal{ display:contents; }
+  .nadal-head{ position:relative; z-index:2; margin:0 auto 24px; }
+  .nadal-badge{ color:#0e6fb0; border-color:rgba(14,111,176,0.5); }
+  .nadal-title{ font-size:3.4rem; margin:8px 0 6px; color:#0b3b6f; text-shadow:0 0 18px rgba(40,150,255,0.35), 0 2px 0 rgba(255,255,255,0.6); }
+  .nadal-caption{ font-size:0.9rem; font-weight:600; color:var(--text-muted); max-width:46ch; margin:0 auto; }
+  .nadal-posters{ display:contents; }
+  .nadal-poster{
+    --grow:1.38;
+    position:absolute; top:6px;
+    width:clamp(150px, 14vw, 210px);
+  }
+  .nadal-poster--main{ width:clamp(190px, 18vw, 270px); }
+  /* El zoom creix cap a dins i cap avall, així no se surt de la pantalla ni passa per sota de la capçalera */
+  .nadal-poster:nth-child(1){ --tilt:-2.5deg; left:24px; transform-origin:left top; }
+  .nadal-poster:nth-child(2){ --tilt:2.5deg; right:24px; transform-origin:right top; }
+  /* Els comandaments decoratius cedeixen el lloc mentre la novetat és visible */
+  .hero--game > .wrap:has(.nadal:not([hidden]))::before,
+  .hero--game > .wrap:has(.nadal:not([hidden]))::after{ display:none; }
+  .hero--game:has(.nadal:not([hidden])){ padding-top:44px; }
+}
+
 /* --- Pàgines de servei (SEO local): títol llarg i migues de pa --- */
 .hero--servei{ padding-top:48px; }
 .hero--servei h1.hero-title{ max-width:22ch; font-size:clamp(2.1rem, 5vw, 3.6rem); }

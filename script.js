@@ -36,6 +36,12 @@
       hero_point1: "Grups reduïts per edats",
       hero_point2: "Projectes propis, no fitxes",
       hero_point3: "Classe de prova sense compromís",
+      hero_point4: "Classes setmanals de 90 minuts",
+      nadal_badge: "Novetat",
+      nadal_title: "Campus de Nadal",
+      nadal_caption: "Programació, disseny de videojocs i 3D · de 6 a 15 anys · 22, 23, 24, 28, 29 i 30 de desembre · de 9.30h a 13h",
+      nadal_img1_alt: "Cartell del Campus de Nadal: programació, disseny de videojocs i 3D, de 6 a 15 anys. 22, 23, 24, 28, 29 i 30 de desembre, de 9.30h a 13h, carrer Puigmoltó 5, WhatsApp 633 454 159",
+      nadal_img2_alt: "Cartell Què farem?: disseny de personatges i escenaris, programació de moviments i funcions del joc, creació, impressió i postprocessat de figures 3D, programació amb Minecraft i creació de jocs amb Roblox Studio",
 
       mode_presencial_label: "Presencial",
       mode_presencial_sub: "A l'acadèmia de Vilafranca",
@@ -722,6 +728,11 @@
       hero_point2: "Proyectos propios, no fichas",
       hero_point3: "Clase de prueba sin compromiso",
       hero_point4: "Clases semanales de 90 minutos",
+      nadal_badge: "Novedad",
+      nadal_title: "Campus de Navidad",
+      nadal_caption: "Programación, diseño de videojuegos y 3D · de 6 a 15 años · 22, 23, 24, 28, 29 y 30 de diciembre · de 9.30h a 13h",
+      nadal_img1_alt: "Cartel del Campus de Navidad: programación, diseño de videojuegos y 3D, de 6 a 15 años. 22, 23, 24, 28, 29 y 30 de diciembre, de 9.30h a 13h, calle Puigmoltó 5, WhatsApp 633 454 159",
+      nadal_img2_alt: "Cartel ¿Qué haremos?: diseño de personajes y escenarios, programación de movimientos y funciones del juego, creación, impresión y postprocesado de figuras 3D, programación con Minecraft y creación de juegos con Roblox Studio",
 
       mode_presencial_label: "Presencial",
       mode_presencial_sub: "En la academia de Vilafranca",
@@ -1455,6 +1466,15 @@
 
   // Idioma de la pàgina: el que declara <html lang>. Els enllaços CAT | ES naveguen a l'altra URL.
   applyLanguage(document.documentElement.lang === "es" ? "es" : "ca");
+
+  /* =========================================================
+     Elements temporals (p. ex. el Campus de Nadal): s'amaguen sols
+     a partir de la data indicada a data-hide-after (AAAA-MM-DD)
+     ========================================================= */
+  document.querySelectorAll("[data-hide-after]").forEach(function (el) {
+    var limit = new Date(el.getAttribute("data-hide-after") + "T00:00:00");
+    if (!isNaN(limit.getTime()) && new Date() >= limit) el.hidden = true;
+  });
 
   /* =========================================================
      Any actual al footer
