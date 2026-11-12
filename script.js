@@ -221,12 +221,12 @@
       b2b_banner_lead: "Un programa de beneficis perquè els fills i filles dels teus empleats aprenguin tecnologia a Pixel Penedès. Nosaltres ens encarreguem de la resta.",
       b2b_banner_cta: "Descobreix el programa",
 
-      b2b_meta_title: "Pixel Penedès Family Benefits | Beneficis per a empleats i conciliació",
+      b2b_meta_title: "Pixel Family Benefits | Beneficis per a empleats i conciliació",
       b2b_meta_description: "Beneficis per a empleats: cursos de programació, videojocs i tecnologia per als fills de 6 a 16 anys, presencials i online. Pixel Penedès gestiona la resta.",
-      b2b_og_title: "Pixel Penedès Family Benefits | Un benefici per a les famílies dels teus empleats",
+      b2b_og_title: "Pixel Family Benefits | Un benefici per a les famílies dels teus empleats",
       b2b_og_description: "Conciliació, benestar i formació tecnològica per als fills dels teus empleats. Cursos presencials i online de 6 a 16 anys, sense feina extra per a RRHH.",
 
-      b2b_hero_tag: "Pixel Penedès Family Benefits",
+      b2b_hero_tag: "Pixel Family Benefits",
       b2b_hero_title1: "Cuida del teu equip.",
       b2b_hero_title2: "Facilita el seu dia a dia.",
       b2b_hero_meta: "Cursos presencials i online · De 6 a 16 anys · Classes setmanals de 90 minuts · Durant tot el curs",
@@ -912,12 +912,12 @@
       b2b_banner_lead: "Un programa de beneficios para que los hijos e hijas de tus empleados aprendan tecnología en Pixel Penedès. Nosotros nos encargamos del resto.",
       b2b_banner_cta: "Descubre el programa",
 
-      b2b_meta_title: "Pixel Penedès Family Benefits | Beneficios para empleados y conciliación",
+      b2b_meta_title: "Pixel Family Benefits | Beneficios para empleados y conciliación",
       b2b_meta_description: "Beneficios para empleados: cursos de programación, videojuegos y tecnología para sus hijos de 6 a 16 años, presenciales y online. Pixel Penedès gestiona el resto.",
-      b2b_og_title: "Pixel Penedès Family Benefits | Un beneficio para las familias de tus empleados",
+      b2b_og_title: "Pixel Family Benefits | Un beneficio para las familias de tus empleados",
       b2b_og_description: "Conciliación, bienestar y formación tecnológica para los hijos de tus empleados. Cursos presenciales y online de 6 a 16 años, sin trabajo extra para RRHH.",
 
-      b2b_hero_tag: "Pixel Penedès Family Benefits",
+      b2b_hero_tag: "Pixel Family Benefits",
       b2b_hero_title1: "Cuida de tu equipo.",
       b2b_hero_title2: "Facilita su día a día.",
       b2b_hero_meta: "Cursos presenciales y online · De 6 a 16 años · Clases semanales de 90 minutos · Durante todo el curso",

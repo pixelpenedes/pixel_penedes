@@ -58,7 +58,7 @@ const CA = translations.ca;
 
 /* Frases de les dades estructurades que no són al diccionari (CA -> ES) */
 const EXTRA = new Map([
-  ["Pixel Penedès Family Benefits (empreses)", "Pixel Penedès Family Benefits (empresas)"],
+  ["Pixel Family Benefits (empreses)", "Pixel Family Benefits (empresas)"],
   ["Programa de beneficis per a empreses", "Programa de beneficios para empresas"],
   ["Benefici per a empleats: formació tecnològica per als fills i filles dels empleats", "Beneficio para empleados: formación tecnológica para los hijos e hijas de los empleados"],
   ["Programa perquè les empreses ofereixin als empleats un benefici de conciliació i formació: accés als cursos de programació, videojocs, 3D i tecnologia de Pixel Penedès per als seus fills de 6 a 16 anys, presencials i online en directe. Pixel Penedès gestiona les famílies, les inscripcions, els grups i les classes.", "Programa para que las empresas ofrezcan a sus empleados un beneficio de conciliación y formación: acceso a los cursos de programación, videojuegos, 3D y tecnología de Pixel Penedès para sus hijos de 6 a 16 años, presenciales y online en directo. Pixel Penedès gestiona las familias, las inscripciones, los grupos y las clases."],
@@ -74,7 +74,7 @@ const EXTRA = new Map([
   ["Acadèmia de programació, videojocs, impressió 3D i creació de contingut per a nens i nenes de 6 a 16 anys a Vilafranca del Penedès.", "Academia de programación, videojuegos, impresión 3D y creación de contenido para niños y niñas de 6 a 16 años en Vilafranca del Penedès."],
   ["Classes de programació per a nens i joves", "Clases de programación para niños y jóvenes"],
   ["Programació per blocs", "Programación por bloques"],
-  ["Pixel Penedès Family Benefits", "Pixel Penedès Family Benefits"]
+  ["Pixel Family Benefits", "Pixel Family Benefits"]
 ]);
 const REV = new Map();
 Object.keys(CA).forEach((k) => {
@@ -83,7 +83,7 @@ Object.keys(CA).forEach((k) => {
 const translateString = (s) => (REV.has(s) ? REV.get(s) : EXTRA.has(s) ? EXTRA.get(s) : s);
 
 /* Noms propis i adreces que no es tradueixen (i claus d'adreça que no són al diccionari) */
-const KEEP_AS_IS = new Set(["Pixel Penedès", "C/ Puigmoltó, 5", "Vilafranca del Penedès", "Alt Penedès", "customer service", "Pixel Penedès Family Benefits", "Roblox Lua", "Minecraft Education", "Roblox Studio", "Microsoft Kodu", "Bambu Studio"]);
+const KEEP_AS_IS = new Set(["Pixel Penedès", "C/ Puigmoltó, 5", "Vilafranca del Penedès", "Alt Penedès", "customer service", "Pixel Family Benefits", "Roblox Lua", "Minecraft Education", "Roblox Studio", "Microsoft Kodu", "Bambu Studio"]);
 const KEEP_KEYS = new Set(["contact1_direccion", "contact1_ciudad"]);
 
 /* ---------- Utilitats ---------- */
