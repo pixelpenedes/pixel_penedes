@@ -722,6 +722,24 @@ h1.hero-title{ max-width:16ch; margin-left:auto; margin-right:auto; color:var(--
   font-size:0.85rem; font-weight:600; color:var(--text-muted);
 }
 
+/* --- Col·laboracions (mateix format que les acreditacions): logotips en gris, a color en passar-hi per sobre --- */
+.accred-row--partners{ gap:30px 56px; }
+.accred-row--partners img{
+  height:84px;
+  filter:grayscale(1) contrast(1.05);
+  opacity:0.8;
+  transition: opacity .25s ease, filter .25s ease;
+}
+.accred-row--partners li:hover img,
+.accred-row--partners li:focus-within img{ filter:none; opacity:1; }
+/* Equilibri òptic: cada logotip té un pes visual diferent */
+.accred-row--partners img.partner-mas-i-perera{ height:92px; }
+.accred-row--partners img.partner-estella-graells{ height:80px; }
+.accred-row--partners img.partner-castellot{ height:94px; }
+.accred-row--partners img.partner-les-fonts{ height:80px; }
+.accred-row--partners img.partner-consorci{ height:72px; }
+.accred-row--partners img.partner-martorell{ height:100px; }
+
 /* --- Hero de la home: dues siluetes petites de comandament, difuminades, a cada costat del text ---
    Decoratives (no porten text): ocupen les bandes blanques laterals del títol i amb poca
    opacitat perquè no afectin el contrast. Esquerra i dreta amb alçada i inclinació diferents. */
@@ -1034,6 +1052,13 @@ a.lang-btn{ text-decoration:none; display:inline-block; }
   .accred-row img.accred-aws{ height:80px; }
   .accred-row img.accred-ms{ height:74px; }
   .accred-row img.accred-google{ height:62px; }
+  .accred-row--partners{ gap:22px 34px; }
+  .accred-row--partners img.partner-mas-i-perera{ height:68px; }
+  .accred-row--partners img.partner-estella-graells{ height:60px; }
+  .accred-row--partners img.partner-castellot{ height:70px; }
+  .accred-row--partners img.partner-les-fonts{ height:60px; }
+  .accred-row--partners img.partner-consorci{ height:54px; }
+  .accred-row--partners img.partner-martorell{ height:76px; }
   .how-highlight{ margin-top:56px; }
 }
 
