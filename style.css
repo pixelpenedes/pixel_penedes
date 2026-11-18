@@ -144,6 +144,13 @@ section[id]{ scroll-margin-top: 70px; }
   transition: opacity .15s ease;
 }
 .main-nav a:hover{ opacity:1; }
+.main-nav a[aria-current="page"]:not(.nav-b2b){ color:var(--ink); font-weight:700; opacity:1; }
+.main-nav a{ white-space:nowrap; }
+@media (min-width: 1101px) and (max-width: 1320px){
+  /* Menú de 8 enllaços: es compacta una mica perquè càpiga sense saltar de línia */
+  .main-nav ul{ gap:18px; }
+  .main-nav a{ font-size:0.8rem; }
+}
 
 .header-actions{ display:flex; align-items:center; gap:14px; }
 
