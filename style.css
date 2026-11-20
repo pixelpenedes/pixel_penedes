@@ -657,30 +657,51 @@ h1.hero-title{ max-width:16ch; margin-left:auto; margin-right:auto; color:var(--
 }
 .hero--empresas .hero-ctas{ margin-top:28px; }
 
-/* Hero d'empreses: silueta difuminada d'una família (pare, fill i mare agafats de la mà),
-   mateix color i difuminat que els comandaments de la home. A cada costat del text,
-   decorativa i amb poca opacitat perquè no afecti el contrast. */
-.hero--empresas > .wrap{ position:relative; isolation:isolate; }
-.hero--empresas > .wrap::before,
-.hero--empresas > .wrap::after{
-  content:"";
-  position:absolute; z-index:-1;
-  width:clamp(160px, 22vw, 320px);
-  aspect-ratio:462 / 374;
-  background:url("assets/familia-silhouette.svg") center / contain no-repeat;
-  opacity:0.24;
-  pointer-events:none;
+/* Hero d'empreses: fons amb llum càlida i freda molt suau (taronja i blau de la marca) que acaba
+   al mateix to que la secció següent, i dues fotos amb marc blanc i bloc de color desplaçat.
+   >=1200px: una foto a cada costat del text. Per sota: parella de fotos sota el text. */
+.hero--empresas{
+  background:
+    radial-gradient(46% 55% at 6% 22%, rgba(242,89,32,0.13), transparent 72%),
+    radial-gradient(46% 55% at 96% 62%, rgba(11,59,111,0.12), transparent 72%),
+    linear-gradient(180deg, #fff 0%, #fff 55%, var(--paper-dim) 100%);
 }
-.hero--empresas > .wrap::before{ left:0; top:6%; transform:rotate(-3deg); }
-.hero--empresas > .wrap::after{ right:0; top:46%; transform:scaleX(-1) rotate(-3deg); }
-@media (max-width: 900px){
-  /* Sense bandes laterals buides: es redueixen i queden tallades a les vores */
-  .hero--empresas > .wrap::before,
-  .hero--empresas > .wrap::after{ width:130px; opacity:0.15; }
-  .hero--empresas > .wrap::before{ left:-34px; top:1%; }
-  .hero--empresas > .wrap::after{ right:-34px; top:62%; }
+.hero--empresas > .wrap{ position:relative; }
+.hero-photos{
+  display:grid; grid-template-columns:1fr 1fr; gap:22px;
+  max-width:640px; margin:46px auto 60px;
 }
-
+.hero-photo{ position:relative; isolation:isolate; margin:0; }
+.hero-photo::before{
+  content:""; position:absolute; z-index:-1;
+  inset:16px -12px -12px 16px;
+  border-radius:calc(var(--radius-m) + 4px);
+  background:linear-gradient(135deg, var(--signal), var(--gold));
+}
+.hero-photo--right::before{
+  inset:16px 16px -12px -12px;
+  background:linear-gradient(135deg, var(--navy), #1d6fb8);
+}
+.hero-photo img{
+  display:block; width:100%; height:auto; aspect-ratio:4 / 3; object-fit:cover;
+  border-radius:var(--radius-m);
+  border:5px solid #fff;
+  box-shadow:0 26px 44px -22px rgba(11,59,111,0.5);
+}
+.hero-photo--left img{ object-position:50% 35%; }
+.hero-photo--right img{ object-position:50% 40%; }
+@media (min-width: 1200px){
+  .hero-photos{ display:block; max-width:none; margin:0; }
+  .hero-photo{ position:absolute; width:clamp(210px, 17vw, 260px); }
+  .hero-photo--left{ left:clamp(-96px, calc((1200px - 100vw) / 2 + 20px), 0px); top:40px; rotate:-2.5deg; }
+  .hero-photo--right{ right:clamp(-96px, calc((1200px - 100vw) / 2 + 20px), 0px); top:196px; rotate:2.5deg; }
+}
+@media (max-width: 560px){
+  .hero-photos{ gap:16px; margin:36px auto 48px; }
+  .hero-photo::before{ inset:10px -8px -8px 10px; }
+  .hero-photo--right::before{ inset:10px 10px -8px -8px; }
+  .hero-photo img{ border-width:3px; aspect-ratio:1 / 1; }
+}
 /* --- Les nostres classes: text + fotos de la mateixa mida (3:2) --- */
 .classes-head{ max-width:760px; }
 .classes-head h2{ text-wrap:balance; }
@@ -799,7 +820,19 @@ h1.hero-title{ max-width:16ch; margin-left:auto; margin-right:auto; color:var(--
   text-shadow:0 0 10px rgba(90,220,255,0.75), 0 0 26px rgba(40,150,255,0.55), 0 2px 0 rgba(0,20,70,0.6);
 }
 .nadal-caption{ margin:0; font-size:0.78rem; line-height:1.4; color:#cfe8ff; }
-.nadal-posters{ display:grid; grid-template-columns:1.25fr 1fr; gap:10px; align-items:start; }
+.nadal-cta{
+  margin-top:14px; padding:12px 28px; font-size:0.98rem; font-weight:800; letter-spacing:0.02em;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.25), 0 10px 26px -8px rgba(242,89,32,0.8);
+  animation:nadal-cta-glow 2.4s ease-in-out infinite;
+}
+.nadal-cta::after{ content:"\2192"; font-weight:700; transition:transform .25s var(--ease); }
+.nadal-cta:hover::after,.nadal-cta:focus-visible::after{ transform:translateX(4px); }
+@keyframes nadal-cta-glow{
+  0%,100%{ box-shadow:0 0 0 1px rgba(255,255,255,0.25), 0 10px 26px -8px rgba(242,89,32,0.7); }
+  50%{ box-shadow:0 0 0 1px rgba(255,255,255,0.4), 0 10px 34px -4px rgba(242,89,32,1); }
+}
+@media (prefers-reduced-motion: reduce){ .nadal-cta{ animation:none; } }
+.nadal-posters{ display:grid; grid-template-columns:1fr 1fr; gap:10px; align-items:start; }
 
 .nadal-poster{
   --tilt:-2.5deg;
@@ -849,9 +882,8 @@ h1.hero-title{ max-width:16ch; margin-left:auto; margin-right:auto; color:var(--
   .nadal-poster{
     --grow:1.38;
     position:absolute; top:6px;
-    width:clamp(150px, 14vw, 210px);
+    width:clamp(180px, 17vw, 250px);
   }
-  .nadal-poster--main{ width:clamp(190px, 18vw, 270px); }
   /* El zoom creix cap a dins i cap avall, així no se surt de la pantalla ni passa per sota de la capçalera */
   .nadal-poster:nth-child(1){ --tilt:-2.5deg; left:24px; transform-origin:left top; }
   .nadal-poster:nth-child(2){ --tilt:2.5deg; right:24px; transform-origin:right top; }

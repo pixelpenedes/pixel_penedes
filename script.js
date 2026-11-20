@@ -40,6 +40,7 @@
       nadal_badge: "Novetat",
       nadal_title: "Campus de Nadal",
       nadal_caption: "Programació, disseny de videojocs i 3D · de 6 a 15 anys · 22, 23, 24, 28, 29 i 30 de desembre · de 9.30h a 13h",
+      nadal_cta: "Inscriu-te ara",
       nadal_img1_alt: "Cartell del Campus de Nadal: programació, disseny de videojocs i 3D, de 6 a 15 anys. 22, 23, 24, 28, 29 i 30 de desembre, de 9.30h a 13h, carrer Puigmoltó 5, WhatsApp 633 454 159",
       nadal_img2_alt: "Cartell Què farem?: disseny de personatges i escenaris, programació de moviments i funcions del joc, creació, impressió i postprocessat de figures 3D, programació amb Minecraft i creació de jocs amb Roblox Studio",
 
@@ -247,6 +248,8 @@
       b2b_hero_point1: "Gestió completa a càrrec de Pixel Penedès",
       b2b_hero_point2: "Classes presencials i online en directe",
       b2b_hero_point3: "Sol·licitud d'informació sense compromís",
+      b2b_hero_img1_alt: "Dos nens somrients saluden davant d'un ordinador després de la seva classe de programació",
+      b2b_hero_img2_alt: "Una família de tres generacions mira amb interès la pantalla d'un portàtil",
 
       b2b_band_eyebrow: "Un programa pensat per a empreses",
       b2b_band_title: "Un benefici que combina conciliació, educació i tecnologia",
@@ -742,6 +745,7 @@
       nadal_badge: "Novedad",
       nadal_title: "Campus de Navidad",
       nadal_caption: "Programación, diseño de videojuegos y 3D · de 6 a 15 años · 22, 23, 24, 28, 29 y 30 de diciembre · de 9.30h a 13h",
+      nadal_cta: "Inscríbete ahora",
       nadal_img1_alt: "Cartel del Campus de Navidad: programación, diseño de videojuegos y 3D, de 6 a 15 años. 22, 23, 24, 28, 29 y 30 de diciembre, de 9.30h a 13h, calle Puigmoltó 5, WhatsApp 633 454 159",
       nadal_img2_alt: "Cartel ¿Qué haremos?: diseño de personajes y escenarios, programación de movimientos y funciones del juego, creación, impresión y postprocesado de figuras 3D, programación con Minecraft y creación de juegos con Roblox Studio",
 
@@ -949,6 +953,8 @@
       b2b_hero_point1: "Gestión completa a cargo de Pixel Penedès",
       b2b_hero_point2: "Clases presenciales y online en directo",
       b2b_hero_point3: "Solicitud de información sin compromiso",
+      b2b_hero_img1_alt: "Dos niños sonrientes saludan delante de un ordenador tras su clase de programación",
+      b2b_hero_img2_alt: "Una familia de tres generaciones mira con interés la pantalla de un portátil",
 
       b2b_band_eyebrow: "Un programa pensado para empresas",
       b2b_band_title: "Un beneficio que combina conciliación, educación y tecnología",
@@ -1497,6 +1503,62 @@
     var limit = new Date(el.getAttribute("data-hide-after") + "T00:00:00");
     if (!isNaN(limit.getTime()) && new Date() >= limit) el.hidden = true;
   });
+
+  /* =========================================================
+     Neu de Nadal: copets que cauen per tota la web (canvas fix, sense interferir amb els clics).
+     Només fins al 7 de gener de 2027 i no si l'usuari prefereix menys animacions.
+     Per treure-la abans: esborra aquest bloc.
+     ========================================================= */
+  (function snow() {
+    if (prefersReducedMotion || new Date() >= new Date("2027-01-07T00:00:00")) return;
+    var cv = document.createElement("canvas");
+    cv.setAttribute("aria-hidden", "true");
+    cv.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60";
+    document.body.appendChild(cv);
+    var ctx = cv.getContext("2d");
+    if (!ctx) return;
+    var W = 0, H = 0, dpr = 1, flakes = [], raf = 0, last = 0;
+    function size() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth; H = window.innerHeight;
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = Math.max(28, Math.min(90, Math.round(W / 16)));
+      while (flakes.length < n) flakes.push(make(true));
+      flakes.length = n;
+    }
+    function make(anywhere) {
+      var r = 1.4 + Math.random() * 3.2;
+      return {
+        x: Math.random() * W, y: anywhere ? Math.random() * H : -10,
+        r: r, vy: 22 + r * 12 + Math.random() * 18,
+        amp: 8 + Math.random() * 22, ph: Math.random() * 6.28, sp: 0.4 + Math.random() * 0.9,
+        a: 0.55 + Math.random() * 0.4
+      };
+    }
+    function frame(t) {
+      var dt = Math.min(0.05, (t - (last || t)) / 1000); last = t;
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < flakes.length; i++) {
+        var f = flakes[i];
+        f.y += f.vy * dt; f.ph += f.sp * dt;
+        var x = f.x + Math.sin(f.ph) * f.amp;
+        if (f.y > H + 10) { flakes[i] = make(false); continue; }
+        ctx.globalAlpha = f.a;
+        ctx.beginPath(); ctx.arc(x, f.y, f.r, 0, 6.2832);
+        ctx.shadowColor = "rgba(60,120,200,0.55)"; ctx.shadowBlur = 4;
+        ctx.fillStyle = "#f4f9ff"; ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+      ctx.globalAlpha = 1;
+      raf = requestAnimationFrame(frame);
+    }
+    function start() { if (!raf) { last = 0; raf = requestAnimationFrame(frame); } }
+    function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+    document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
+    window.addEventListener("resize", size);
+    size(); start();
+  })();
 
   /* =========================================================
      Any actual al footer
