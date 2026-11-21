@@ -273,6 +273,15 @@ h1.hero-title{ max-width:16ch; margin-left:auto; margin-right:auto; color:var(--
   background:#101113;
   border-top:1px solid rgba(255,255,255,0.08);
 }
+.pixel-info{
+  padding:14px 20px 18px; background:#101113;
+  border-top:1px solid rgba(255,255,255,0.08);
+  text-align:left; color:var(--text-on-dark); font-size:0.82rem; line-height:1.45;
+}
+.pixel-info-title{ margin:0 0 6px; color:#FCAF15; font-weight:800; font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; }
+.pixel-info ul{ margin:0; padding:0; list-style:none; display:grid; gap:5px; }
+.pixel-info li{ position:relative; padding-left:16px; }
+.pixel-info li::before{ content:""; position:absolute; left:0; top:0.5em; width:7px; height:7px; border-radius:2px; background:#F25920; }
 .pixel-hint{ color:var(--text-on-dark); font-size:0.82rem; }
 .pixel-score{ color:#FCAF15; font-size:0.82rem; font-weight:700; margin-left:auto; margin-right:14px; white-space:nowrap; }
 @media (max-width:520px){ .pixel-hint{ display:none; } .pixel-score{ margin-left:0; } .pixel-widget-bar{ justify-content:space-between; } }
@@ -284,6 +293,21 @@ h1.hero-title{ max-width:16ch; margin-left:auto; margin-right:auto; color:var(--
   transition: background .2s ease;
 }
 .pixel-clear:hover{ background:rgba(255,255,255,0.18); }
+.pixel-sound{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; margin-right:8px; padding:0;
+  background:rgba(255,255,255,0.08); color:#FCAF15;
+  border:none; border-radius:50%; cursor:pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.pixel-sound:hover{ background:rgba(255,255,255,0.18); }
+.pixel-sound:focus-visible{ outline:2px solid #FCAF15; outline-offset:2px; }
+.pixel-sound svg{ width:18px; height:18px; }
+.pixel-sound .snd-off{ display:none; }
+.pixel-sound.is-off{ color:rgba(255,255,255,0.55); }
+.pixel-sound.is-off .snd-on{ display:none; }
+.pixel-sound.is-off .snd-off{ display:inline; }
+.pixel-widget-bar .pixel-sound{ flex:none; }
 
 /* =========================================================
    Galeria de classe (fotos reals)

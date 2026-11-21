@@ -71,7 +71,16 @@
 
       game_laser: "LÀSER",
 
-      game_tip: "Salta i agafa el cuc: la gallina dispararà un làser als ous",
+      game_tip: "Arriba a l'ou d'or gegant · cuc = làser · ? = mode mirall",
+      game_win: "Has trobat l'ou d'or!",
+      sound_on: "Desactiva el so",
+      sound_off: "Activa el so",
+      game_mirror: "MODE MIRALL",
+      game_goal: "Meta",
+      game_info_title: "Com es juga",
+      game_info_goal: "Objectiu: salta els ous i arriba a l'ou d'or gegant per acabar el joc.",
+      game_info_worm: "Cuc rosa: si el toques, la gallina dispara un làser durant 6 segons que trenca els ous.",
+      game_info_q: "Signe d'interrogació: si el toques s'activa el mode mirall durant 10 segons, i el joc es veu del revés.",
 
       gallery_eyebrow: "A dins de l'acadèmia",
       gallery_title: "Així són les nostres classes",
@@ -776,7 +785,16 @@
 
       game_laser: "LÁSER",
 
-      game_tip: "Salta y coge el gusano: la gallina disparará un láser a los huevos",
+      game_tip: "Llega al huevo de oro gigante · gusano = láser · ? = modo espejo",
+      game_win: "¡Has encontrado el huevo de oro!",
+      sound_on: "Desactivar el sonido",
+      sound_off: "Activar el sonido",
+      game_mirror: "MODO ESPEJO",
+      game_goal: "Meta",
+      game_info_title: "Cómo se juega",
+      game_info_goal: "Objetivo: salta los huevos y llega al huevo de oro gigante para terminar el juego.",
+      game_info_worm: "Gusano rosa: si lo tocas, la gallina dispara un láser durante 6 segundos que rompe los huevos.",
+      game_info_q: "Signo de interrogación: si lo tocas se activa el modo espejo durante 10 segundos y el juego se ve del revés.",
 
       gallery_eyebrow: "Dentro de la academia",
       gallery_title: "Así son nuestras clases",
@@ -1715,29 +1733,6 @@
       navy: "#0B3B6F"
     };
 
-    // Sprite de la gallina (14 x 14), mira cap a la dreta
-    var HEN = [
-      "......RR......",
-      ".....RRR......",
-      ".....WWWW.....",
-      ".....WKWWOO...",
-      ".....WWWWO....",
-      "..W...WWRR....",
-      ".WW..WWWW.....",
-      ".WWWWWWWWW....",
-      "WWWWWWWWWWW...",
-      ".WWWWYYWWWW...",
-      "..WWWYYYWWW...",
-      "...WWWWWWW....",
-      "....O...O.....",
-      "....O...O....."
-    ];
-    var HEN_LEGS = [
-      ["....O...O.....", "....O...O....."],
-      ["....O.....O...", "...O.....O...."]
-    ];
-    var HEN_COLORS = { W: "#F7F4EC", R: "#F25920", K: "#17191C", O: "#FCAF15", Y: "#FCAF15" };
-
     var state = "idle"; // idle | run | over
     var hen = { y: GROUND, vy: 0 };
     var obstacles = [];
@@ -1761,6 +1756,12 @@
     var shotCd = 0;
     var beam = null;
     var particles = [];
+    var GOAL = 1500; // punts per fer aparèixer l'ou d'or gegant (≈ un minut de partida)
+    var MIRROR_SECS = 10;
+    var goalEgg = null; // ou d'or gegant: arribar-hi acaba el joc
+    var mirrorT = 0; // segons de mode mirall que queden
+    var flipP = 0; // 0 = normal, 1 = del revés (animat)
+    var winAt = 0;
 
     try {
       best = parseInt(window.localStorage.getItem(BEST_KEY), 10) || 0;
@@ -1771,6 +1772,158 @@
     function txt(key) {
       var d = translations[currentLang] || translations.ca;
       return d[key] || "";
+    }
+
+    /* ---------- So (Web Audio, tot sintetitzat: sense fitxers) ---------- */
+    var SOUND_KEY = "pixelpenedes_gallina_so";
+    var soundBtn = document.getElementById("pixelSound");
+    var soundOn = true;
+    var actx = null;
+    var masterG = null;
+    var musicTimer = 0;
+    var nextNoteT = 0;
+    var musicStep = 0;
+    var lastSoundLabel = "";
+    try {
+      soundOn = window.localStorage.getItem(SOUND_KEY) !== "off";
+    } catch (err) {
+      soundOn = true;
+    }
+    var MEL = [72, 0, 76, 0, 79, 76, 72, 0, 74, 0, 77, 0, 81, 77, 74, 0, 72, 0, 76, 0, 79, 76, 72, 0, 67, 0, 71, 0, 74, 71, 67, 0];
+    var BASS = [48, 48, 53, 53, 48, 48, 55, 55];
+
+    function ensureAudio() {
+      if (!soundOn) return null;
+      if (!actx) {
+        var AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return null;
+        try {
+          actx = new AC();
+          masterG = actx.createGain();
+          masterG.gain.value = 0.9;
+          masterG.connect(actx.destination);
+        } catch (err) {
+          actx = null;
+          return null;
+        }
+      }
+      if (actx.state === "suspended" && visible && !document.hidden) actx.resume();
+      return actx;
+    }
+
+    function tone(freq, t, dur, type, vol, freqEnd, dest) {
+      var o = actx.createOscillator();
+      var g = actx.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(freq, t);
+      if (freqEnd) o.frequency.exponentialRampToValueAtTime(freqEnd, t + dur);
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(vol, t + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g);
+      g.connect(dest || masterG);
+      o.start(t);
+      o.stop(t + dur + 0.03);
+    }
+
+    function midi(m) {
+      return 440 * Math.pow(2, (m - 69) / 12);
+    }
+
+    function musicTick() {
+      if (!actx) return;
+      while (nextNoteT < actx.currentTime + 0.35) {
+        var m = MEL[musicStep % 32];
+        if (m) tone(midi(m), nextNoteT, 0.17, "square", 0.045);
+        if (musicStep % 4 === 0) tone(midi(BASS[(musicStep / 4) % 8] - 12), nextNoteT, 0.36, "triangle", 0.16);
+        if (musicStep % 2 === 1) tone(9000, nextNoteT, 0.03, "square", 0.012);
+        musicStep++;
+        nextNoteT += 0.2;
+      }
+    }
+
+    function startMusic() {
+      if (musicTimer || !ensureAudio()) return;
+      musicStep = 0;
+      nextNoteT = actx.currentTime + 0.08;
+      musicTimer = window.setInterval(musicTick, 100);
+      musicTick();
+    }
+
+    function stopMusic() {
+      if (musicTimer) {
+        window.clearInterval(musicTimer);
+        musicTimer = 0;
+      }
+    }
+
+    function sfxLaser() {
+      if (!ensureAudio()) return;
+      var t = actx.currentTime;
+      tone(1500, t, 0.16, "sawtooth", 0.13, 180);
+      tone(750, t, 0.12, "square", 0.06, 120);
+    }
+
+    function sfxCluck() {
+      if (!ensureAudio()) return;
+      var t = actx.currentTime;
+      var f = actx.createBiquadFilter();
+      f.type = "lowpass";
+      f.frequency.value = 2200;
+      f.connect(masterG);
+      var seq = [[700, 980], [980, 560], [640, 900], [880, 420]];
+      for (var i = 0; i < seq.length; i++) tone(seq[i][0], t + i * 0.085, 0.09, "sawtooth", 0.22, seq[i][1], f);
+    }
+
+    function sfxPickup(high) {
+      if (!ensureAudio()) return;
+      var t = actx.currentTime;
+      tone(high ? 660 : 520, t, 0.08, "square", 0.09);
+      tone(high ? 990 : 780, t + 0.07, 0.14, "square", 0.09);
+    }
+
+    function sfxWin() {
+      if (!ensureAudio()) return;
+      var t = actx.currentTime;
+      var notes = [72, 76, 79, 84, 79, 84, 88];
+      for (var i = 0; i < notes.length; i++) tone(midi(notes[i]), t + i * 0.12, i === notes.length - 1 ? 0.9 : 0.16, "square", 0.1);
+      [72, 76, 79].forEach(function (m) { tone(midi(m), t + 0.84, 1.0, "triangle", 0.12); });
+    }
+
+    function syncAudioVisibility() {
+      if (!actx) return;
+      if (!visible || document.hidden) actx.suspend();
+      else if (soundOn) actx.resume();
+    }
+
+    function updateSoundBtn() {
+      if (!soundBtn) return;
+      var label = txt(soundOn ? "sound_on" : "sound_off");
+      if (label === lastSoundLabel) return;
+      lastSoundLabel = label;
+      soundBtn.setAttribute("aria-label", label);
+      soundBtn.setAttribute("title", label);
+      soundBtn.setAttribute("aria-pressed", soundOn ? "true" : "false");
+      soundBtn.classList.toggle("is-off", !soundOn);
+    }
+
+    if (soundBtn) {
+      soundBtn.addEventListener("click", function () {
+        soundOn = !soundOn;
+        try {
+          window.localStorage.setItem(SOUND_KEY, soundOn ? "on" : "off");
+        } catch (err) {}
+        lastSoundLabel = "";
+        updateSoundBtn();
+        if (!soundOn) {
+          stopMusic();
+          if (actx) actx.suspend();
+        } else {
+          ensureAudio();
+          if (state === "run") startMusic();
+          sfxPickup(true);
+        }
+      });
     }
 
     function resetWorld() {
@@ -1787,6 +1940,10 @@
       shotCd = 0;
       beam = null;
       particles = [];
+      goalEgg = null;
+      mirrorT = 0;
+      flipP = 0;
+      qCd = 8;
       clouds = [];
       for (var c = 0; c < 5; c++) clouds.push({ x: Math.random() * VW, y: 30 + Math.random() * 110, w: 50 + Math.random() * 60 });
       ticks = [];
@@ -1808,6 +1965,18 @@
       return big ? { w: 28, h: 40 } : { w: 22, h: 30 };
     }
 
+    var qCd = 8; // segons mínims fins al proper "?"
+
+    function hasQ() {
+      for (var i = 0; i < obstacles.length; i++) if (obstacles[i].q) return true;
+      return false;
+    }
+
+    function qBox(o) {
+      var cx = o.x + o.w / 2;
+      return { x1: cx - 19, x2: cx + 19, y1: GROUND - 106, y2: GROUND - 68 };
+    }
+
     function spawn() {
       var lv = level();
       var count = 1;
@@ -1817,7 +1986,10 @@
       var big = lv >= 4 && Math.random() < 0.3;
       var e = eggSpec(big);
       var w = count * e.w + (count - 1) * 4;
-      obstacles.push({ x: VW + 30, w: w, h: e.h, ew: e.w, count: count });
+      // de tant en tant, un "?" gran surt flotant sobre l'ou (mai amb el cuc a la pantalla)
+      var withQ = lv >= 2 && !worm && mirrorT <= 0 && qCd <= 0 && !hasQ() && Math.random() < 0.45;
+      if (withQ) qCd = 14 + Math.random() * 8;
+      obstacles.push({ x: VW + 30, w: w, h: e.h, ew: e.w, count: count, q: withQ });
       // distància fins al següent: sempre es pot saltar, però cada cop amb menys marge
       var margin = Math.max(0.55, 1.0 - lv * 0.06);
       nextSpawn = w + speed * (0.68 + margin * 0.55) + Math.random() * 240 * margin;
@@ -1828,13 +2000,14 @@
       resetWorld();
       state = "run";
       lastT = 0;
+      startMusic();
     }
 
     function jump() {
       if (state === "idle") {
         startRun();
-      } else if (state === "over") {
-        if (performance.now() - overAt < 450) return;
+      } else if (state === "over" || state === "win") {
+        if (performance.now() - (state === "win" ? winAt : overAt) < (state === "win" ? 1200 : 450)) return;
         startRun();
       }
       if (hen.y >= GROUND) hen.vy = -JUMP_V;
@@ -1887,12 +2060,33 @@
       burst(tgt.x + tgt.w / 2, GROUND - tgt.h / 2, 7 * tgt.count, ["#FCAF15", "#F7F4EC", "#F25920"]);
       score += 10 * tgt.count;
       shotCd = 0.22;
+      sfxLaser();
     }
 
     function updateExtras(dt) {
       // Cuc a l'aire: surt de tant en tant; si la gallina el toca, activa el làser uns segons
       if (!worm && laserT <= 0) wormCd -= dt;
-      if (!worm && laserT <= 0 && wormCd <= 0) worm = { x: VW + 30, t: 0 };
+      if (!worm && laserT <= 0 && wormCd <= 0 && !hasQ() && !goalEgg && score < GOAL - 150) worm = { x: VW + 30, t: 0 };
+
+      // Signe d'interrogació sobre un ou: tocar-lo activa el mode mirall
+      qCd -= dt;
+      var hb = { x1: HEN_X + 8, x2: HEN_X + 14 * PX - 4, y1: hen.y - 14 * PX + 6, y2: hen.y - 3 };
+      for (var qi = 0; qi < obstacles.length; qi++) {
+        var qo = obstacles[qi];
+        if (!qo.q) continue;
+        var qb = qBox(qo);
+        if (hb.x2 > qb.x1 && hb.x1 < qb.x2 && hb.y2 > qb.y1 && hb.y1 < qb.y2) {
+          qo.q = false;
+          mirrorT = MIRROR_SECS;
+          score += 25;
+          burst((qb.x1 + qb.x2) / 2, (qb.y1 + qb.y2) / 2, 14, ["#9B7BFF", "#F7F4EC", "#FCAF15"]);
+          sfxPickup(true);
+        }
+      }
+      if (mirrorT > 0) mirrorT = Math.max(0, mirrorT - dt);
+      var flipTarget = mirrorT > 0 ? 1 : 0;
+      var flipStep = dt / 0.45;
+      flipP = flipTarget > flipP ? Math.min(flipTarget, flipP + flipStep) : Math.max(flipTarget, flipP - flipStep);
       if (worm) {
         worm.x -= speed * dt * 0.9;
         worm.t += dt;
@@ -1906,6 +2100,7 @@
           shotCd = 0;
           score += 25;
           burst(worm.x + 2, wy, 12, ["#FF7AA2", "#F7F4EC", "#FCAF15"]);
+          sfxPickup(false);
           worm = null;
           wormCd = 22 + Math.random() * 8; // si agafa el cuc, el següent triga bastant més
         } else if (worm.x < -40) {
@@ -1923,6 +2118,10 @@
         beam.t -= dt;
         if (beam.t <= 0) beam = null;
       }
+      updateParticles(dt);
+    }
+
+    function updateParticles(dt) {
       for (var p = particles.length - 1; p >= 0; p--) {
         var q = particles[p];
         q.life -= dt;
@@ -1945,7 +2144,17 @@
       }
 
       sinceSpawn += speed * dt;
-      if (sinceSpawn >= nextSpawn) spawn();
+      if (score < GOAL - 60 && sinceSpawn >= nextSpawn) spawn();
+
+      // Final: quan s'arriba a la meta surt l'ou d'or gegant, i tocar-lo acaba el joc
+      if (score >= GOAL && !goalEgg) goalEgg = { x: VW + 40 };
+      if (goalEgg) {
+        goalEgg.x -= speed * dt;
+        if (HEN_X + 14 * PX - 10 > goalEgg.x + 8) {
+          win();
+          return;
+        }
+      }
 
       for (var i = obstacles.length - 1; i >= 0; i--) {
         obstacles[i].x -= speed * dt;
@@ -1967,7 +2176,11 @@
 
       if (hit()) {
         state = "over";
+        stopMusic();
+        sfxCluck();
         laserT = 0;
+        mirrorT = 0;
+        flipP = 0;
         beam = null;
         overAt = performance.now();
         var s = Math.floor(score);
@@ -1980,19 +2193,165 @@
       }
     }
 
-    function drawHen(frame) {
-      var rows = HEN.slice(0, 12).concat(HEN_LEGS[frame]);
-      var top = hen.y - rows.length * PX;
-      for (var y = 0; y < rows.length; y++) {
-        for (var x = 0; x < rows[y].length; x++) {
-          var ch = rows[y].charAt(x);
-          if (ch === ".") continue;
-          ctx.fillStyle = HEN_COLORS[ch];
-          ctx.fillRect(HEN_X + x * PX, top + y * PX, PX, PX);
-        }
+    function win() {
+      state = "win";
+      stopMusic();
+      sfxWin();
+      winAt = performance.now();
+      laserT = 0;
+      mirrorT = 0;
+      flipP = 0;
+      beam = null;
+      worm = null;
+      goalEgg.x = HEN_X + 14 * PX + 2; // l'ou gegant queda just davant de la gallina
+      hen.y = GROUND;
+      hen.vy = 0;
+      score += 200;
+      var s = Math.floor(score);
+      if (s > best) {
+        best = s;
+        try {
+          window.localStorage.setItem(BEST_KEY, String(best));
+        } catch (err) {}
       }
     }
 
+    function drawGoalEgg() {
+      var w = 96;
+      var h = 128;
+      var cx = goalEgg.x + w / 2;
+      var cy = GROUND - h / 2;
+      var tt = performance.now() / 1000;
+      var g = ctx.createRadialGradient(cx, cy, 10, cx, cy, 120);
+      g.addColorStop(0, "rgba(252,175,21,0.55)");
+      g.addColorStop(1, "rgba(252,175,21,0)");
+      ctx.fillStyle = g;
+      ctx.fillRect(cx - 130, cy - 130, 260, 260);
+      drawEgg(goalEgg.x, w, h);
+      // brillants
+      ctx.fillStyle = "#FFF6D0";
+      for (var s = 0; s < 4; s++) {
+        var a = tt * 2 + s * 1.6;
+        var sx = cx + Math.cos(a * 0.9 + s) * 52;
+        var sy = cy + Math.sin(a * 1.3 + s * 2) * 62;
+        var r = 2.5 + (Math.sin(a * 3) + 1) * 2;
+        ctx.fillRect(sx - r, sy - 1, r * 2, 2);
+        ctx.fillRect(sx - 1, sy - r, 2, r * 2);
+      }
+    }
+
+    function drawQuestion(o) {
+      var b = qBox(o);
+      var bob = Math.sin(performance.now() / 260 + o.x * 0.05) * 3;
+      var x = b.x1;
+      var y = b.y1 + bob;
+      ctx.fillStyle = "rgba(155,123,255,0.25)";
+      ctx.fillRect(x - 5, y - 5, 48, 48);
+      ctx.fillStyle = "#7C4DFF";
+      ctx.fillRect(x, y, 38, 38);
+      ctx.fillStyle = "#B79CFF";
+      ctx.fillRect(x, y, 38, 4);
+      ctx.fillStyle = "#F7F4EC";
+      ctx.font = "900 34px Inter, system-ui, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("?", x + 19, y + 31);
+    }
+
+    // Gallina redondeada (vectorial). Origen = esquina superior izquierda de la caixa de 56 x 56 (mateixa que la hitbox)
+    function drawHen(frame) {
+      var airborne = hen.y < GROUND;
+      var bob = state === "run" && !airborne ? (frame ? 1.5 : 0) : 0;
+      ctx.save();
+      ctx.translate(HEN_X, hen.y - 56 + bob);
+      // ombra
+      if (!airborne) {
+        ctx.fillStyle = "rgba(0,0,0,0.28)";
+        ctx.beginPath();
+        ctx.ellipse(28, 56 - bob, 20, 3, 0, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      // potes
+      var sw = airborne ? 0 : frame ? 4 : -4;
+      ctx.strokeStyle = COLORS.gold;
+      ctx.fillStyle = COLORS.gold;
+      ctx.lineWidth = 3;
+      ctx.lineCap = "round";
+      var legs = airborne ? [[24, 6], [34, -2]] : [[24, sw], [34, -sw]];
+      for (var l = 0; l < legs.length; l++) {
+        var lx = legs[l][0];
+        var fx = lx + legs[l][1] * 0.6;
+        var fy = airborne ? 53 : 55;
+        ctx.beginPath();
+        ctx.moveTo(lx, 46);
+        ctx.lineTo(fx, fy);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(fx + 2, fy + 0.5, 4.5, 2, 0, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      // cua
+      ctx.fillStyle = "#EDE4D3";
+      ctx.beginPath();
+      ctx.ellipse(6, 26, 7, 11, -0.55, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.ellipse(4, 33, 6, 8, -0.2, 0, Math.PI * 2);
+      ctx.fill();
+      // cos
+      ctx.fillStyle = "#FBF8F1";
+      ctx.beginPath();
+      ctx.ellipse(26, 34, 22, 17, 0, 0, Math.PI * 2);
+      ctx.fill();
+      // coll i cap
+      ctx.beginPath();
+      ctx.ellipse(38, 25, 9, 12, 0.25, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(41, 17, 11, 0, Math.PI * 2);
+      ctx.fill();
+      // ala
+      ctx.fillStyle = "#EADFCB";
+      ctx.beginPath();
+      ctx.ellipse(22, 36, 12, 8.5, -0.2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = "rgba(160,135,95,0.55)";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(22, 37, 5.5, 0.3, Math.PI * 0.95);
+      ctx.stroke();
+      // cresta
+      ctx.fillStyle = COLORS.accent;
+      ctx.beginPath();
+      ctx.arc(36, 7, 4, 0, Math.PI * 2);
+      ctx.arc(41.5, 5, 4.6, 0, Math.PI * 2);
+      ctx.arc(46.5, 8, 3.8, 0, Math.PI * 2);
+      ctx.fill();
+      // bec
+      ctx.fillStyle = COLORS.gold;
+      ctx.beginPath();
+      ctx.moveTo(49, 14.5);
+      ctx.quadraticCurveTo(58, 17.5, 49.5, 22);
+      ctx.closePath();
+      ctx.fill();
+      // barbella
+      ctx.fillStyle = COLORS.accent;
+      ctx.beginPath();
+      ctx.ellipse(48.5, 25.5, 2.8, 4, 0, 0, Math.PI * 2);
+      ctx.fill();
+      // galta
+      ctx.fillStyle = "rgba(242,89,32,0.22)";
+      ctx.beginPath();
+      ctx.arc(40, 21, 3.2, 0, Math.PI * 2);
+      ctx.fill();
+      // ull (vermell si té el làser)
+      ctx.fillStyle = laserT > 0 ? "#FF3B3B" : COLORS.bg;
+      ctx.beginPath();
+      ctx.arc(44, 15, 2.6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(44.6, 14, 1.2, 1.2);
+      ctx.restore();
+    }
     function drawEgg(x, w, h) {
       var cx = x + w / 2;
       var cy = GROUND - h / 2;
@@ -2049,6 +2408,11 @@
         ctx.fillRect(particles[p].x, particles[p].y, 5, 5);
       }
       ctx.globalAlpha = 1;
+    }
+
+    // Marcadors fixes (no es giren amb el mode mirall)
+    function drawHud() {
+      if (state === "idle") return;
       if (laserT > 0) {
         ctx.fillStyle = "rgba(255,255,255,0.12)";
         ctx.fillRect(16, 16, 120, 10);
@@ -2058,10 +2422,29 @@
         ctx.fillStyle = COLORS.text;
         ctx.textAlign = "left";
         ctx.fillText(txt("game_laser"), 16, 42);
-        // ull vermell mentre hi ha làser
-        ctx.fillStyle = "#FF4D4D";
-        ctx.fillRect(HEN_X + 6 * PX, hen.y - 14 * PX + 3 * PX, PX, PX);
       }
+      if (mirrorT > 0) {
+        var ly = laserT > 0 ? 66 : 16;
+        ctx.fillStyle = "rgba(255,255,255,0.12)";
+        ctx.fillRect(16, ly, 120, 10);
+        ctx.fillStyle = "#9B7BFF";
+        ctx.fillRect(16, ly, 120 * Math.min(1, mirrorT / MIRROR_SECS), 10);
+        ctx.font = "800 " + fontPx(12) + "px Inter, system-ui, sans-serif";
+        ctx.fillStyle = COLORS.text;
+        ctx.textAlign = "left";
+        ctx.fillText(txt("game_mirror") + " " + Math.ceil(mirrorT) + "s", 16, ly + 26);
+      }
+      // progrés cap a l'ou d'or
+      var pw = 120;
+      var px0 = VW - 16 - pw;
+      ctx.fillStyle = "rgba(255,255,255,0.12)";
+      ctx.fillRect(px0, 16, pw, 10);
+      ctx.fillStyle = COLORS.gold;
+      ctx.fillRect(px0, 16, pw * Math.min(1, score / GOAL), 10);
+      ctx.font = "800 " + fontPx(12) + "px Inter, system-ui, sans-serif";
+      ctx.fillStyle = COLORS.text;
+      ctx.textAlign = "right";
+      ctx.fillText(txt("game_goal"), VW - 16, 42);
     }
 
     // mida de lletra en unitats lògiques: mai per sota de ~12 px reals, encara que el canvas sigui petit
@@ -2080,8 +2463,12 @@
       var k = (canvas.width / VW);
       ctx.setTransform(k, 0, 0, k, 0, 0);
       ctx.clearRect(0, 0, VW, VH);
-      ctx.fillStyle = COLORS.bg;
+      ctx.fillStyle = mirrorT > 0 ? "#1c1830" : COLORS.bg;
       ctx.fillRect(0, 0, VW, VH);
+
+      // mode mirall: el món es gira verticalment (amb una animació de volteig)
+      var sy = 1 - 2 * flipP;
+      ctx.setTransform(k, 0, 0, k * sy, 0, (VH / 2) * k * (1 - sy));
 
       for (var c = 0; c < clouds.length; c++) {
         ctx.fillStyle = COLORS.cloud;
@@ -2098,11 +2485,16 @@
       for (var i = 0; i < obstacles.length; i++) {
         var o = obstacles[i];
         for (var n = 0; n < o.count; n++) drawEgg(o.x + n * (o.ew + 4), o.ew, o.h);
+        if (o.q) drawQuestion(o);
       }
+      if (goalEgg) drawGoalEgg();
 
       var frame = state === "run" && hen.y >= GROUND ? Math.floor(performance.now() / 110) % 2 : 0;
       drawHen(frame);
       drawExtras();
+
+      ctx.setTransform(k, 0, 0, k, 0, 0);
+      drawHud();
 
       if (state === "idle") {
         centered(txt("game_title"), 112, 30, COLORS.text, "800");
@@ -2114,8 +2506,15 @@
         centered(txt("game_over"), 104, 30, COLORS.text, "800");
         centered(txt("game_score") + " " + Math.floor(score) + "  ·  " + txt("game_best") + " " + best, 138, 17, COLORS.gold, "700");
         centered(txt("game_retry"), 170, 15, COLORS.muted, "500");
+      } else if (state === "win") {
+        ctx.fillStyle = "rgba(23,25,28,0.3)";
+        ctx.fillRect(0, 0, VW, VH);
+        centered(txt("game_win"), 100, 28, COLORS.gold, "800");
+        centered(txt("game_score") + " " + Math.floor(score) + "  ·  " + txt("game_best") + " " + best, 136, 17, COLORS.text, "700");
+        centered(txt("game_retry"), 168, 15, COLORS.muted, "500");
       }
 
+      updateSoundBtn();
       var shown = state === "idle" ? "" : txt("game_level") + " " + level() + "  ·  " + txt("game_score") + " " + Math.floor(score);
       if (state === "idle" && best > 0) shown = txt("game_best") + " " + best;
       if (scoreEl && shown !== lastShown) {
@@ -2131,9 +2530,16 @@
         var dt = lastT ? Math.min(0.05, (now - lastT) / 1000) : 0;
         lastT = now;
         update(dt);
+      } else if (state === "win") {
+        // celebració: confeti uns segons
+        var wt = performance.now() - winAt;
+        var dw = lastT ? Math.min(0.05, (now - lastT) / 1000) : 0;
+        lastT = now;
+        if (wt < 2200) burst(40 + Math.random() * (VW - 80), 20 + Math.random() * 60, 2, ["#FCAF15", "#F25920", "#F7F4EC", "#9B7BFF", "#38e8ff"]);
+        updateParticles(dw);
       }
       render();
-      if (state === "run") raf = window.requestAnimationFrame(frameLoop);
+      if (state === "run" || (state === "win" && performance.now() - winAt < 3600)) raf = window.requestAnimationFrame(frameLoop);
     }
 
     function kick() {
@@ -2168,6 +2574,7 @@
 
     if (clearBtn) {
       clearBtn.addEventListener("click", function () {
+        stopMusic();
         state = "idle";
         resetWorld();
         render();
@@ -2178,10 +2585,12 @@
     if ("IntersectionObserver" in window) {
       new IntersectionObserver(function (entries) {
         visible = entries[0].isIntersecting;
+        syncAudioVisibility();
         if (visible) kick();
       }, { threshold: 0.1 }).observe(canvas);
     }
     document.addEventListener("visibilitychange", function () {
+      syncAudioVisibility();
       if (!document.hidden) kick();
     });
 
