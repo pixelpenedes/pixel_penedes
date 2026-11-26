@@ -1175,3 +1175,6 @@ a.lang-btn{ text-decoration:none; display:inline-block; }
 .legal-list{ margin:0 0 1em; padding-left:1.2em; list-style:disc; color:var(--text-muted); max-width:68ch; }
 .legal-list li{ margin-bottom:.6em; }
 .form-check label a{ color:var(--signal-dark); font-weight:600; }
+
+/* Foto vertical de la pagina escola: amplada limitada perque no superi gaire el text */
+.feature-media--compact img{ display:block; max-width:400px; margin:0 auto; }

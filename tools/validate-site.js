@@ -15,6 +15,7 @@ const pages = [
   "videojocs-nens-vilafranca/index.html",
   "impressio-3d-nens-vilafranca/index.html",
   "extraescolars-tecnologia-vilafranca/index.html",
+  "escola-programacio-vilafranca/index.html",
   "cookies/index.html",
   "privacitat/index.html",
   "avis-legal/index.html",
@@ -24,6 +25,7 @@ const pages = [
   "es/videojuegos-ninos-vilafranca/index.html",
   "es/impresion-3d-ninos-vilafranca/index.html",
   "es/extraescolares-tecnologia-vilafranca/index.html",
+  "es/escuela-programacion-vilafranca/index.html",
   "es/cookies/index.html",
   "es/privacidad/index.html",
   "es/aviso-legal/index.html"

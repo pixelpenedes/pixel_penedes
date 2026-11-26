@@ -43,6 +43,12 @@ const ROUTES = [
     caUrl: "/extraescolars-tecnologia-vilafranca/",
     esUrl: "/es/extraescolares-tecnologia-vilafranca/"
   },
+  {
+    ca: "escola-programacio-vilafranca/index.html",
+    es: "es/escuela-programacion-vilafranca/index.html",
+    caUrl: "/escola-programacio-vilafranca/",
+    esUrl: "/es/escuela-programacion-vilafranca/"
+  },
   { ca: "cookies/index.html", es: "es/cookies/index.html", caUrl: "/cookies/", esUrl: "/es/cookies/" },
   { ca: "privacitat/index.html", es: "es/privacidad/index.html", caUrl: "/privacitat/", esUrl: "/es/privacidad/" },
   { ca: "avis-legal/index.html", es: "es/aviso-legal/index.html", caUrl: "/avis-legal/", esUrl: "/es/aviso-legal/" }
