@@ -249,7 +249,7 @@ function buildPage(route) {
   // Selector d'idioma: enllaços a l'altra URL
   const caHref = relLink(route.es, route.ca);
   const selfHref = relLink(route.es, route.es);
-  html = html.replace(/<a class="lang-btn[^"]*" data-lang="ca"[^>]*>CAT<\/a>/, '<a class="lang-btn" data-lang="ca" lang="ca" hreflang="ca" href="' + caHref + '">CAT</a>');
+  html = html.replace(/<a class="lang-btn[^"]*" data-lang="ca"[^>]*>CA<\/a>/, '<a class="lang-btn" data-lang="ca" lang="ca" hreflang="ca" href="' + caHref + '">CA</a>');
   html = html.replace(/<a class="lang-btn[^"]*" data-lang="es"[^>]*>ES<\/a>/, '<a class="lang-btn is-active" data-lang="es" lang="es" hreflang="es" href="' + selfHref + '" aria-current="true">ES</a>');
 
   html = html.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n<!-- Fitxer generat per tools/build-es.js a partir de " + route.ca + ". No editar: edita el català i torna a executar el script. -->");
