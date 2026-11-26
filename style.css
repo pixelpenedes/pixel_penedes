@@ -399,6 +399,13 @@ h1.hero-title{ max-width:16ch; margin-left:auto; margin-right:auto; color:var(--
   box-shadow: 0 45px 80px -30px rgba(0,0,0,0.4);
 }
 
+/* Portada, blocs 01-04: les imatges són verticals (9:16), es limiten perquè no superin gaire l'alçada del text */
+.pillars .feature-media img{ display:block; max-width:280px; margin:0 auto; }
+.pillars .section{ padding:0; }
+@media (min-width: 981px){
+  .pillars .feature-tile{ grid-template-columns:320px 1fr; gap:80px; padding:72px 24px; max-width:1040px; }
+  .pillars .feature-tile--reverse{ grid-template-columns:1fr 320px; }
+}
 .feature-copy .section-eyebrow{ margin-bottom:12px; }
 .feature-copy h2{ color:var(--ink); margin-bottom:.4em; }
 .feature-copy p.feature-desc{ color:var(--text-muted); font-size:1.08rem; max-width:48ch; margin-bottom:24px; }
