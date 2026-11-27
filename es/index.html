@@ -297,24 +297,36 @@
           </div>
         </div>
 
-        <div class="pixel-widget reveal">
-          <canvas id="pixelCanvas" width="640" height="320" tabindex="0" aria-label="Juego de la gallina: toca la pantalla o pulsa espacio para saltar los huevos" data-i18n-aria="canvas_aria" role="application"></canvas>
-          <div class="pixel-widget-bar">
-            <span class="pixel-hint" data-i18n="pixel_hint">Toca la pantalla o pulsa espacio para saltar</span>
-            <span class="pixel-score" id="gameScore" aria-live="off"></span>
-            <button type="button" id="pixelSound" class="pixel-sound" aria-pressed="true" aria-label="Desactiva el so" title="Desactiva el so">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9v6h4l5 4V5L7 9H3Z"/><path class="snd-on" fill="currentColor" d="M16.5 12a4.5 4.5 0 0 0-2.5-4v8a4.500 4.500 0 0 0 2.500-4Zm-2.500-8.700v2.100c2.900.9 5 3.600 5 6.600s-2.100 5.700-5 6.600v2.100c4-.9 7-4.500 7-8.700s-3-7.800-7-8.700Z"/><path class="snd-off" fill="currentColor" d="m16.300 9.300 1.400-1.400L20 10.200l2.300-2.300 1.400 1.400-2.300 2.300 2.300 2.300-1.400 1.400-2.300-2.300-2.300 2.300-1.400-1.400 2.300-2.300-2.300-2.300Z"/></svg>
-            </button>
-            <button type="button" id="pixelClear" class="pixel-clear" data-i18n="pixel_clear">Reiniciar</button>
+        <div class="game-row">
+          <aside class="wood-sign reveal">
+            <p class="wood-sign-title" data-i18n="price_sign_title">¿Quieres saber el precio de la mensualidad?</p>
+            <p class="wood-sign-text" data-i18n="price_sign_text">Llega hasta el huevo gigante para descubrirlo.</p>
+          </aside>
+          <div class="pixel-widget reveal">
+            <canvas id="pixelCanvas" width="640" height="320" tabindex="0" aria-label="Juego de la gallina: toca la pantalla o pulsa espacio para saltar los huevos" data-i18n-aria="canvas_aria" role="application"></canvas>
+            <div class="pixel-widget-bar">
+              <span class="pixel-hint" data-i18n="pixel_hint">Toca la pantalla o pulsa espacio para saltar</span>
+              <span class="pixel-score" id="gameScore" aria-live="off"></span>
+              <button type="button" id="pixelSound" class="pixel-sound" aria-pressed="true" aria-label="Desactiva el so" title="Desactiva el so">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9v6h4l5 4V5L7 9H3Z"/><path class="snd-on" fill="currentColor" d="M16.5 12a4.5 4.5 0 0 0-2.5-4v8a4.500 4.500 0 0 0 2.500-4Zm-2.500-8.700v2.100c2.900.9 5 3.600 5 6.600s-2.100 5.700-5 6.600v2.100c4-.9 7-4.500 7-8.700s-3-7.800-7-8.700Z"/><path class="snd-off" fill="currentColor" d="m16.300 9.300 1.400-1.400L20 10.200l2.300-2.300 1.400 1.400-2.300 2.300 2.300 2.300-1.400 1.400-2.300-2.300-2.300 2.300-1.400-1.400 2.300-2.300-2.300-2.300Z"/></svg>
+              </button>
+              <button type="button" id="pixelClear" class="pixel-clear" data-i18n="pixel_clear">Reiniciar</button>
+            </div>
           </div>
-          <div class="pixel-info">
-            <p class="pixel-info-title" data-i18n="game_info_title">Cómo se juega</p>
-            <ul>
+          <aside class="wood-sign wood-sign--howto reveal">
+            <p class="wood-sign-title" data-i18n="game_info_title">Cómo se juega</p>
+            <ul class="wood-howto">
               <li data-i18n="game_info_goal">Objetivo: salta los huevos y llega al huevo de oro gigante para terminar el juego.</li>
-              <li data-i18n="game_info_worm">Gusano rosa: si lo tocas, la gallina dispara un láser durante 6 segundos que rompe los huevos.</li>
-              <li data-i18n="game_info_q">Signo de interrogación: si lo tocas se activa el modo espejo durante 10 segundos y el juego se ve del revés.</li>
+              <li>
+                <img class="howto-icon howto-icon--cuc" src="../assets/joc-cuc.svg" width="76" height="35" alt="Gusano rosa" data-i18n-alt="game_icon_worm">
+                <span data-i18n="game_info_worm">Si lo tocas, la gallina dispara un láser durante 6 segundos que rompe los huevos.</span>
+              </li>
+              <li>
+                <img class="howto-icon" src="../assets/joc-interrogant.svg" width="44" height="44" alt="Signo de interrogación" data-i18n-alt="game_icon_q">
+                <span data-i18n="game_info_q">Si lo tocas, se activa el modo espejo durante 10 segundos y el juego se ve del revés.</span>
+              </li>
             </ul>
-          </div>
+          </aside>
         </div>
       </div>
     </div>

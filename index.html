@@ -257,24 +257,36 @@
           </div>
         </div>
 
-        <div class="pixel-widget reveal">
-          <canvas id="pixelCanvas" width="640" height="320" tabindex="0" aria-label="Joc de la gallina: toca la pantalla o prem espai per saltar els ous" data-i18n-aria="canvas_aria" role="application"></canvas>
-          <div class="pixel-widget-bar">
-            <span class="pixel-hint" data-i18n="pixel_hint">Toca la pantalla o prem espai per saltar</span>
-            <span class="pixel-score" id="gameScore" aria-live="off"></span>
-            <button type="button" id="pixelSound" class="pixel-sound" aria-pressed="true" aria-label="Desactiva el so" title="Desactiva el so">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9v6h4l5 4V5L7 9H3Z"/><path class="snd-on" fill="currentColor" d="M16.5 12a4.5 4.5 0 0 0-2.5-4v8a4.500 4.500 0 0 0 2.500-4Zm-2.500-8.700v2.100c2.900.9 5 3.600 5 6.600s-2.100 5.700-5 6.600v2.100c4-.9 7-4.500 7-8.700s-3-7.800-7-8.700Z"/><path class="snd-off" fill="currentColor" d="m16.300 9.300 1.400-1.400L20 10.200l2.300-2.300 1.400 1.400-2.300 2.300 2.300 2.300-1.400 1.400-2.300-2.300-2.300 2.300-1.400-1.400 2.300-2.300-2.300-2.300Z"/></svg>
-            </button>
-            <button type="button" id="pixelClear" class="pixel-clear" data-i18n="pixel_clear">Reinicia</button>
+        <div class="game-row">
+          <aside class="wood-sign reveal">
+            <p class="wood-sign-title" data-i18n="price_sign_title">Vols saber el preu de la mensualitat?</p>
+            <p class="wood-sign-text" data-i18n="price_sign_text">Arriba fins a l'ou gegant per descobrir-ho.</p>
+          </aside>
+          <div class="pixel-widget reveal">
+            <canvas id="pixelCanvas" width="640" height="320" tabindex="0" aria-label="Joc de la gallina: toca la pantalla o prem espai per saltar els ous" data-i18n-aria="canvas_aria" role="application"></canvas>
+            <div class="pixel-widget-bar">
+              <span class="pixel-hint" data-i18n="pixel_hint">Toca la pantalla o prem espai per saltar</span>
+              <span class="pixel-score" id="gameScore" aria-live="off"></span>
+              <button type="button" id="pixelSound" class="pixel-sound" aria-pressed="true" aria-label="Desactiva el so" title="Desactiva el so">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9v6h4l5 4V5L7 9H3Z"/><path class="snd-on" fill="currentColor" d="M16.5 12a4.5 4.5 0 0 0-2.5-4v8a4.500 4.500 0 0 0 2.500-4Zm-2.500-8.700v2.100c2.900.9 5 3.600 5 6.600s-2.100 5.700-5 6.600v2.100c4-.9 7-4.500 7-8.700s-3-7.800-7-8.700Z"/><path class="snd-off" fill="currentColor" d="m16.300 9.300 1.400-1.400L20 10.200l2.300-2.300 1.400 1.400-2.300 2.300 2.300 2.300-1.400 1.400-2.300-2.300-2.300 2.300-1.400-1.400 2.300-2.300-2.300-2.300Z"/></svg>
+              </button>
+              <button type="button" id="pixelClear" class="pixel-clear" data-i18n="pixel_clear">Reinicia</button>
+            </div>
           </div>
-          <div class="pixel-info">
-            <p class="pixel-info-title" data-i18n="game_info_title">Com es juga</p>
-            <ul>
+          <aside class="wood-sign wood-sign--howto reveal">
+            <p class="wood-sign-title" data-i18n="game_info_title">Com es juga</p>
+            <ul class="wood-howto">
               <li data-i18n="game_info_goal">Objectiu: salta els ous i arriba a l'ou d'or gegant per acabar el joc.</li>
-              <li data-i18n="game_info_worm">Cuc rosa: si el toques, la gallina dispara un làser durant 6 segons que trenca els ous.</li>
-              <li data-i18n="game_info_q">Signe d'interrogació: si el toques s'activa el mode mirall durant 10 segons, i el joc es veu del revés.</li>
+              <li>
+                <img class="howto-icon howto-icon--cuc" src="assets/joc-cuc.svg" width="76" height="35" alt="Cuc rosa" data-i18n-alt="game_icon_worm">
+                <span data-i18n="game_info_worm">Si el toques, la gallina dispara un làser durant 6 segons que trenca els ous.</span>
+              </li>
+              <li>
+                <img class="howto-icon" src="assets/joc-interrogant.svg" width="44" height="44" alt="Signe d'interrogació" data-i18n-alt="game_icon_q">
+                <span data-i18n="game_info_q">Si el toques, s'activa el mode mirall durant 10 segons i el joc es veu del revés.</span>
+              </li>
             </ul>
-          </div>
+          </aside>
         </div>
       </div>
     </div>

@@ -71,16 +71,19 @@
 
       game_laser: "LÀSER",
 
-      game_tip: "Arriba a l'ou d'or gegant · cuc = làser · ? = mode mirall",
+      game_icon_worm: "Cuc rosa",
+      game_icon_q: "Signe d'interrogació",
       game_win: "Has trobat l'ou d'or!",
+      price_sign_title: "Vols saber el preu de la mensualitat?",
+      price_sign_text: "Arriba fins a l'ou gegant per descobrir-ho.",
       sound_on: "Desactiva el so",
       sound_off: "Activa el so",
       game_mirror: "MODE MIRALL",
       game_goal: "Meta",
       game_info_title: "Com es juga",
       game_info_goal: "Objectiu: salta els ous i arriba a l'ou d'or gegant per acabar el joc.",
-      game_info_worm: "Cuc rosa: si el toques, la gallina dispara un làser durant 6 segons que trenca els ous.",
-      game_info_q: "Signe d'interrogació: si el toques s'activa el mode mirall durant 10 segons, i el joc es veu del revés.",
+      game_info_worm: "Si el toques, la gallina dispara un làser durant 6 segons que trenca els ous.",
+      game_info_q: "Si el toques, s'activa el mode mirall durant 10 segons i el joc es veu del revés.",
 
       gallery_eyebrow: "A dins de l'acadèmia",
       gallery_title: "Així són les nostres classes",
@@ -813,16 +816,19 @@
 
       game_laser: "LÁSER",
 
-      game_tip: "Llega al huevo de oro gigante · gusano = láser · ? = modo espejo",
+      game_icon_worm: "Gusano rosa",
+      game_icon_q: "Signo de interrogación",
       game_win: "¡Has encontrado el huevo de oro!",
+      price_sign_title: "¿Quieres saber el precio de la mensualidad?",
+      price_sign_text: "Llega hasta el huevo gigante para descubrirlo.",
       sound_on: "Desactivar el sonido",
       sound_off: "Activar el sonido",
       game_mirror: "MODO ESPEJO",
       game_goal: "Meta",
       game_info_title: "Cómo se juega",
       game_info_goal: "Objetivo: salta los huevos y llega al huevo de oro gigante para terminar el juego.",
-      game_info_worm: "Gusano rosa: si lo tocas, la gallina dispara un láser durante 6 segundos que rompe los huevos.",
-      game_info_q: "Signo de interrogación: si lo tocas se activa el modo espejo durante 10 segundos y el juego se ve del revés.",
+      game_info_worm: "Si lo tocas, la gallina dispara un láser durante 6 segundos que rompe los huevos.",
+      game_info_q: "Si lo tocas, se activa el modo espejo durante 10 segundos y el juego se ve del revés.",
 
       gallery_eyebrow: "Dentro de la academia",
       gallery_title: "Así son nuestras clases",
@@ -1818,6 +1824,9 @@
     var mirrorT = 0; // segons de mode mirall que queden
     var flipP = 0; // 0 = normal, 1 = del revés (animat)
     var winAt = 0;
+    var MONTHLY_PRICE = "55€"; // preu que surt de dins l'ou d'or gegant
+    var BREAK_MS = 900; // l'ou tremola i s'esquerda abans de trencar-se
+    var eggBroken = false;
 
     try {
       best = parseInt(window.localStorage.getItem(BEST_KEY), 10) || 0;
@@ -1946,6 +1955,15 @@
       [72, 76, 79].forEach(function (m) { tone(midi(m), t + 0.84, 1.0, "triangle", 0.12); });
     }
 
+    function sfxCrack() {
+      if (!ensureAudio()) return;
+      var t = actx.currentTime;
+      tone(240, t, 0.12, "sawtooth", 0.2, 60);
+      tone(1900, t, 0.06, "square", 0.09, 420);
+      tone(midi(83), t + 0.18, 0.12, "square", 0.1);
+      tone(midi(88), t + 0.3, 0.5, "square", 0.1);
+    }
+
     function syncAudioVisibility() {
       if (!actx) return;
       if (!visible || document.hidden) actx.suspend();
@@ -1997,6 +2015,7 @@
       beam = null;
       particles = [];
       goalEgg = null;
+      eggBroken = false;
       mirrorT = 0;
       flipP = 0;
       qCd = 8;
@@ -2063,7 +2082,7 @@
       if (state === "idle") {
         startRun();
       } else if (state === "over" || state === "win") {
-        if (performance.now() - (state === "win" ? winAt : overAt) < (state === "win" ? 1200 : 450)) return;
+        if (performance.now() - (state === "win" ? winAt : overAt) < (state === "win" ? 2400 : 450)) return; // en guanyar, temps per veure el preu
         startRun();
       }
       if (hen.y >= GROUND) hen.vy = -JUMP_V;
@@ -2272,6 +2291,116 @@
       }
     }
 
+    // Temps de l'animació final; amb moviment reduït es mostra directament l'ou trencat
+    function winTime() {
+      return prefersReducedMotion ? 10000 : performance.now() - winAt;
+    }
+
+    function clamp01(v) {
+      return Math.max(0, Math.min(1, v));
+    }
+
+    // Línia de trencament en ziga-zaga (la comparteixen les dues meitats de la closca)
+    function crackPoints(cx, cy, w) {
+      var dy = [0, -9, 5, -11, 7, -6, 9, -8, 0];
+      var pts = [];
+      for (var i = 0; i < dy.length; i++) pts.push([cx - w / 2 - 6 + (i * (w + 12)) / (dy.length - 1), cy - 6 + dy[i]]);
+      return pts;
+    }
+
+    function drawEggHalf(x, w, h, top) {
+      var cx = x + w / 2;
+      var cy = GROUND - h / 2;
+      var pts = crackPoints(cx, cy, w);
+      var edgeY = top ? cy - h : cy + h;
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(pts[0][0], edgeY);
+      for (var i = 0; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.lineTo(pts[pts.length - 1][0], edgeY);
+      ctx.closePath();
+      ctx.clip();
+      drawEgg(x, w, h);
+      // vora clara de la closca trencada (retallada a la forma de l'ou)
+      ctx.beginPath();
+      ctx.ellipse(cx, cy + 2, w / 2, h / 2, 0, 0, Math.PI * 2);
+      ctx.clip();
+      ctx.strokeStyle = "#FFF3C4";
+      ctx.lineWidth = 5;
+      ctx.beginPath();
+      for (var j = 0; j < pts.length; j++) {
+        if (j) ctx.lineTo(pts[j][0], pts[j][1]);
+        else ctx.moveTo(pts[j][0], pts[j][1]);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawBrokenEgg(w, h, wt) {
+      var x = goalEgg.x;
+      var cx = x + w / 2;
+      var cy = GROUND - h / 2;
+      drawEggHalf(x, w, h, false);
+      // la meitat de dalt surt disparada, gira i cau a terra
+      var p = clamp01((wt - BREAK_MS) / 800);
+      var tx = cx + 250 * p;
+      var ty = cy - 30 + (GROUND - 22 - (cy - 30)) * p - Math.sin(Math.PI * p) * 64;
+      ctx.save();
+      ctx.translate(tx, ty);
+      ctx.rotate(Math.PI * 0.86 * p);
+      ctx.translate(-cx, -(cy - 30));
+      drawEggHalf(x, w, h, true);
+      ctx.restore();
+    }
+
+    // El preu surt de dins de l'ou, amb un esclat de llum
+    function drawPrice() {
+      var wt = winTime();
+      if (wt < BREAK_MS || !goalEgg) return;
+      var p = clamp01((wt - BREAK_MS) / 900);
+      var back = 1 + 2.7 * Math.pow(p - 1, 3) + 1.7 * Math.pow(p - 1, 2); // petit rebot final
+      var fromX = goalEgg.x + 48;
+      var fromY = GROUND - 62;
+      var x = fromX + (350 - fromX) * p;
+      var y = fromY + (162 - fromY) * p;
+      ctx.save();
+      ctx.translate(x, y);
+      var g = ctx.createRadialGradient(0, 0, 6, 0, 0, 130);
+      g.addColorStop(0, "rgba(255,236,150,0.75)");
+      g.addColorStop(1, "rgba(252,175,21,0)");
+      ctx.fillStyle = g;
+      ctx.fillRect(-130, -130, 260, 260);
+      ctx.save();
+      ctx.rotate(prefersReducedMotion ? 0 : wt / 2600);
+      ctx.fillStyle = "rgba(255,226,120," + 0.16 * p + ")";
+      for (var i = 0; i < 12; i++) {
+        ctx.rotate(Math.PI / 6);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(96, -10);
+        ctx.lineTo(96, 10);
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.restore();
+      var scale = Math.max(0.05, 0.15 + 0.85 * back);
+      ctx.scale(scale, scale);
+      ctx.font = "900 92px Inter, system-ui, sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.lineJoin = "round";
+      ctx.lineWidth = 12;
+      ctx.strokeStyle = "#3A1D00";
+      ctx.strokeText(MONTHLY_PRICE, 0, 0);
+      var face = ctx.createLinearGradient(0, -40, 0, 40);
+      face.addColorStop(0, "#FFF8D2");
+      face.addColorStop(0.55, "#FFD23F");
+      face.addColorStop(1, "#F59E0B");
+      ctx.fillStyle = face;
+      ctx.fillText(MONTHLY_PRICE, 0, 0);
+      ctx.restore();
+    }
+
     function drawGoalEgg() {
       var w = 96;
       var h = 128;
@@ -2283,6 +2412,30 @@
       g.addColorStop(1, "rgba(252,175,21,0)");
       ctx.fillStyle = g;
       ctx.fillRect(cx - 130, cy - 130, 260, 260);
+      if (state === "win") {
+        var wt = winTime();
+        if (wt >= BREAK_MS) {
+          drawBrokenEgg(w, h, wt);
+          return;
+        }
+        // tremola cada cop més fort mentre s'obre l'esquerda
+        var q = wt / BREAK_MS;
+        ctx.save();
+        ctx.translate(cx, GROUND);
+        ctx.rotate(Math.sin(wt / 28) * 0.09 * q);
+        ctx.translate(-cx, -GROUND);
+        drawEgg(goalEgg.x, w, h);
+        var pts = crackPoints(cx, cy, w - 14);
+        var shown = Math.ceil(q * (pts.length - 1));
+        ctx.strokeStyle = "#5A2E00";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(pts[0][0], pts[0][1]);
+        for (var i = 1; i <= shown; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+        ctx.stroke();
+        ctx.restore();
+        return;
+      }
       drawEgg(goalEgg.x, w, h);
       // brillants
       ctx.fillStyle = "#FFF6D0";
@@ -2555,7 +2708,6 @@
       if (state === "idle") {
         centered(txt("game_title"), 112, 30, COLORS.text, "800");
         centered(txt("game_start"), 144, 16, COLORS.muted, "500");
-        centered(txt("game_tip"), 172, 14, COLORS.gold, "600");
       } else if (state === "over") {
         ctx.fillStyle = "rgba(23,25,28,0.55)";
         ctx.fillRect(0, 0, VW, VH);
@@ -2565,9 +2717,12 @@
       } else if (state === "win") {
         ctx.fillStyle = "rgba(23,25,28,0.3)";
         ctx.fillRect(0, 0, VW, VH);
-        centered(txt("game_win"), 100, 28, COLORS.gold, "800");
-        centered(txt("game_score") + " " + Math.floor(score) + "  ·  " + txt("game_best") + " " + best, 136, 17, COLORS.text, "700");
-        centered(txt("game_retry"), 168, 15, COLORS.muted, "500");
+        drawPrice();
+        centered(txt("game_win"), 70, 28, COLORS.gold, "800");
+        ctx.fillStyle = "rgba(23,25,28,0.92)";
+        ctx.fillRect(0, GROUND + 6, VW, VH - GROUND - 6);
+        centered(txt("game_score") + " " + Math.floor(score) + "  ·  " + txt("game_best") + " " + best, 288, 17, COLORS.text, "700");
+        if (winTime() >= 2400) centered(txt("game_retry"), 312, 15, COLORS.muted, "500");
       }
 
       updateSoundBtn();
@@ -2589,6 +2744,11 @@
       } else if (state === "win") {
         // celebració: confeti uns segons
         var wt = performance.now() - winAt;
+        if (!eggBroken && wt >= BREAK_MS && goalEgg) {
+          eggBroken = true;
+          burst(goalEgg.x + 48, GROUND - 70, 34, ["#FCAF15", "#FFD23F", "#FFF3C4", "#F7F4EC"]);
+          sfxCrack();
+        }
         var dw = lastT ? Math.min(0.05, (now - lastT) / 1000) : 0;
         lastT = now;
         if (wt < 2200) burst(40 + Math.random() * (VW - 80), 20 + Math.random() * 60, 2, ["#FCAF15", "#F25920", "#F7F4EC", "#9B7BFF", "#38e8ff"]);
